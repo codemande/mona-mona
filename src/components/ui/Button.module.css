@@ -10,7 +10,8 @@
   white-space: nowrap;
   transition: background-color var(--duration-fast) var(--ease-premium),
     border-color var(--duration-fast) var(--ease-premium),
-    color var(--duration-fast) var(--ease-premium);
+    color var(--duration-fast) var(--ease-premium),
+    box-shadow var(--duration-fast) var(--ease-premium);
 }
 
 .md {
@@ -35,6 +36,7 @@
 
 .primary:hover {
   background: var(--color-primary-hover);
+  box-shadow: var(--shadow-md);
 }
 
 .button:disabled {
@@ -50,6 +52,7 @@
 
 .outline:hover {
   background: var(--color-bg-blue);
+  box-shadow: var(--shadow-sm);
 }
 
 .ghost {

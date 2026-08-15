@@ -2,16 +2,20 @@
   position: relative;
   background: var(--color-bg-blue);
   overflow: hidden;
-  padding: var(--space-24) 0;
+  min-height: clamp(600px, 88vh, 820px);
+  display: flex;
+  align-items: center;
+  padding: var(--space-12) 0;
 }
 
 .heroInner {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: var(--space-12);
+  width: 100%;
 }
 
 .badge {
@@ -29,8 +33,11 @@
 }
 
 .title {
-  font-size: var(--text-5xl);
-  margin-bottom: var(--space-6);
+  font-size: clamp(2.75rem, 5vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  margin-bottom: var(--space-5);
 }
 
 .title span {
@@ -40,28 +47,51 @@
 .subtitle {
   font-size: var(--text-lg);
   color: var(--color-text);
-  max-width: 520px;
-  margin-bottom: var(--space-6);
+  max-width: 480px;
+  margin-bottom: 28px;
 }
 
 .brandStrip {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  margin-bottom: var(--space-8);
+  gap: 10px;
+  margin-bottom: 28px;
 }
 
-.brandStrip span {
-  font-size: var(--text-xs);
+.brandEyebrow {
+  font-size: 0.75rem;
   color: var(--color-text-soft);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
+  font-weight: 600;
 }
 
-.brandStrip strong {
+.brandRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.brandItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-size: var(--text-sm);
-  color: var(--color-ink);
   font-weight: 600;
+  color: var(--color-ink);
+}
+
+.brandItem svg {
+  color: var(--color-ink);
+}
+
+.samsungMark {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  color: var(--color-ink);
 }
 
 .actions {
@@ -74,31 +104,42 @@
 .trust {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2) var(--space-6);
+  gap: 28px;
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
 }
 
 .trust li {
-  position: relative;
-  padding-left: var(--space-4);
-  font-size: var(--text-sm);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
   font-weight: 500;
-  color: var(--color-text-soft);
+  color: var(--color-text);
 }
 
-.trust li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 8px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--color-primary);
+.trust li svg {
+  color: var(--color-primary);
+  flex-shrink: 0;
 }
 
 .heroVisual {
   display: flex;
   justify-content: center;
+}
+
+@media (min-width: 1440px) {
+  .heroVisual {
+    justify-content: flex-end;
+    margin-right: -28px;
+  }
+}
+
+@media (min-width: 1081px) {
+  .heroVisual {
+    transform: translateY(-12px);
+  }
 }
 
 .protectGrid {
@@ -226,11 +267,12 @@
 
 @media (max-width: 640px) {
   .hero {
+    min-height: auto;
     padding: var(--space-16) 0;
   }
 
-  .title {
-    font-size: var(--text-3xl);
+  .trust {
+    gap: 16px 24px;
   }
 
   .protectTiles {

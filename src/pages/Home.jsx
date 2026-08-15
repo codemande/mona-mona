@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ShieldCheck, Droplet, LayoutGrid, Zap } from "lucide-react";
+import { ShieldCheck, Droplet, LayoutGrid, Zap, Store, Users } from "lucide-react";
 import Container from "../components/ui/Container.jsx";
 import Section, { SectionHeader, Eyebrow } from "../components/ui/Section.jsx";
 import Button from "../components/ui/Button.jsx";
@@ -26,6 +26,23 @@ const protectionItems = [
   { icon: LayoutGrid, label: "Back Glass Damage" },
   { icon: Zap, label: "Other Accidental Damage" },
 ];
+
+function AppleGlyph() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12 0-.23-.02-.3-.03-.01-.06-.04-.22-.04-.39 0-1.15.572-2.27 1.206-2.98.804-.94 2.142-1.64 3.248-1.68.03.13.05.28.05.43zm4.565 15.71c-.03.07-.463 1.58-1.518 3.12-.945 1.34-1.94 2.71-3.43 2.71-1.517 0-1.9-.88-3.63-.88-1.698 0-2.302.91-3.67.91-1.377 0-2.332-1.26-3.428-2.8-1.287-1.82-2.323-4.63-2.323-7.28 0-4.28 2.797-6.55 5.552-6.55 1.448 0 2.6.95 3.5.95.865 0 2.222-1.01 3.86-1.01.613 0 2.886.06 4.374 2.19-.13.09-2.383 1.37-2.383 4.19 0 3.26 2.856 4.42 2.896 4.44z" />
+    </svg>
+  );
+}
+
+function GoogleGlyph() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+      <path d="M21 12a9 9 0 1 1-9-9 8.9 8.9 0 0 1 6.2 2.5" strokeLinecap="round" />
+      <path d="M13 12h8" strokeLinecap="round" />
+    </svg>
+  );
+}
 
 const storeCount = stores.length;
 const stateCount = new Set(stores.map((s) => s.state)).size;
@@ -104,8 +121,21 @@ export default function Home() {
               your next phone with protection included.
             </motion.p>
             <motion.div variants={fadeInUp} className={styles.brandStrip}>
-              <span>Supporting eligible:</span>
-              <strong>Apple iPhone · Samsung Galaxy · Google Pixel</strong>
+              <span className={styles.brandEyebrow}>Supporting eligible:</span>
+              <div className={styles.brandRow}>
+                <span className={styles.brandItem}>
+                  <AppleGlyph />
+                  <span>iPhone</span>
+                </span>
+                <span className={styles.brandItem}>
+                  <span className={styles.samsungMark}>SAMSUNG</span>
+                  <span>Galaxy</span>
+                </span>
+                <span className={styles.brandItem}>
+                  <GoogleGlyph />
+                  <span>Pixel</span>
+                </span>
+              </div>
             </motion.div>
             <motion.div variants={fadeInUp} className={styles.actions}>
               <Button to="/smartphone-protection" size="lg">
@@ -116,9 +146,18 @@ export default function Home() {
               </Button>
             </motion.div>
             <motion.ul variants={fadeInUp} className={styles.trust}>
-              <li>Licensed by NAICOM</li>
-              <li>Authorised Partner Stores</li>
-              <li>Trusted by Thousands</li>
+              <li>
+                <ShieldCheck size={18} aria-hidden="true" />
+                Licensed by NAICOM
+              </li>
+              <li>
+                <Store size={18} aria-hidden="true" />
+                Authorised Partner Stores
+              </li>
+              <li>
+                <Users size={18} aria-hidden="true" />
+                Trusted by Thousands
+              </li>
             </motion.ul>
           </motion.div>
 
