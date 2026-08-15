@@ -1,0 +1,19 @@
+.otherBrands {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.brandLink {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 10px 20px;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.brandLink:hover {
+  border-color: var(--color-primary);
+}

@@ -1,0 +1,30 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-10);
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-text-soft);
+  opacity: 0.75;
+}
+
+.more {
+  font-size: var(--text-sm);
+  color: var(--color-text-soft);
+}
+
+@media (max-width: 640px) {
+  .row {
+    gap: var(--space-6);
+  }
+
+  .logo {
+    font-size: var(--text-base);
+  }
+}

@@ -1,0 +1,65 @@
+.paragraph {
+  font-size: var(--text-lg);
+  color: var(--color-text);
+  line-height: var(--leading-normal);
+}
+
+.missionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+.missionCard {
+  background: var(--color-bg-soft);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+}
+
+.missionCard svg {
+  color: var(--color-primary);
+  margin-bottom: var(--space-4);
+}
+
+.missionCard h3 {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-3);
+}
+
+.missionCard p {
+  font-size: var(--text-base);
+  color: var(--color-text);
+  line-height: var(--leading-normal);
+}
+
+.joinGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+.joinCard {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.joinCard h3 {
+  font-size: var(--text-xl);
+}
+
+.joinCard p {
+  font-size: var(--text-sm);
+  color: var(--color-text);
+}
+
+@media (max-width: 768px) {
+  .missionGrid,
+  .joinGrid {
+    grid-template-columns: 1fr;
+  }
+}

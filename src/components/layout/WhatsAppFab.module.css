@@ -1,0 +1,24 @@
+.fab {
+  position: fixed;
+  bottom: var(--space-6);
+  right: var(--space-6);
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  background: var(--color-success);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+  z-index: 800;
+}
+
+@media (max-width: 640px) {
+  .fab {
+    bottom: var(--space-5);
+    right: var(--space-5);
+    width: 50px;
+    height: 50px;
+  }
+}

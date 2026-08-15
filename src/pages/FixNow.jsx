@@ -1,0 +1,118 @@
+import { HeartHandshake, Wrench, ShieldCheck, Wallet, Clock, Smartphone, Droplet, LayoutGrid, Zap } from "lucide-react";
+import { Link } from "react-router-dom";
+import Section, { SectionHeader } from "../components/ui/Section.jsx";
+import CTABand from "../components/ui/CTABand.jsx";
+import Seo from "../components/layout/Seo.jsx";
+import PageHero from "../components/widgets/PageHero.jsx";
+import FeatureGrid from "../components/widgets/FeatureGrid.jsx";
+import StepList from "../components/widgets/StepList.jsx";
+import StoreLocator from "../components/widgets/StoreLocator.jsx";
+import FaqSection from "../components/widgets/FaqSection.jsx";
+import { fixFaqs } from "../data/faqs.js";
+import { waFixLink } from "../utils/waLink.js";
+import styles from "./ProductPage.module.css";
+
+const supportedDevices = [
+  { icon: Smartphone, title: "Apple iPhone", description: "Eligible iPhone 13 and newer models." },
+  { icon: Smartphone, title: "Samsung Galaxy", description: "Eligible Galaxy S and Z series models." },
+  { icon: Smartphone, title: "Google Pixel", description: "Eligible Pixel 7 and newer models." },
+];
+
+const whyFix = [
+  { icon: Wrench, title: "Repair First", description: "Get your device fixed by an authorised technician." },
+  { icon: ShieldCheck, title: "Protection After", description: "One year of Smartphone Protection begins after repair." },
+  { icon: Wallet, title: "Pay Over Time", description: "Spread the cost of your repair and protection plan." },
+  { icon: Clock, title: "Fast Turnaround", description: "Most repairs are completed the same day, in-store." },
+];
+
+const steps = [
+  { title: "Visit a Partner Store", description: "Find a repair-capable Mona Partner Store near you." },
+  { title: "Get Your Phone Inspected", description: "A technician assesses the damage." },
+  { title: "Repair Completed", description: "Your device is repaired on-site." },
+  { title: "Get Protected", description: "One year of Smartphone Protection is activated." },
+  { title: "Pay Over Time", description: "Spread your repair and protection cost over time." },
+];
+
+const included = [
+  { icon: Smartphone, title: "Screen Damage" },
+  { icon: Droplet, title: "Liquid Damage" },
+  { icon: LayoutGrid, title: "Back Glass Damage" },
+  { icon: Zap, title: "Other Accidental Damage" },
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Fix Now, Get Protected & Pay Later",
+  provider: { "@type": "Organization", name: "Mona Protect" },
+  areaServed: "NG",
+  description: "Repair a damaged smartphone, get one year of protection afterward, and pay over time at a Mona Partner Store.",
+};
+
+export default function FixNow() {
+  return (
+    <>
+      <Seo
+        title="Fix Now, Get Protected & Pay Later"
+        description="Repair your damaged smartphone today, get one year of protection afterward, and pay over time at an authorised Mona Partner Store."
+        path="/fix-now-get-protected-pay-later"
+        jsonLd={jsonLd}
+      />
+
+      <PageHero
+        title="Repair Today. Stay Protected Tomorrow."
+        subtitle="Get your damaged Apple iPhone, Samsung Galaxy or Google Pixel repaired, receive one year of protection afterward, and pay over time."
+        primary={{ label: "Find a Repair Partner", href: "#locator" }}
+        secondary={{ label: "See Supported Devices", to: "/supported-devices" }}
+        trust={["Licensed by NAICOM", "Authorised Partner Stores", "Trusted by Thousands"]}
+      >
+        <div className={styles.calloutBox}>
+          <div className={styles.calloutIcon}>
+            <HeartHandshake size={22} aria-hidden="true" />
+          </div>
+          <div className={styles.calloutText}>
+            <h3>Already Protected With Mona?</h3>
+            <p>You don't need Fix Now — just visit a Partner Store under your existing plan.</p>
+          </div>
+          <Link to="/partner-stores">
+            <ShieldCheck size={16} aria-hidden="true" /> Find a Partner Store
+          </Link>
+        </div>
+      </PageHero>
+
+      <Section>
+        <SectionHeader eyebrow="Supported Devices" title="Repairs for Eligible Devices" />
+        <FeatureGrid columns={3} items={supportedDevices} />
+      </Section>
+
+      <Section tone="soft">
+        <SectionHeader eyebrow="Why Mona" title="Why Choose Fix Now" />
+        <FeatureGrid items={whyFix} />
+      </Section>
+
+      <Section narrow>
+        <SectionHeader eyebrow="How It Works" title="From Damage to Protected" />
+        <StepList steps={steps} />
+      </Section>
+
+      <Section tone="soft">
+        <SectionHeader eyebrow="Included" title="What's Included After Your Repair" />
+        <FeatureGrid items={included} />
+      </Section>
+
+      <Section id="locator">
+        <SectionHeader eyebrow="Partner Stores" title="Find A Repair Partner Near You" />
+        <StoreLocator initialService="fix" />
+      </Section>
+
+      <FaqSection items={fixFaqs} />
+
+      <CTABand
+        title="Don't Let Damage Wait."
+        subtitle="Find a repair partner and get protected right after."
+        primary={{ label: "Find a Repair Partner", href: "#locator" }}
+        whatsapp={{ label: "Continue on WhatsApp", href: waFixLink() }}
+      />
+    </>
+  );
+}

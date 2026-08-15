@@ -1,0 +1,7 @@
+.viewAll {
+  display: inline-block;
+  margin-top: var(--space-8);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+}

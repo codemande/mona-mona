@@ -1,0 +1,128 @@
+import { Link } from "react-router-dom";
+import { MapPin, Mail, Phone, ShieldCheck } from "lucide-react";
+import Container from "../ui/Container.jsx";
+import styles from "./Footer.module.css";
+
+const columns = [
+  {
+    heading: "Products",
+    links: [
+      { label: "Protect My Phone", to: "/smartphone-protection" },
+      { label: "Buy Now, Get Protected & Pay Later", to: "/buy-now-get-protected-pay-later" },
+      { label: "Fix Now, Get Protected & Pay Later", to: "/fix-now-get-protected-pay-later" },
+      { label: "Protection Calculator", to: "/protection-calculator" },
+      { label: "Supported Devices", to: "/supported-devices" },
+    ],
+  },
+  {
+    heading: "Find Mona",
+    links: [
+      { label: "Partner Stores", to: "/partner-stores" },
+      { label: "Store Locations", to: "/partner-stores" },
+      { label: "Support", to: "/support" },
+      { label: "WhatsApp", href: "https://wa.me/2347048100101" },
+    ],
+  },
+  {
+    heading: "For Businesses",
+    links: [
+      { label: "Become a Partner Store", to: "/become-a-partner" },
+      { label: "Business Financing", to: "/business-financing" },
+      { label: "Partner Login", to: "/partner-login" },
+    ],
+  },
+  {
+    heading: "Company",
+    links: [
+      { label: "About Mona", to: "/about" },
+      { label: "Guides", to: "/guides" },
+      { label: "Careers", href: "mailto:hello@monaprotect.com" },
+      { label: "Support", to: "/support" },
+    ],
+  },
+  {
+    heading: "Legal",
+    links: [
+      { label: "Terms", to: "/terms" },
+      { label: "Privacy", to: "/privacy" },
+      { label: "Protection Terms", to: "/protection-terms" },
+      { label: "Financing Disclosures", to: "/financing-disclosures" },
+      { label: "Regulatory Information", to: "/regulatory" },
+      { label: "Complaints", to: "/complaints" },
+    ],
+  },
+];
+
+export default function Footer() {
+  const year = new Date().getFullYear();
+
+  return (
+    <footer className={styles.footer}>
+      <Container>
+        <div className={styles.top}>
+          <div className={styles.brandCol}>
+            <Link to="/" className={styles.logo}>
+              Mona<span>Protect</span>
+            </Link>
+            <p className={styles.tagline}>Powering smartphone ownership in Nigeria.</p>
+            <div className={styles.naicom}>
+              <ShieldCheck size={16} aria-hidden="true" />
+              <span>Licensed &amp; Regulated by NAICOM</span>
+            </div>
+            <ul className={styles.contact}>
+              <li>
+                <MapPin size={16} aria-hidden="true" />
+                <span>Plot 502, Dalaba Street, Off Michael Okpara Way, Wuse Zone 5, Abuja</span>
+              </li>
+              <li>
+                <Mail size={16} aria-hidden="true" />
+                <a href="mailto:hello@monaprotect.com">hello@monaprotect.com</a>
+              </li>
+              <li>
+                <Phone size={16} aria-hidden="true" />
+                <a href="tel:+2347048100101">+234 704 810 0101</a>
+              </li>
+            </ul>
+            <div className={styles.socials}>
+              <a href="https://instagram.com/monaprotect" target="_blank" rel="noopener noreferrer">
+                Instagram
+              </a>
+              <a href="https://twitter.com/monaprotect" target="_blank" rel="noopener noreferrer">
+                X (Twitter)
+              </a>
+              <a href="https://linkedin.com/company/monaprotect" target="_blank" rel="noopener noreferrer">
+                LinkedIn
+              </a>
+            </div>
+          </div>
+
+          <div className={styles.linkGrid}>
+            {columns.map((col) => (
+              <div key={col.heading} className={styles.linkCol}>
+                <h3 className={styles.colHeading}>{col.heading}</h3>
+                <ul>
+                  {col.links.map((link) => (
+                    <li key={link.label}>
+                      {link.to ? (
+                        <Link to={link.to}>{link.label}</Link>
+                      ) : (
+                        <a href={link.href} target="_blank" rel="noopener noreferrer">
+                          {link.label}
+                        </a>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className={styles.bottom}>
+          <p>© {year} Mona Technologies Ltd (RC 7480610). All rights reserved.</p>
+          <p className={styles.handle}>@monaprotect</p>
+        </div>
+      </Container>
+    </footer>
+  );
+}

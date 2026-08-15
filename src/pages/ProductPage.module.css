@@ -1,0 +1,88 @@
+.exclusionList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.exclusionList li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-5);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.exclusionList svg {
+  color: var(--color-danger);
+  flex-shrink: 0;
+}
+
+.calloutBox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  background: var(--color-bg-blue);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-8);
+  margin-top: var(--space-10);
+  flex-wrap: wrap;
+}
+
+.calloutIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: #fff;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.calloutText {
+  flex: 1;
+  min-width: 220px;
+}
+
+.calloutText h3 {
+  font-size: var(--text-base);
+  margin-bottom: var(--space-1);
+}
+
+.calloutText p {
+  font-size: var(--text-sm);
+  color: var(--color-text);
+}
+
+.calloutBox a {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+
+.calloutBox a:hover {
+  color: var(--color-primary-hover);
+}
+
+@media (max-width: 900px) {
+  .exclusionList {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .exclusionList {
+    grid-template-columns: 1fr;
+  }
+}

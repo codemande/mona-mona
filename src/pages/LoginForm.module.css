@@ -1,0 +1,44 @@
+.formCard {
+  max-width: 420px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-sm);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.submitBtn {
+  width: 100%;
+  justify-content: center;
+  margin-top: var(--space-2);
+}
+
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-3);
+  padding: var(--space-6) 0;
+}
+
+.success svg {
+  color: var(--color-success);
+}
+
+.success h3 {
+  font-size: var(--text-xl);
+}
+
+.success p {
+  font-size: var(--text-sm);
+  color: var(--color-text-soft);
+  max-width: 300px;
+}

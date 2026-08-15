@@ -1,0 +1,138 @@
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Smartphone, Droplet, LayoutGrid, ShieldCheck } from "lucide-react";
+import Select from "../ui/Select.jsx";
+import Button from "../ui/Button.jsx";
+import { getBrands, getModelsByBrand, getProtectionPrice } from "../../api/client.js";
+import { waProtectionLink } from "../../utils/waLink.js";
+import { fadeInUp } from "../../styles/motion.js";
+import styles from "./ProtectionCalculator.module.css";
+
+const included = [
+  { icon: Smartphone, label: "Screen Damage" },
+  { icon: Droplet, label: "Liquid Damage" },
+  { icon: LayoutGrid, label: "Back Glass Damage" },
+  { icon: ShieldCheck, label: "Other Accidental Damage" },
+];
+
+export default function ProtectionCalculator() {
+  const [brands, setBrands] = useState([]);
+  const [models, setModels] = useState([]);
+  const [brand, setBrand] = useState("");
+  const [model, setModel] = useState("");
+  const [loadingModels, setLoadingModels] = useState(false);
+  const [checking, setChecking] = useState(false);
+  const [result, setResult] = useState(null);
+
+  useEffect(() => {
+    getBrands().then(setBrands);
+  }, []);
+
+  useEffect(() => {
+    if (!brand) {
+      setModels([]);
+      setModel("");
+      return;
+    }
+    setLoadingModels(true);
+    setModel("");
+    setResult(null);
+    getModelsByBrand(brand).then((data) => {
+      setModels(data);
+      setLoadingModels(false);
+    });
+  }, [brand]);
+
+  const handleCheck = async () => {
+    if (!brand || !model) return;
+    setChecking(true);
+    const data = await getProtectionPrice(brand, model);
+    setResult(data);
+    setChecking(false);
+  };
+
+  const modelName = result?.model?.name ?? "";
+
+  return (
+    <div className={styles.widget}>
+      <div className={styles.fields}>
+        <Select
+          id="calc-brand"
+          label="Select Brand"
+          placeholder="Choose a brand"
+          value={brand}
+          onChange={(e) => setBrand(e.target.value)}
+        >
+          {brands.map((b) => (
+            <option key={b.id} value={b.id}>
+              {b.name}
+            </option>
+          ))}
+        </Select>
+
+        <Select
+          id="calc-model"
+          label="Select Model"
+          placeholder={loadingModels ? "Loading models…" : "Choose a model"}
+          value={model}
+          onChange={(e) => setModel(e.target.value)}
+          disabled={!brand || loadingModels}
+        >
+          {models.map((m) => (
+            <option key={m.id} value={m.id}>
+              {m.name}
+            </option>
+          ))}
+        </Select>
+
+        <Button
+          onClick={handleCheck}
+          disabled={!brand || !model || checking}
+          className={styles.checkBtn}
+        >
+          {checking ? "Checking…" : "Check Protection Price"}
+        </Button>
+      </div>
+
+      <AnimatePresence mode="wait">
+        {result && (
+          <motion.div
+            className={styles.result}
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            exit={{ opacity: 0 }}
+          >
+            <p className={styles.resultLabel}>Your One-Year Protection Price</p>
+            <p className={styles.resultPrice}>
+              ₦{result.price.toLocaleString("en-NG")}
+              <span> / year</span>
+            </p>
+            <p className={styles.resultModel}>{modelName}</p>
+
+            <ul className={styles.includedList}>
+              {included.map((item) => (
+                <li key={item.label}>
+                  <item.icon size={16} aria-hidden="true" />
+                  {item.label}
+                </li>
+              ))}
+            </ul>
+
+            <p className={styles.notice}>
+              Your phone must pass a physical inspection at an authorised Mona Partner Store before
+              protection can be activated.
+            </p>
+
+            <div className={styles.resultActions}>
+              <Button to="/partner-stores">Choose a Partner Store</Button>
+              <Button href={waProtectionLink(modelName)} variant="whatsapp">
+                Continue on WhatsApp
+              </Button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
