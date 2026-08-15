@@ -11,10 +11,13 @@ import PageHero from "../components/widgets/PageHero.jsx";
 import FeatureGrid from "../components/widgets/FeatureGrid.jsx";
 import StepList from "../components/widgets/StepList.jsx";
 import FaqSection from "../components/widgets/FaqSection.jsx";
+import ImageBand from "../components/widgets/ImageBand.jsx";
+import StickyMobileCta from "../components/widgets/StickyMobileCta.jsx";
 import { useToast } from "../components/ui/Toast.jsx";
 import { submitPartnerApplication } from "../api/client.js";
 import { partnerFaqs } from "../data/faqs.js";
 import { nigerianStates } from "../data/nigerianStates.js";
+import businessPartner from "../assets/business/business-partner.jpg";
 import styles from "./ApplicationPage.module.css";
 
 const walkInTable = [
@@ -108,13 +111,15 @@ export default function BecomeAPartner() {
         <FeatureGrid items={whyPartner} />
       </Section>
 
-      <Section tone="soft" narrow>
-        <SectionHeader eyebrow="Eligibility" title="Who Can Become a Partner" />
-        <p className={styles.paragraph}>
-          Smartphone retailers and repair centres with a physical storefront in Nigeria can apply
-          to join the Mona Partner network. We look for stores committed to great customer
-          service and eligible device sales or repairs.
-        </p>
+      <Section tone="soft">
+        <ImageBand src={businessPartner} alt="A Mona Partner Store owner serving a customer" ratio="3 / 4" reverse>
+          <SectionHeader eyebrow="Eligibility" title="Who Can Become a Partner" />
+          <p className={styles.paragraph}>
+            Smartphone retailers and repair centres with a physical storefront in Nigeria can apply
+            to join the Mona Partner network. We look for stores committed to great customer
+            service and eligible device sales or repairs.
+          </p>
+        </ImageBand>
       </Section>
 
       <Section>
@@ -203,6 +208,8 @@ export default function BecomeAPartner() {
         subtitle="Join our network of authorised Partner Stores today."
         primary={{ label: "Apply to Become a Partner", href: "#apply" }}
       />
+
+      <StickyMobileCta label="Apply to Become a Partner" href="#apply" />
     </>
   );
 }

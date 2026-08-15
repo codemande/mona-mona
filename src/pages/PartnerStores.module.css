@@ -21,3 +21,17 @@
 .quickFilter svg {
   color: var(--color-primary);
 }
+
+.mapFrame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.mapImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

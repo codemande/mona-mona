@@ -8,8 +8,11 @@ import FeatureGrid from "../components/widgets/FeatureGrid.jsx";
 import StepList from "../components/widgets/StepList.jsx";
 import StoreLocator from "../components/widgets/StoreLocator.jsx";
 import FaqSection from "../components/widgets/FaqSection.jsx";
+import ImageBand from "../components/widgets/ImageBand.jsx";
+import StickyMobileCta from "../components/widgets/StickyMobileCta.jsx";
 import { fixFaqs } from "../data/faqs.js";
 import { waFixLink } from "../utils/waLink.js";
+import lifestyleRepair from "../assets/lifestyle/lifestyle-repair.jpg";
 import styles from "./ProductPage.module.css";
 
 const supportedDevices = [
@@ -86,8 +89,10 @@ export default function FixNow() {
       </Section>
 
       <Section tone="soft">
-        <SectionHeader eyebrow="Why Mona" title="Why Choose Fix Now" />
-        <FeatureGrid items={whyFix} />
+        <ImageBand src={lifestyleRepair} alt="A technician repairing a smartphone at a Mona Partner Store" ratio="3 / 4">
+          <SectionHeader eyebrow="Why Mona" title="Why Choose Fix Now" />
+          <FeatureGrid columns={2} items={whyFix} />
+        </ImageBand>
       </Section>
 
       <Section narrow>
@@ -113,6 +118,8 @@ export default function FixNow() {
         primary={{ label: "Find a Repair Partner", href: "#locator" }}
         whatsapp={{ label: "Continue on WhatsApp", href: waFixLink() }}
       />
+
+      <StickyMobileCta label="Find a Repair Partner" href="#locator" />
     </>
   );
 }

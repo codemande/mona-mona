@@ -7,8 +7,11 @@ import FeatureGrid from "../components/widgets/FeatureGrid.jsx";
 import StepList from "../components/widgets/StepList.jsx";
 import ProtectionCalculator from "../components/widgets/ProtectionCalculator.jsx";
 import FaqSection from "../components/widgets/FaqSection.jsx";
+import ImageBand from "../components/widgets/ImageBand.jsx";
+import StickyMobileCta from "../components/widgets/StickyMobileCta.jsx";
 import { protectionFaqs } from "../data/faqs.js";
 import { waProtectionLink } from "../utils/waLink.js";
+import lifestyleCustomer from "../assets/lifestyle/lifestyle-customer.jpg";
 import styles from "./ProductPage.module.css";
 
 const covered = [
@@ -107,8 +110,10 @@ export default function SmartphoneProtection() {
       </Section>
 
       <Section tone="soft">
-        <SectionHeader eyebrow="Why Mona" title="Why Choose Mona" />
-        <FeatureGrid items={whyMona} />
+        <ImageBand src={lifestyleCustomer} alt="A customer using their protected smartphone" ratio="3 / 4" reverse>
+          <SectionHeader eyebrow="Why Mona" title="Why Choose Mona" />
+          <FeatureGrid columns={2} items={whyMona} />
+        </ImageBand>
       </Section>
 
       <FaqSection items={protectionFaqs} />
@@ -120,6 +125,8 @@ export default function SmartphoneProtection() {
         secondary={{ label: "Find a Partner Store", to: "/partner-stores" }}
         whatsapp={{ label: "Continue on WhatsApp", href: waProtectionLink() }}
       />
+
+      <StickyMobileCta label="Check Protection Price" href="#calculator" />
     </>
   );
 }

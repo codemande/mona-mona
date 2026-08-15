@@ -7,8 +7,11 @@ import FeatureGrid from "../components/widgets/FeatureGrid.jsx";
 import StepList from "../components/widgets/StepList.jsx";
 import StoreLocator from "../components/widgets/StoreLocator.jsx";
 import FaqSection from "../components/widgets/FaqSection.jsx";
+import ImageBand from "../components/widgets/ImageBand.jsx";
+import StickyMobileCta from "../components/widgets/StickyMobileCta.jsx";
 import { buyFaqs } from "../data/faqs.js";
 import { waBuyLink } from "../utils/waLink.js";
+import lifestyleStore from "../assets/lifestyle/lifestyle-store.jpg";
 import styles from "./ProductPage.module.css";
 
 const benefits = [
@@ -84,8 +87,10 @@ export default function BuyNow() {
       </Section>
 
       <Section>
-        <SectionHeader eyebrow="Why Mona" title="Why Buy Through Mona" />
-        <FeatureGrid items={whyBuy} />
+        <ImageBand src={lifestyleStore} alt="A customer at a Mona Partner Store retail counter" ratio="3 / 4" reverse>
+          <SectionHeader eyebrow="Why Mona" title="Why Buy Through Mona" />
+          <FeatureGrid columns={2} items={whyBuy} />
+        </ImageBand>
       </Section>
 
       <Section tone="soft" narrow>
@@ -118,6 +123,8 @@ export default function BuyNow() {
         primary={{ label: "Find a Partner Store", href: "#locator" }}
         whatsapp={{ label: "Continue on WhatsApp", href: waBuyLink() }}
       />
+
+      <StickyMobileCta label="Find a Partner Store" href="#locator" />
     </>
   );
 }

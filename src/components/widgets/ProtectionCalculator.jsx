@@ -6,7 +6,17 @@ import Button from "../ui/Button.jsx";
 import { getBrands, getModelsByBrand, getProtectionPrice } from "../../api/client.js";
 import { waProtectionLink } from "../../utils/waLink.js";
 import { fadeInUp } from "../../styles/motion.js";
+import useCountUp from "../../hooks/useCountUp.js";
 import styles from "./ProtectionCalculator.module.css";
+
+function PriceCountUp({ price }) {
+  const { ref, value } = useCountUp(price, { duration: 1 });
+  return (
+    <span ref={ref}>
+      ₦{value.toLocaleString("en-NG")}
+    </span>
+  );
+}
 
 const included = [
   { icon: Smartphone, label: "Screen Damage" },
@@ -105,7 +115,7 @@ export default function ProtectionCalculator() {
           >
             <p className={styles.resultLabel}>Your One-Year Protection Price</p>
             <p className={styles.resultPrice}>
-              ₦{result.price.toLocaleString("en-NG")}
+              <PriceCountUp price={result.price} />
               <span> / year</span>
             </p>
             <p className={styles.resultModel}>{modelName}</p>

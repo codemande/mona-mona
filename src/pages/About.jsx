@@ -7,7 +7,9 @@ import PageHero from "../components/widgets/PageHero.jsx";
 import FeatureGrid from "../components/widgets/FeatureGrid.jsx";
 import PartnerLogos from "../components/widgets/PartnerLogos.jsx";
 import FaqSection from "../components/widgets/FaqSection.jsx";
+import ImageBand from "../components/widgets/ImageBand.jsx";
 import { aboutFaqs } from "../data/faqs.js";
+import lifestyleHandover from "../assets/lifestyle/lifestyle-handover.jpg";
 import styles from "./About.module.css";
 
 const whatWeDo = [
@@ -47,14 +49,16 @@ export default function About() {
         trust={["Licensed by NAICOM", "Authorised Partner Stores", "Trusted by Thousands"]}
       />
 
-      <Section narrow>
-        <SectionHeader eyebrow="Our Story" title="Why We Built Mona" />
-        <p className={styles.paragraph}>
-          Smartphones are essential to how Nigerians work, connect and transact — yet accidental
-          damage, loss of value, and the upfront cost of a new phone remain real barriers. Mona
-          was built to close that gap: a technology platform that makes protecting, repairing and
-          owning a smartphone simpler, through a trusted network of Partner Stores across Nigeria.
-        </p>
+      <Section>
+        <ImageBand src={lifestyleHandover} alt="A Mona Partner Store team member handing over a protected smartphone" ratio="3 / 4">
+          <SectionHeader eyebrow="Our Story" title="Why We Built Mona" />
+          <p className={styles.paragraph}>
+            Smartphones are essential to how Nigerians work, connect and transact — yet accidental
+            damage, loss of value, and the upfront cost of a new phone remain real barriers. Mona
+            was built to close that gap: a technology platform that makes protecting, repairing and
+            owning a smartphone simpler, through a trusted network of Partner Stores across Nigeria.
+          </p>
+        </ImageBand>
       </Section>
 
       <Section tone="soft">

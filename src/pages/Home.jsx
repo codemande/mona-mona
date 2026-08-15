@@ -10,9 +10,14 @@ import DeviceShowcase from "../components/widgets/DeviceShowcase.jsx";
 import JourneyCards from "../components/widgets/JourneyCards.jsx";
 import PartnerLogos from "../components/widgets/PartnerLogos.jsx";
 import FaqSection from "../components/widgets/FaqSection.jsx";
+import ImageBand from "../components/widgets/ImageBand.jsx";
+import StickyMobileCta from "../components/widgets/StickyMobileCta.jsx";
+import useCountUp from "../hooks/useCountUp.js";
 import { fadeInUp, staggerContainer, slideInRight } from "../styles/motion.js";
 import { homeFaqs } from "../data/faqs.js";
+import { stores } from "../data/stores.js";
 import { waGenericLink } from "../utils/waLink.js";
+import lifestyleCustomer from "../assets/lifestyle/lifestyle-customer.jpg";
 import styles from "./Home.module.css";
 
 const protectionItems = [
@@ -21,6 +26,22 @@ const protectionItems = [
   { icon: LayoutGrid, label: "Back Glass Damage" },
   { icon: Zap, label: "Other Accidental Damage" },
 ];
+
+const storeCount = stores.length;
+const stateCount = new Set(stores.map((s) => s.state)).size;
+
+function StatTile({ value, suffix = "", label }) {
+  const { ref, value: animated } = useCountUp(value);
+  return (
+    <div className={styles.statTile} ref={ref}>
+      <span className={styles.statValue}>
+        {animated}
+        {suffix}
+      </span>
+      <span className={styles.statLabel}>{label}</span>
+    </div>
+  );
+}
 
 const jsonLd = [
   {
@@ -150,9 +171,31 @@ export default function Home() {
       <Section tone="blue">
         <SectionHeader eyebrow="Our Network" title="Built With Trusted Partners" align="center" />
         <PartnerLogos />
+        <div className={styles.statRow}>
+          <StatTile value={storeCount} suffix="+" label="Partner Stores" />
+          <StatTile value={stateCount} suffix="+" label="States Covered" />
+          <div className={styles.statTile}>
+            <span className={styles.statValue}>
+              <ShieldCheck size={28} aria-hidden="true" />
+            </span>
+            <span className={styles.statLabel}>Licensed &amp; Regulated by NAICOM</span>
+          </div>
+        </div>
         <p className={styles.naicomNote}>
           Licensed and regulated by the National Insurance Commission (NAICOM).
         </p>
+      </Section>
+
+      <Section>
+        <ImageBand src={lifestyleCustomer} alt="A customer using their protected smartphone" ratio="3 / 4">
+          <Eyebrow>Why Mona</Eyebrow>
+          <h2 className={styles.bandTitle}>Whatever Your Smartphone Needs, Start With Mona.</h2>
+          <p className={styles.bandSubtitle}>
+            Protect your eligible smartphone, repair a damaged one and pay over time, or buy your
+            next phone with protection included.
+          </p>
+          <Button to="/smartphone-protection">Protect My Phone</Button>
+        </ImageBand>
       </Section>
 
       <FaqSection items={homeFaqs} />
@@ -164,6 +207,8 @@ export default function Home() {
         secondary={{ label: "Find a Partner Store", to: "/partner-stores" }}
         whatsapp={{ label: "Continue on WhatsApp", href: waGenericLink() }}
       />
+
+      <StickyMobileCta label="Protect My Phone" to="/smartphone-protection" />
     </>
   );
 }

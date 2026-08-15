@@ -11,9 +11,12 @@ import PageHero from "../components/widgets/PageHero.jsx";
 import FeatureGrid from "../components/widgets/FeatureGrid.jsx";
 import StepList from "../components/widgets/StepList.jsx";
 import FaqSection from "../components/widgets/FaqSection.jsx";
+import ImageBand from "../components/widgets/ImageBand.jsx";
+import StickyMobileCta from "../components/widgets/StickyMobileCta.jsx";
 import { useToast } from "../components/ui/Toast.jsx";
 import { submitFinancing } from "../api/client.js";
 import { financingFaqs } from "../data/faqs.js";
+import businessFinancing from "../assets/business/business-financing.jpg";
 import styles from "./ApplicationPage.module.css";
 
 const helps = [
@@ -78,12 +81,14 @@ export default function BusinessFinancing() {
         <FeatureGrid items={helps} />
       </Section>
 
-      <Section tone="soft" narrow>
-        <SectionHeader eyebrow="Eligibility" title="Who Can Apply" />
-        <p className={styles.paragraph}>
-          Existing Mona Partner Stores in good standing can apply for business financing to
-          support inventory purchases and business growth.
-        </p>
+      <Section tone="soft">
+        <ImageBand src={businessFinancing} alt="A Mona Partner Store owner reviewing business financing options" ratio="3 / 4">
+          <SectionHeader eyebrow="Eligibility" title="Who Can Apply" />
+          <p className={styles.paragraph}>
+            Existing Mona Partner Stores in good standing can apply for business financing to
+            support inventory purchases and business growth.
+          </p>
+        </ImageBand>
       </Section>
 
       <Section>
@@ -149,6 +154,8 @@ export default function BusinessFinancing() {
         subtitle="Apply for financing built for Mona Partner Stores."
         primary={{ label: "Apply for Business Financing", href: "#apply" }}
       />
+
+      <StickyMobileCta label="Apply for Business Financing" href="#apply" />
     </>
   );
 }

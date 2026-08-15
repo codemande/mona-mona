@@ -1,8 +1,10 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
+import heroDevices from "../../assets/hero/hero-devices.png";
 import styles from "./DeviceShowcase.module.css";
 
-// TODO: replace with final brand device photography
 export default function DeviceShowcase() {
+  const reduceMotion = useReducedMotion();
+
   return (
     <motion.div
       className={styles.showcase}
@@ -10,18 +12,19 @@ export default function DeviceShowcase() {
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
     >
-      <div className={`${styles.phone} ${styles.phoneBack}`}>
-        <div className={styles.notch} />
-        <span className={styles.label}>Pixel</span>
-      </div>
-      <div className={`${styles.phone} ${styles.phoneMiddle}`}>
-        <div className={styles.punchHole} />
-        <span className={styles.label}>Galaxy</span>
-      </div>
-      <div className={`${styles.phone} ${styles.phoneFront}`}>
-        <div className={styles.dynamicIsland} />
-        <span className={styles.label}>iPhone</span>
-      </div>
+      <motion.div
+        className={styles.frame}
+        animate={reduceMotion ? undefined : { y: [0, -10, 0] }}
+        transition={reduceMotion ? undefined : { duration: 4, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <img
+          src={heroDevices}
+          alt="Protected iPhone, Samsung Galaxy and Google Pixel smartphones"
+          loading="eager"
+          fetchPriority="high"
+          className={styles.image}
+        />
+      </motion.div>
     </motion.div>
   );
 }

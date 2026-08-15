@@ -5,8 +5,10 @@ import Seo from "../components/layout/Seo.jsx";
 import PageHero from "../components/widgets/PageHero.jsx";
 import StoreLocator from "../components/widgets/StoreLocator.jsx";
 import FaqSection from "../components/widgets/FaqSection.jsx";
+import StickyMobileCta from "../components/widgets/StickyMobileCta.jsx";
 import { storesFaqs } from "../data/faqs.js";
 import { stores } from "../data/stores.js";
+import mapPlaceholder from "../assets/misc/map-placeholder.png";
 import styles from "./PartnerStores.module.css";
 
 const quickFilters = [
@@ -65,12 +67,22 @@ export default function PartnerStores() {
         </div>
       </Section>
 
-      <Section>
+      <Section id="search-partner-stores">
         <SectionHeader eyebrow="Store Locator" title="Search Partner Stores" />
         <StoreLocator initialCity={city ?? ""} />
       </Section>
 
+      <Section tone="soft">
+        <SectionHeader eyebrow="Map" title="Partner Stores Near You" />
+        {/* TODO: replace with Google Maps / Mapbox */}
+        <div className={styles.mapFrame}>
+          <img src={mapPlaceholder} alt="" aria-hidden="true" loading="lazy" className={styles.mapImage} />
+        </div>
+      </Section>
+
       <FaqSection items={storesFaqs} />
+
+      <StickyMobileCta label="Search Partner Stores" href="#search-partner-stores" />
     </>
   );
 }
