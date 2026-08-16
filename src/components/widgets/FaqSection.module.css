@@ -1,7 +1,22 @@
+.container.container {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
 .viewAll {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
   margin-top: var(--space-8);
   font-size: var(--text-sm);
   font-weight: 600;
   color: var(--color-primary);
+}
+
+.viewAllArrow {
+  transition: transform 0.2s ease;
+}
+
+.viewAll:hover .viewAllArrow {
+  transform: translateX(4px);
 }

@@ -53,6 +53,41 @@ const columns = [
   },
 ];
 
+function InstagramGlyph() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+function XGlyph() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+      <path d="M4 4l16 16M20 4L4 20" />
+    </svg>
+  );
+}
+
+function LinkedinGlyph() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="4" />
+      <line x1="7" y1="10" x2="7" y2="17" />
+      <circle cx="7" cy="6.5" r="0.6" fill="currentColor" stroke="none" />
+      <path d="M11 17v-4a2.5 2.5 0 0 1 5 0v4" />
+    </svg>
+  );
+}
+
+const socials = [
+  { label: "Instagram", href: "https://instagram.com/monaprotect", Icon: InstagramGlyph },
+  { label: "X (Twitter)", href: "https://twitter.com/monaprotect", Icon: XGlyph },
+  { label: "LinkedIn", href: "https://linkedin.com/company/monaprotect", Icon: LinkedinGlyph },
+];
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -84,15 +119,18 @@ export default function Footer() {
               </li>
             </ul>
             <div className={styles.socials}>
-              <a href="https://instagram.com/monaprotect" target="_blank" rel="noopener noreferrer">
-                Instagram
-              </a>
-              <a href="https://twitter.com/monaprotect" target="_blank" rel="noopener noreferrer">
-                X (Twitter)
-              </a>
-              <a href="https://linkedin.com/company/monaprotect" target="_blank" rel="noopener noreferrer">
-                LinkedIn
-              </a>
+              {socials.map(({ label, href, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.socialBtn}
+                  aria-label={label}
+                >
+                  <Icon />
+                </a>
+              ))}
             </div>
           </div>
 

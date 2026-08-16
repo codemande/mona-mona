@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Plus } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import styles from "./Accordion.module.css";
 
 export default function Accordion({ items }) {
@@ -11,7 +11,7 @@ export default function Accordion({ items }) {
       {items.map((item, index) => {
         const isOpen = openIndex === index;
         return (
-          <div key={item.q} className={styles.item}>
+          <div key={item.q} className={`${styles.item} ${isOpen ? styles.itemOpen : ""}`}>
             <button
               type="button"
               className={styles.trigger}
@@ -19,13 +19,15 @@ export default function Accordion({ items }) {
               onClick={() => setOpenIndex(isOpen ? null : index)}
             >
               <span className={styles.question}>{item.q}</span>
-              <motion.span
-                className={styles.icon}
-                animate={{ rotate: isOpen ? 45 : 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                <Plus size={20} />
-              </motion.span>
+              <span className={styles.iconWrap}>
+                <motion.span
+                  className={styles.icon}
+                  animate={{ rotate: isOpen ? 180 : 0 }}
+                  transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <ChevronDown size={16} />
+                </motion.span>
+              </span>
             </button>
             <AnimatePresence initial={false}>
               {isOpen && (

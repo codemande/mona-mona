@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ShieldCheck, Wrench, ShoppingBag, HeartHandshake } from "lucide-react";
+import { ShieldCheck, Wrench, ShoppingBag, HeartHandshake, MessageCircle } from "lucide-react";
 import Button from "../ui/Button.jsx";
 import { fadeInUp, staggerContainer, viewportOnce } from "../../styles/motion.js";
 import { waBuyLink, waFixLink } from "../../utils/waLink.js";
@@ -67,6 +67,7 @@ export default function JourneyCards() {
         const Icon = journey.icon;
         return (
           <motion.div key={journey.key} className={styles.card} variants={fadeInUp}>
+            <div className={`${styles.accentBar} ${styles[journey.accent]}`} />
             <div className={styles.imageFrame}>
               <img
                 src={journey.image}
@@ -76,19 +77,31 @@ export default function JourneyCards() {
                 className={styles.image}
               />
             </div>
-            <div className={`${styles.iconWrap} ${styles[journey.accent]}`}>
+            <div className={`${styles.iconBadge} ${styles[journey.accent]}`}>
               <Icon size={22} aria-hidden="true" />
             </div>
-            <h3 className={styles.title}>{journey.title}</h3>
-            <p className={styles.description}>{journey.description}</p>
-            <Button to={journey.cta.to} size="sm" className={styles.cta}>
-              {journey.cta.label}
-            </Button>
-            {journey.whatsapp && (
-              <a href={journey.whatsapp} target="_blank" rel="noopener noreferrer" className={styles.waLink}>
-                or Continue on WhatsApp →
-              </a>
-            )}
+            <div className={styles.body}>
+              <h3 className={styles.title}>{journey.title}</h3>
+              <p className={styles.description}>{journey.description}</p>
+              <div className={styles.actions}>
+                <Button to={journey.cta.to} size="sm" className={styles.cta}>
+                  {journey.cta.label}
+                </Button>
+                {journey.whatsapp ? (
+                  <a
+                    href={journey.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.waButton}
+                  >
+                    <MessageCircle size={18} aria-hidden="true" />
+                    Continue on WhatsApp
+                  </a>
+                ) : (
+                  <div className={styles.waSpacer} aria-hidden="true" />
+                )}
+              </div>
+            </div>
           </motion.div>
         );
       })}

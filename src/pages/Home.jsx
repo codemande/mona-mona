@@ -18,6 +18,9 @@ import { homeFaqs } from "../data/faqs.js";
 import { stores } from "../data/stores.js";
 import { waGenericLink } from "../utils/waLink.js";
 import lifestyleCustomer from "../assets/lifestyle/lifestyle-customer.jpg";
+import appleRaw from "../assets/brands/apple.svg?raw";
+import samsungRaw from "../assets/brands/samsung.svg?raw";
+import pixelRaw from "../assets/brands/pixel.svg?raw";
 import styles from "./Home.module.css";
 
 const protectionItems = [
@@ -27,22 +30,17 @@ const protectionItems = [
   { icon: Zap, label: "Other Accidental Damage" },
 ];
 
-function AppleGlyph() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12 0-.23-.02-.3-.03-.01-.06-.04-.22-.04-.39 0-1.15.572-2.27 1.206-2.98.804-.94 2.142-1.64 3.248-1.68.03.13.05.28.05.43zm4.565 15.71c-.03.07-.463 1.58-1.518 3.12-.945 1.34-1.94 2.71-3.43 2.71-1.517 0-1.9-.88-3.63-.88-1.698 0-2.302.91-3.67.91-1.377 0-2.332-1.26-3.428-2.8-1.287-1.82-2.323-4.63-2.323-7.28 0-4.28 2.797-6.55 5.552-6.55 1.448 0 2.6.95 3.5.95.865 0 2.222-1.01 3.86-1.01.613 0 2.886.06 4.374 2.19-.13.09-2.383 1.37-2.383 4.19 0 3.26 2.856 4.42 2.896 4.44z" />
-    </svg>
-  );
-}
-
-function GoogleGlyph() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-      <path d="M21 12a9 9 0 1 1-9-9 8.9 8.9 0 0 1 6.2 2.5" strokeLinecap="round" />
-      <path d="M13 12h8" strokeLinecap="round" />
-    </svg>
-  );
-}
+// Tight content bounding boxes (measured via SVGGraphicsElement.getBBox) so each
+// mark scales to its true visual size instead of the padded square viewBox.
+const appleMarkup = appleRaw
+  .replace("<svg ", '<svg fill="currentColor" ')
+  .replace(/viewBox="[^"]*"/, 'viewBox="2.22 0 19.55 24"');
+const samsungMarkup = samsungRaw
+  .replace("<svg ", '<svg fill="currentColor" ')
+  .replace(/viewBox="[^"]*"/, 'viewBox="0 10.17 24 3.67"');
+const pixelMarkup = pixelRaw
+  .replace("<svg ", '<svg fill="currentColor" ')
+  .replace(/viewBox="[^"]*"/, 'viewBox="0.31 0 23.39 24"');
 
 const storeCount = stores.length;
 const stateCount = new Set(stores.map((s) => s.state)).size;
@@ -124,15 +122,26 @@ export default function Home() {
               <span className={styles.brandEyebrow}>Supporting eligible:</span>
               <div className={styles.brandRow}>
                 <span className={styles.brandItem}>
-                  <AppleGlyph />
+                  <span
+                    className={`${styles.brandGlyph} ${styles.brandGlyphApple}`}
+                    dangerouslySetInnerHTML={{ __html: appleMarkup }}
+                  />
                   <span>iPhone</span>
                 </span>
+                <span className={styles.brandDivider} aria-hidden="true" />
                 <span className={styles.brandItem}>
-                  <span className={styles.samsungMark}>SAMSUNG</span>
+                  <span
+                    className={`${styles.brandGlyph} ${styles.brandGlyphSamsung}`}
+                    dangerouslySetInnerHTML={{ __html: samsungMarkup }}
+                  />
                   <span>Galaxy</span>
                 </span>
+                <span className={styles.brandDivider} aria-hidden="true" />
                 <span className={styles.brandItem}>
-                  <GoogleGlyph />
+                  <span
+                    className={`${styles.brandGlyph} ${styles.brandGlyphPixel}`}
+                    dangerouslySetInnerHTML={{ __html: pixelMarkup }}
+                  />
                   <span>Pixel</span>
                 </span>
               </div>
@@ -176,7 +185,7 @@ export default function Home() {
         <SectionHeader
           eyebrow="Choose Your Journey"
           title="How Can We Help You Today?"
-          align="left"
+          align="center"
         />
         <JourneyCards />
       </Section>
@@ -210,9 +219,11 @@ export default function Home() {
       <Section tone="blue">
         <SectionHeader eyebrow="Our Network" title="Built With Trusted Partners" align="center" />
         <PartnerLogos />
-        <div className={styles.statRow}>
+        <div className={styles.statsBand}>
           <StatTile value={storeCount} suffix="+" label="Partner Stores" />
+          <div className={styles.statDivider} aria-hidden="true" />
           <StatTile value={stateCount} suffix="+" label="States Covered" />
+          <div className={styles.statDivider} aria-hidden="true" />
           <div className={styles.statTile}>
             <span className={styles.statValue}>
               <ShieldCheck size={28} aria-hidden="true" />
@@ -220,9 +231,6 @@ export default function Home() {
             <span className={styles.statLabel}>Licensed &amp; Regulated by NAICOM</span>
           </div>
         </div>
-        <p className={styles.naicomNote}>
-          Licensed and regulated by the National Insurance Commission (NAICOM).
-        </p>
       </Section>
 
       <Section>
