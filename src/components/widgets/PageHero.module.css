@@ -50,26 +50,24 @@
 .trust {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2) var(--space-6);
+  gap: 28px;
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
 }
 
 .trust li {
-  position: relative;
-  padding-left: var(--space-4);
-  font-size: var(--text-sm);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
   font-weight: 500;
-  color: var(--color-text-soft);
+  color: var(--color-text);
 }
 
-.trust li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 8px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--color-primary);
+.trust li svg {
+  color: var(--color-primary);
+  flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
@@ -79,5 +77,11 @@
 
   .title {
     font-size: var(--text-3xl);
+  }
+}
+
+@media (max-width: 640px) {
+  .trust {
+    gap: 16px 24px;
   }
 }

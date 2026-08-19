@@ -1,10 +1,21 @@
 import { motion } from "framer-motion";
-import { ShieldCheck } from "lucide-react";
+import { ShieldCheck, Store, Users, MapPin, Headset, FileCheck } from "lucide-react";
 import Container from "../ui/Container.jsx";
 import Button from "../ui/Button.jsx";
 import HeroBlobs from "./HeroBlobs.jsx";
 import { fadeInUp, staggerContainer } from "../../styles/motion.js";
 import styles from "./PageHero.module.css";
+
+const trustIcons = {
+  "Licensed by NAICOM": ShieldCheck,
+  "Authorised Partner Stores": Store,
+  "Trusted by Thousands": Users,
+  "Nationwide Network": MapPin,
+  "Dedicated Partner Support": Headset,
+  "For Partner Stores": Store,
+  "Simple Application": FileCheck,
+  "Dedicated Support": Headset,
+};
 
 export default function PageHero({
   badge = "Licensed & Regulated by NAICOM",
@@ -55,9 +66,15 @@ export default function PageHero({
           )}
           {trust && trust.length > 0 && (
             <motion.ul variants={fadeInUp} className={styles.trust}>
-              {trust.map((t) => (
-                <li key={t}>{t}</li>
-              ))}
+              {trust.map((t) => {
+                const Icon = trustIcons[t] ?? ShieldCheck;
+                return (
+                  <li key={t}>
+                    <Icon size={18} aria-hidden="true" />
+                    {t}
+                  </li>
+                );
+              })}
             </motion.ul>
           )}
           {children}

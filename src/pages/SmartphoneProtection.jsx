@@ -65,8 +65,8 @@ export default function SmartphoneProtection() {
       <PageHero
         title="Protect Your Smartphone Before Accidents Happen."
         subtitle="One year of protection against screen damage, liquid damage, back glass damage and other accidental damage — for eligible Apple iPhone, Samsung Galaxy and Google Pixel devices."
-        primary={{ label: "Check Protection Price", href: "#calculator" }}
-        secondary={{ label: "Find a Partner Store", to: "/partner-stores" }}
+        // primary={{ label: "Check Protection Price", href: "#calculator" }}
+        // secondary={{ label: "Find a Partner Store", to: "/partner-stores" }}
         trust={["Licensed by NAICOM", "Authorised Partner Stores", "Trusted by Thousands"]}
       />
 
