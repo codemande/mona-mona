@@ -19,15 +19,15 @@
 }
 
 .logo {
-  font-family: var(--font-heading);
-  font-size: var(--text-xl);
-  font-weight: 700;
-  color: var(--color-ink);
+  display: inline-flex;
+  align-items: center;
   flex-shrink: 0;
 }
 
-.logo span {
-  color: var(--color-primary);
+.logoImg {
+  height: 32px;
+  width: auto;
+  display: block;
 }
 
 .nav {

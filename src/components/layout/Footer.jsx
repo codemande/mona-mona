@@ -97,7 +97,14 @@ export default function Footer() {
         <div className={styles.top}>
           <div className={styles.brandCol}>
             <Link to="/" className={styles.logo}>
-              Mona<span>Protect</span>
+              <img
+                src="/mona-white-C8WIf_xA.png"
+                alt="Mona Protect"
+                className={styles.logoImg}
+                width="157"
+                height="36"
+                loading="lazy"
+              />
             </Link>
             <p className={styles.tagline}>Powering smartphone ownership in Nigeria.</p>
             <div className={styles.naicom}>

@@ -107,7 +107,14 @@ export default function Header() {
       <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
         <Container className={styles.inner}>
           <Link to="/" className={styles.logo}>
-            Mona<span>Protect</span>
+            <img
+              src="/mona.png"
+              alt="Mona Protect"
+              className={styles.logoImg}
+              width="140"
+              height="32"
+              loading="eager"
+            />
           </Link>
 
           <nav className={styles.nav} aria-label="Primary">
@@ -206,7 +213,14 @@ export default function Header() {
           >
             <div className={styles.mobileTop}>
               <Link to="/" className={styles.logo} onClick={() => setMobileOpen(false)}>
-                Mona<span>Protect</span>
+                <img
+                  src="/mona.png"
+                  alt="Mona Protect"
+                  className={styles.logoImg}
+                  width="140"
+                  height="32"
+                  loading="eager"
+                />
               </Link>
               <button
                 type="button"
