@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 import { waGenericLink } from "../../utils/waLink.js";
+import whatsappRaw from "../../assets/brands/whatsapp.svg?raw";
 import styles from "./WhatsAppFab.module.css";
+
+// currentColor so the mark inherits .fab's white icon color.
+const whatsappMarkup = whatsappRaw.replace("<svg ", '<svg fill="currentColor" ');
 
 export default function WhatsAppFab() {
   const [hiddenInHero, setHiddenInHero] = useState(false);
@@ -35,7 +39,12 @@ export default function WhatsAppFab() {
       animate={{ opacity: hiddenInHero ? 0 : 1, scale: 1 }}
       transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
     >
-      <MessageCircle size={24} fill="currentColor" strokeWidth={0} />
+      <MessageCircle size={24} fill="currentColor" strokeWidth={0} className={styles.iconDesktop} />
+      <span
+        className={styles.iconMobile}
+        aria-hidden="true"
+        dangerouslySetInnerHTML={{ __html: whatsappMarkup }}
+      />
     </motion.a>
   );
 }

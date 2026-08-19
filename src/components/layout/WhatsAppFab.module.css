@@ -14,11 +14,32 @@
   z-index: 800;
 }
 
+.iconMobile {
+  display: none;
+  width: 24px;
+  height: 24px;
+}
+
+.iconMobile svg {
+  width: 100%;
+  height: 100%;
+}
+
 @media (max-width: 640px) {
   .fab {
     bottom: calc(64px + var(--space-3) + env(safe-area-inset-bottom));
     right: var(--space-5);
     width: 50px;
     height: 50px;
+  }
+
+  .iconDesktop {
+    display: none;
+  }
+
+  .iconMobile {
+    display: flex;
+    width: 22px;
+    height: 22px;
   }
 }

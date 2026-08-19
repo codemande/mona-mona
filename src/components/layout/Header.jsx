@@ -7,7 +7,12 @@ import Button from "../ui/Button.jsx";
 import AnnouncementBar from "./AnnouncementBar.jsx";
 import { dropdownVariants, mobileMenuVariants } from "../../styles/motion.js";
 import { waGenericLink } from "../../utils/waLink.js";
+import whatsappRaw from "../../assets/brands/whatsapp.svg?raw";
 import styles from "./Header.module.css";
+
+// currentColor so the mark inherits .mobileWa's existing icon color instead
+// of shipping its own fixed fill.
+const whatsappMarkup = whatsappRaw.replace("<svg ", '<svg fill="currentColor" ');
 
 const productLinks = [
   { label: "Protect My Phone", to: "/smartphone-protection", description: "Protect an eligible phone that still works." },
@@ -172,7 +177,11 @@ export default function Header() {
               className={styles.mobileWa}
               aria-label="Chat with Mona on WhatsApp"
             >
-              <MessageCircle size={20} />
+              <span
+                className={styles.mobileWaIcon}
+                aria-hidden="true"
+                dangerouslySetInnerHTML={{ __html: whatsappMarkup }}
+              />
             </a>
             <button
               type="button"
