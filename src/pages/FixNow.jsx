@@ -27,16 +27,16 @@ const supportedDevices = [
 const whyFix = [
   { icon: Wrench, title: "Repair First", description: "Get your device fixed by an authorised technician." },
   { icon: ShieldCheck, title: "Protection After", description: "One year of Smartphone Protection begins after repair." },
-  { icon: Wallet, title: "Pay Over Time", description: "Spread the cost of your repair and protection plan." },
+  { icon: Wallet, title: "Pay Over Time", description: "Spread the cost of your repair with a down payment from 25%, subject to eligibility." },
   { icon: Clock, title: "Fast Turnaround", description: "Most repairs are completed the same day, in-store." },
 ];
 
 const steps = [
-  { title: "Visit a Partner Store", description: "Find a repair-capable Mona Partner Store near you." },
+  { title: "Visit a Partner Store", description: "Find a Mona Repair Partner Store near you." },
   { title: "Get Your Phone Inspected", description: "A technician assesses the damage." },
-  { title: "Repair Completed", description: "Your device is repaired on-site." },
-  { title: "Get Protected", description: "One year of Smartphone Protection is activated." },
-  { title: "Pay Over Time", description: "Spread your repair and protection cost over time." },
+  { title: "Apply for Financing", description: "Submit your application and, if approved, make your required down payment." },
+  { title: "Repair Completed & Protected", description: "Your device is repaired on-site, and your one-year Smartphone Protection plan is activated." },
+  { title: "Pay Over Time", description: "Spread your remaining balance over time." },
 ];
 
 const included = [
@@ -67,9 +67,9 @@ export default function FixNow() {
 
       <PageHero
         title="Repair Today. Stay Protected Tomorrow."
-        subtitle="Get your damaged Apple iPhone, Samsung Galaxy or Google Pixel repaired, receive one year of protection afterward, and pay over time."
-        primary={{ label: "Find a Repair Partner", href: "#locator" }}
-        secondary={{ label: "See Supported Devices", to: "/supported-devices" }}
+        subtitle="Get your already damaged Apple iPhone, Samsung Galaxy or Google Pixel repaired, receive one year of protection afterward, and pay over time."
+        // primary={{ label: "Find a Repair Partner", href: "#locator" }}
+        // secondary={{ label: "See Supported Devices", to: "/supported-devices" }}
         trust={["Licensed by NAICOM", "Authorised Partner Stores", "Trusted by Thousands"]}
       >
         <div className={styles.calloutBox}>
@@ -78,7 +78,7 @@ export default function FixNow() {
           </div>
           <div className={styles.calloutText}>
             <h3>Already Protected With Mona?</h3>
-            <p>You don't need Fix Now — just visit a Partner Store under your existing plan.</p>
+            <p>You don't need Fix Now Pay Later — just visit a Partner Store under your existing plan and get a free repair.</p>
           </div>
           <Link to="/partner-stores">
             <ShieldCheck size={16} aria-hidden="true" /> Find a Partner Store
