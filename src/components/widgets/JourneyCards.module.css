@@ -127,28 +127,23 @@
   gap: var(--space-2);
   width: 100%;
   padding: 11px 16px;
-  background: #f0fdf4;
-  border: 1px solid var(--color-border);
+  background: #fff;
+  border: 1.5px solid var(--color-whatsapp);
   border-radius: var(--radius-md);
   color: var(--color-ink);
   font-size: var(--text-sm);
   font-weight: 600;
-  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  transition: background-color 0.2s var(--ease-premium), transform 0.2s var(--ease-premium);
 }
 
 .waButton svg {
-  color: #25d366;
+  color: var(--color-whatsapp);
   flex-shrink: 0;
 }
 
 .waButton:hover {
-  background: #dcfce7;
-  border-color: #25d366;
-  transform: scale(1.02);
-}
-
-.waSpacer {
-  height: 44px;
+  background: #f0fdf4;
+  transform: translateY(-1px);
 }
 
 @media (max-width: 1024px) {

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ShieldCheck, Wrench, ShoppingBag, HeartHandshake, MessageCircle } from "lucide-react";
 import Button from "../ui/Button.jsx";
 import { fadeInUp, staggerContainer, viewportOnce } from "../../styles/motion.js";
-import { waBuyLink, waFixLink } from "../../utils/waLink.js";
+import { waBuyLink, waFixLink, waProtectionLink, waExistingLink } from "../../utils/waLink.js";
 import journeyProtect from "../../assets/journeys/journey-protect.webp";
 import journeyFix from "../../assets/journeys/journey-fix.webp";
 import journeyBuy from "../../assets/journeys/journey-buy.webp";
@@ -19,6 +19,7 @@ const journeys = [
     description:
       "Your phone is working perfectly. Protect it against screen damage, liquid damage, back glass damage and accidental damage for one year.",
     cta: { label: "Check Protection Price", to: "/smartphone-protection" },
+    whatsapp: waProtectionLink(),
   },
   {
     key: "fix",
@@ -51,6 +52,7 @@ const journeys = [
     description:
       "Has your protected phone been damaged? Visit any authorised Mona Partner Store and we'll help you get back up and running.",
     cta: { label: "Find a Partner Store", to: "/partner-stores" },
+    whatsapp: waExistingLink(),
   },
 ];
 
@@ -87,19 +89,15 @@ export default function JourneyCards() {
                 <Button to={journey.cta.to} size="sm" className={styles.cta}>
                   {journey.cta.label}
                 </Button>
-                {journey.whatsapp ? (
-                  <a
-                    href={journey.whatsapp}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.waButton}
-                  >
-                    <MessageCircle size={18} aria-hidden="true" />
-                    Continue on WhatsApp
-                  </a>
-                ) : (
-                  <div className={styles.waSpacer} aria-hidden="true" />
-                )}
+                <a
+                  href={journey.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.waButton}
+                >
+                  <MessageCircle size={18} aria-hidden="true" />
+                  Continue on WhatsApp
+                </a>
               </div>
             </div>
           </motion.div>

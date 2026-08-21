@@ -32,6 +32,13 @@ export function waPartnerLink(type = "retail store", city = "Nigeria", number = 
   );
 }
 
+export function waExistingLink(city = "Nigeria", number = WHATSAPP_NUMBER) {
+  return buildLink(
+    number,
+    `Hello Mona, I already have Mona Protection and my phone is damaged. Please help me get it repaired at an authorised Partner Store. I am located in ${city}.`
+  );
+}
+
 export function waGenericLink(message = "Hello Mona, I have a question.", number = WHATSAPP_NUMBER) {
   return buildLink(number, message);
 }
