@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import { partnerLogos } from "../../data/partners.js";
 import { fadeIn, viewportOnce } from "../../styles/motion.js";
-import axaMansard from "../../assets/partners/axa_mansard.png";
-import oxygenX from "../../assets/partners/OxygenX.jpg";
-import veend from "../../assets/partners/Veend.jpeg";
-import princePhones from "../../assets/partners/prince_phones_gadget.jpeg";
+import axaMansard from "../../assets/partners/axa_mansard.webp";
+import oxygenX from "../../assets/partners/OxygenX.webp";
+import veend from "../../assets/partners/Veend.webp";
+import princePhones from "../../assets/partners/prince_phones_gadget.webp";
 import styles from "./PartnerLogos.module.css";
 
 // "make-way" source photo is a signboard shot on a dark wall — illegible once

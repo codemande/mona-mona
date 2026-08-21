@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
-import heroDevices from "../../assets/hero/hero-devices.png";
+import heroDevices from "../../assets/hero/hero-devices.webp";
 import styles from "./DeviceShowcase.module.css";
 
 export default function DeviceShowcase() {

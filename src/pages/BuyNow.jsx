@@ -11,7 +11,7 @@ import ImageBand from "../components/widgets/ImageBand.jsx";
 import StickyMobileCta from "../components/widgets/StickyMobileCta.jsx";
 import { buyFaqs } from "../data/faqs.js";
 import { waBuyLink } from "../utils/waLink.js";
-import lifestyleStore from "../assets/lifestyle/lifestyle-store.jpg";
+import lifestyleStore from "../assets/lifestyle/lifestyle-store.webp";
 import styles from "./ProductPage.module.css";
 
 const benefits = [

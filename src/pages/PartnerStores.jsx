@@ -8,7 +8,7 @@ import FaqSection from "../components/widgets/FaqSection.jsx";
 import StickyMobileCta from "../components/widgets/StickyMobileCta.jsx";
 import { storesFaqs } from "../data/faqs.js";
 import { stores } from "../data/stores.js";
-import mapPlaceholder from "../assets/misc/map-placeholder.png";
+import mapPlaceholder from "../assets/misc/map-placeholder.webp";
 import styles from "./PartnerStores.module.css";
 
 const quickFilters = [

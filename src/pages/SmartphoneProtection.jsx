@@ -11,7 +11,7 @@ import ImageBand from "../components/widgets/ImageBand.jsx";
 import StickyMobileCta from "../components/widgets/StickyMobileCta.jsx";
 import { protectionFaqs } from "../data/faqs.js";
 import { waProtectionLink } from "../utils/waLink.js";
-import lifestyleCustomer from "../assets/lifestyle/lifestyle-customer.jpg";
+import lifestyleCustomer from "../assets/lifestyle/lifestyle-customer.webp";
 import styles from "./ProductPage.module.css";
 
 const covered = [

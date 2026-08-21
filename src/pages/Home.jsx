@@ -17,7 +17,7 @@ import { fadeInUp, staggerContainer, slideInRight } from "../styles/motion.js";
 import { homeFaqs } from "../data/faqs.js";
 import { stores } from "../data/stores.js";
 import { waGenericLink } from "../utils/waLink.js";
-import lifestyleCustomer from "../assets/lifestyle/lifestyle-customer.jpg";
+import lifestyleCustomer from "../assets/lifestyle/lifestyle-customer.webp";
 import appleRaw from "../assets/brands/apple.svg?raw";
 import samsungRaw from "../assets/brands/samsung.svg?raw";
 import pixelRaw from "../assets/brands/pixel.svg?raw";

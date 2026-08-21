@@ -17,7 +17,7 @@ import { useToast } from "../components/ui/Toast.jsx";
 import { submitPartnerApplication } from "../api/client.js";
 import { partnerFaqs } from "../data/faqs.js";
 import { nigerianStates } from "../data/nigerianStates.js";
-import businessPartner from "../assets/business/business-partner.jpg";
+import businessPartner from "../assets/business/business-partner.webp";
 import styles from "./ApplicationPage.module.css";
 
 const walkInTable = [

@@ -16,7 +16,7 @@ import StickyMobileCta from "../components/widgets/StickyMobileCta.jsx";
 import { useToast } from "../components/ui/Toast.jsx";
 import { submitFinancing } from "../api/client.js";
 import { financingFaqs } from "../data/faqs.js";
-import businessFinancing from "../assets/business/business-financing.jpg";
+import businessFinancing from "../assets/business/business-financing.webp";
 import styles from "./ApplicationPage.module.css";
 
 const helps = [

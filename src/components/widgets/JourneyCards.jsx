@@ -3,10 +3,10 @@ import { ShieldCheck, Wrench, ShoppingBag, HeartHandshake, MessageCircle } from 
 import Button from "../ui/Button.jsx";
 import { fadeInUp, staggerContainer, viewportOnce } from "../../styles/motion.js";
 import { waBuyLink, waFixLink } from "../../utils/waLink.js";
-import journeyProtect from "../../assets/journeys/journey-protect.png";
-import journeyFix from "../../assets/journeys/journey-fix.png";
-import journeyBuy from "../../assets/journeys/journey-buy.png";
-import journeyExisting from "../../assets/journeys/journey-existing.png";
+import journeyProtect from "../../assets/journeys/journey-protect.webp";
+import journeyFix from "../../assets/journeys/journey-fix.webp";
+import journeyBuy from "../../assets/journeys/journey-buy.webp";
+import journeyExisting from "../../assets/journeys/journey-existing.webp";
 import styles from "./JourneyCards.module.css";
 
 const journeys = [

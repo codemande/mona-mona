@@ -12,7 +12,7 @@ import ImageBand from "../components/widgets/ImageBand.jsx";
 import StickyMobileCta from "../components/widgets/StickyMobileCta.jsx";
 import { fixFaqs } from "../data/faqs.js";
 import { waFixLink } from "../utils/waLink.js";
-import lifestyleRepair from "../assets/lifestyle/lifestyle-repair.jpg";
+import lifestyleRepair from "../assets/lifestyle/lifestyle-repair.webp";
 import styles from "./ProductPage.module.css";
 
 const supportedDevices = [

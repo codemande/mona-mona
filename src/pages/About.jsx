@@ -9,7 +9,7 @@ import PartnerLogos from "../components/widgets/PartnerLogos.jsx";
 import FaqSection from "../components/widgets/FaqSection.jsx";
 import ImageBand from "../components/widgets/ImageBand.jsx";
 import { aboutFaqs } from "../data/faqs.js";
-import lifestyleHandover from "../assets/lifestyle/lifestyle-handover.jpg";
+import lifestyleHandover from "../assets/lifestyle/lifestyle-handover.webp";
 import styles from "./About.module.css";
 
 const whatWeDo = [
