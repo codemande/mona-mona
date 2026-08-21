@@ -11,7 +11,7 @@ import ImageBand from "../components/widgets/ImageBand.jsx";
 import StickyMobileCta from "../components/widgets/StickyMobileCta.jsx";
 import { protectionFaqs } from "../data/faqs.js";
 import { waProtectionLink } from "../utils/waLink.js";
-import lifestyleCustomer from "../assets/lifestyle/lifestyle-customer.webp";
+import lifestyleCustomer from "../assets/lifestyle/lifestyle-person.webp";
 import appleColor from "../assets/brands/apple-color.svg";
 import samsungColor from "../assets/brands/samsung-color.svg";
 import googleColor from "../assets/brands/google-color.svg";
@@ -44,12 +44,12 @@ const steps = [
     ),
   },
   { title: "Visit a Partner Store", description: "Take your phone for a quick physical inspection at an authorised Mona Partner Store." },
-  { title: "Get Protected", description: "Once approved, your one-year Smartphone Protection plan is activated." },
+  { title: "Get Protected", description: "After Inspection and Payment, your one-year Smartphone Protection plan is activated instantly." },
 ];
 
 const whyMona = [
-  { icon: ShieldCheck, title: "Licensed & Regulated", description: "Underwritten in partnership with a NAICOM-licensed insurer." },
-  { icon: Clock, title: "Fast Activation", description: "Get protected shortly after your inspection at a Partner Store." },
+  { icon: ShieldCheck, title: "Licensed & Regulated by NAICOM", description: "Underwritten in partnership with a NAICOM-licensed insurer." },
+  { icon: Clock, title: "Fast Activation", description: "Get protected instantly after your inspection at a Partner Store." },
   { icon: Users, title: "Nationwide Partner Stores", description: "A growing network of authorised stores across Nigeria." },
   { icon: XCircle, title: "No Hidden Terms", description: "Clear coverage, clearly explained, before you commit." },
 ];
