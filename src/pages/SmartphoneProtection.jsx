@@ -80,8 +80,8 @@ export default function SmartphoneProtection() {
         <FeatureGrid
           columns={3}
           items={[
-            { icon: Smartphone, title: "Apple iPhone", description: "Eligible iPhone 13 and newer models." },
-            { icon: Smartphone, title: "Samsung Galaxy", description: "Eligible Galaxy S and Z series models." },
+            { icon: Smartphone, title: "Apple iPhone", description: "Eligible iPhone 12 and newer models." },
+            { icon: Smartphone, title: "Samsung Galaxy", description: "Eligible Galaxy A, S and Z series models." },
             { icon: Smartphone, title: "Google Pixel", description: "Eligible Pixel 7 and newer models." },
           ]}
         />
