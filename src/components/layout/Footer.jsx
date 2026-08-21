@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { MapPin, Mail, Phone, ShieldCheck } from "lucide-react";
+import { MapPin, Mail, Phone } from "lucide-react";
 import Container from "../ui/Container.jsx";
+import naicomLogo from "../../assets/brands/naicom.png";
 import styles from "./Footer.module.css";
 
 const columns = [
@@ -18,7 +19,6 @@ const columns = [
     heading: "Find Mona",
     links: [
       { label: "Partner Stores", to: "/partner-stores" },
-      { label: "Store Locations", to: "/partner-stores" },
       { label: "Support", to: "/support" },
       { label: "WhatsApp", href: "https://wa.me/2347048100101" },
     ],
@@ -36,21 +36,14 @@ const columns = [
     links: [
       { label: "About Mona", to: "/about" },
       { label: "Guides", to: "/guides" },
-      { label: "Careers", href: "mailto:hello@monaprotect.com" },
-      { label: "Support", to: "/support" },
     ],
   },
-  {
-    heading: "Legal",
-    links: [
-      { label: "Terms", to: "/terms" },
-      { label: "Privacy", to: "/privacy" },
-      { label: "Protection Terms", to: "/protection-terms" },
-      { label: "Financing Disclosures", to: "/financing-disclosures" },
-      { label: "Regulatory Information", to: "/regulatory" },
-      { label: "Complaints", to: "/complaints" },
-    ],
-  },
+];
+
+const legalLinks = [
+  { label: "Terms", to: "/terms" },
+  { label: "Privacy", to: "/privacy" },
+  { label: "Protection Terms", to: "/protection-terms" },
 ];
 
 function InstagramGlyph() {
@@ -94,8 +87,8 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <Container>
-        <div className={styles.top}>
-          <div className={styles.brandCol}>
+        <div className={styles.mainRow}>
+          <div className={styles.brandBlock}>
             <Link to="/" className={styles.logo}>
               <img
                 src="/mona-white-C8WIf_xA.png"
@@ -106,25 +99,17 @@ export default function Footer() {
                 loading="lazy"
               />
             </Link>
-            <p className={styles.tagline}>Powering smartphone ownership in Nigeria.</p>
-            <div className={styles.naicom}>
-              <ShieldCheck size={16} aria-hidden="true" />
-              <span>Licensed &amp; Regulated by NAICOM</span>
-            </div>
-            <ul className={styles.contact}>
-              <li>
-                <MapPin size={16} aria-hidden="true" />
-                <span>Plot 502, Dalaba Street, Off Michael Okpara Way, Wuse Zone 5, Abuja</span>
-              </li>
-              <li>
-                <Mail size={16} aria-hidden="true" />
-                <a href="mailto:hello@monaprotect.com">hello@monaprotect.com</a>
-              </li>
-              <li>
-                <Phone size={16} aria-hidden="true" />
-                <a href="tel:+2347048100101">+234 704 810 0101</a>
-              </li>
-            </ul>
+            <p className={styles.tagline}>
+              Premium smartphone protection across Nigeria — licensed and regulated by NAICOM.
+            </p>
+            <img
+              src={naicomLogo}
+              alt="Licensed and regulated by NAICOM"
+              className={styles.naicomLogo}
+              width="81"
+              height="80"
+              loading="lazy"
+            />
             <div className={styles.socials}>
               {socials.map(({ label, href, Icon }) => (
                 <a
@@ -164,8 +149,32 @@ export default function Footer() {
         </div>
 
         <div className={styles.bottom}>
-          <p>© {year} Mona Technologies Ltd (RC 7480610). All rights reserved.</p>
-          <p className={styles.handle}>@monaprotect</p>
+          <div className={styles.bottomMeta}>
+            <span>© {year} Mona Technologies Ltd (RC 7480610). All rights reserved.</span>
+            <span className={styles.sep} aria-hidden="true">·</span>
+            <span className={styles.bottomItem}>
+              <MapPin size={13} aria-hidden="true" />
+              Plot 502, Dalaba Street, Off Michael Okpara Way, Wuse Zone 5, Abuja
+            </span>
+            <span className={styles.sep} aria-hidden="true">·</span>
+            <a href="mailto:hello@monaprotect.com" className={styles.bottomItem}>
+              <Mail size={13} aria-hidden="true" />
+              hello@monaprotect.com
+            </a>
+            <span className={styles.sep} aria-hidden="true">·</span>
+            <a href="tel:+2347048100101" className={styles.bottomItem}>
+              <Phone size={13} aria-hidden="true" />
+              +234 704 810 0101
+            </a>
+          </div>
+
+          <ul className={styles.legalLinks}>
+            {legalLinks.map((link) => (
+              <li key={link.label}>
+                <Link to={link.to}>{link.label}</Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </Container>
     </footer>

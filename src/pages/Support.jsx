@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { MessageCircle, Mail, Phone, Wrench, AlertCircle } from "lucide-react";
+import { MessageCircle, Mail, Phone, Wrench } from "lucide-react";
 import Section, { SectionHeader } from "../components/ui/Section.jsx";
 import Button from "../components/ui/Button.jsx";
 import Input from "../components/ui/Input.jsx";
@@ -80,12 +79,6 @@ export default function Support() {
           <div className={styles.helpLink}>
             <Wrench size={18} aria-hidden="true" />
             <span>Need a repair request? Visit a Partner Store or message us on WhatsApp.</span>
-          </div>
-          <div className={styles.helpLink}>
-            <AlertCircle size={18} aria-hidden="true" />
-            <span>
-              Have a complaint? See our <Link to="/complaints">Complaints</Link> process.
-            </span>
           </div>
         </div>
       </Section>

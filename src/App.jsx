@@ -75,9 +75,6 @@ export default function App() {
             <Route path="/terms" element={<Legal type="terms" />} />
             <Route path="/privacy" element={<Legal type="privacy" />} />
             <Route path="/protection-terms" element={<Legal type="protection-terms" />} />
-            <Route path="/financing-disclosures" element={<Legal type="financing-disclosures" />} />
-            <Route path="/regulatory" element={<Legal type="regulatory" />} />
-            <Route path="/complaints" element={<Legal type="complaints" />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
