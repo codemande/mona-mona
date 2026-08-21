@@ -14,10 +14,20 @@ export default function FeatureGrid({ items, columns = 4 }) {
     >
       {items.map((item) => (
         <motion.div key={item.title} className={styles.item} variants={fadeInUp}>
-          {item.icon && (
+          {item.logo ? (
             <div className={styles.iconWrap}>
-              <item.icon size={22} aria-hidden="true" />
+              <img
+                src={item.logo}
+                alt=""
+                className={`${styles.logoImg} ${item.logoClass ? styles[item.logoClass] : ""}`}
+              />
             </div>
+          ) : (
+            item.icon && (
+              <div className={styles.iconWrap}>
+                <item.icon size={22} aria-hidden="true" />
+              </div>
+            )
           )}
           <h3 className={styles.title}>{item.title}</h3>
           {item.description && <p className={styles.description}>{item.description}</p>}

@@ -12,6 +12,9 @@ import StickyMobileCta from "../components/widgets/StickyMobileCta.jsx";
 import { protectionFaqs } from "../data/faqs.js";
 import { waProtectionLink } from "../utils/waLink.js";
 import lifestyleCustomer from "../assets/lifestyle/lifestyle-customer.webp";
+import appleColor from "../assets/brands/apple-color.svg";
+import samsungColor from "../assets/brands/samsung-color.svg";
+import googleColor from "../assets/brands/google-color.svg";
 import styles from "./ProductPage.module.css";
 
 const covered = [
@@ -80,9 +83,9 @@ export default function SmartphoneProtection() {
         <FeatureGrid
           columns={3}
           items={[
-            { icon: Smartphone, title: "Apple iPhone", description: "Eligible iPhone 12 and newer models." },
-            { icon: Smartphone, title: "Samsung Galaxy", description: "Eligible Galaxy A, S and Z series models." },
-            { icon: Smartphone, title: "Google Pixel", description: "Eligible Pixel 7 and newer models." },
+            { logo: appleColor, logoClass: "logoApple", title: "Apple iPhone", description: "Eligible iPhone 12 and newer models." },
+            { logo: samsungColor, logoClass: "logoSamsung", title: "Samsung Galaxy", description: "Eligible Galaxy A, S and Z series models." },
+            { logo: googleColor, logoClass: "logoGoogle", title: "Google Pixel", description: "Eligible Pixel 7 and newer models." },
           ]}
         />
       </Section>

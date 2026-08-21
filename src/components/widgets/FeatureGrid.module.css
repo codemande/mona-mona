@@ -21,6 +21,27 @@
   justify-content: center;
 }
 
+.logoImg {
+  width: auto;
+  height: auto;
+  max-height: 28px;
+}
+
+.logoApple {
+  height: 24px;
+  max-width: 28px;
+}
+
+.logoSamsung {
+  height: 12px;
+  max-width: 40px;
+}
+
+.logoGoogle {
+  height: 22px;
+  max-width: 28px;
+}
+
 .title {
   font-size: var(--text-base);
   font-weight: 600;
