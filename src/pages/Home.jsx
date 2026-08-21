@@ -12,10 +12,8 @@ import PartnerLogos from "../components/widgets/PartnerLogos.jsx";
 import FaqSection from "../components/widgets/FaqSection.jsx";
 import ImageBand from "../components/widgets/ImageBand.jsx";
 import StickyMobileCta from "../components/widgets/StickyMobileCta.jsx";
-import useCountUp from "../hooks/useCountUp.js";
 import { fadeInUp, staggerContainer, slideInRight } from "../styles/motion.js";
 import { homeFaqs } from "../data/faqs.js";
-import { stores } from "../data/stores.js";
 import { waGenericLink } from "../utils/waLink.js";
 import lifestyleCustomer from "../assets/lifestyle/lifestyle-customer.webp";
 import appleRaw from "../assets/brands/apple.svg?raw";
@@ -41,22 +39,6 @@ const samsungMarkup = samsungRaw
 const pixelMarkup = pixelRaw
   .replace("<svg ", '<svg fill="currentColor" ')
   .replace(/viewBox="[^"]*"/, 'viewBox="0.31 0 23.39 24"');
-
-const storeCount = stores.length;
-const stateCount = new Set(stores.map((s) => s.state)).size;
-
-function StatTile({ value, suffix = "", label }) {
-  const { ref, value: animated } = useCountUp(value);
-  return (
-    <div className={styles.statTile} ref={ref}>
-      <span className={styles.statValue}>
-        {animated}
-        {suffix}
-      </span>
-      <span className={styles.statLabel}>{label}</span>
-    </div>
-  );
-}
 
 const jsonLd = [
   {
@@ -219,17 +201,9 @@ export default function Home() {
       <Section tone="blue">
         <SectionHeader eyebrow="Our Network" title="Built With Trusted Partners" align="center" />
         <PartnerLogos />
-        <div className={styles.statsBand}>
-          {/* <StatTile value={storeCount} suffix="+" label="Partner Stores" />
-          <div className={styles.statDivider} aria-hidden="true" />
-          <StatTile value={stateCount} suffix="+" label="States Covered" />
-          <div className={styles.statDivider} aria-hidden="true" /> */}
-          <div className={styles.statTile}>
-            <span className={styles.statValue}>
-              <ShieldCheck size={28} aria-hidden="true" />
-            </span>
-            <span className={styles.statLabel}>Licensed &amp; Regulated by NAICOM</span>
-          </div>
+        <div className={styles.naicomBadge}>
+          <ShieldCheck size={16} aria-hidden="true" />
+          <span>Licensed &amp; Regulated by NAICOM</span>
         </div>
       </Section>
 

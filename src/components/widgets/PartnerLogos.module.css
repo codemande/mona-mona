@@ -56,11 +56,13 @@
   font-weight: 600;
   color: var(--color-text-soft);
   text-align: center;
-  transition: color 0.3s ease;
+  opacity: 0.65;
+  transition: color 0.3s ease, opacity 0.3s ease;
 }
 
 .chip:hover .logoText {
   color: var(--color-ink);
+  opacity: 1;
 }
 
 .more {
