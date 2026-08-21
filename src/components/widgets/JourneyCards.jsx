@@ -29,7 +29,7 @@ const journeys = [
     title: "My Phone Is Already Damaged",
     description:
       "Didn't protect your phone before the damage? Repair it today, get one-year protection after your repair and pay over time.",
-    cta: { label: "Find a Repair Partner", to: "/fix-now-get-protected-pay-later" },
+    cta: { label: "Fix Now Pay Later", to: "/fix-now-get-protected-pay-later" },
     whatsapp: waFixLink(),
   },
   {
@@ -40,7 +40,7 @@ const journeys = [
     title: "I Need A New Phone",
     description:
       "Buy an eligible smartphone, get one-year protection included and pay over time.",
-    cta: { label: "Find a Partner Store", to: "/buy-now-get-protected-pay-later" },
+    cta: { label: "Buy Now Pay Later", to: "/buy-now-get-protected-pay-later" },
     whatsapp: waBuyLink(),
   },
   {
