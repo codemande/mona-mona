@@ -81,3 +81,13 @@ input, select, textarea {
     scroll-behavior: auto !important;
   }
 }
+
+#calculator {
+  scroll-margin-top: 100px;
+}
+
+@media (max-width: 640px) {
+  #calculator {
+    scroll-margin-top: 84px;
+  }
+}

@@ -31,7 +31,15 @@ const notCovered = [
 ];
 
 const steps = [
-  { title: "Choose Your Phone", description: "Select your brand and model to see your protection price." },
+  {
+    title: "Choose Your Phone",
+    description: (
+      <>
+        Select your brand and model to see your protection price{" "}
+        <a href="#calculator" className={styles.inlineLink}>here</a>.
+      </>
+    ),
+  },
   { title: "Visit a Partner Store", description: "Take your phone for a quick physical inspection at an authorised Mona Partner Store." },
   { title: "Get Protected", description: "Once approved, your one-year Smartphone Protection plan is activated." },
 ];
