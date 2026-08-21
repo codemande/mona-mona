@@ -215,7 +215,7 @@ export default function Home() {
             Protect your eligible smartphone, repair a damaged one and pay over time, or buy your
             next phone with protection included.
           </p>
-          <Button to="/smartphone-protection">Protect My Phone</Button>
+          {/* <Button to="/smartphone-protection">Protect My Phone</Button> */}
         </ImageBand>
       </Section>
 
