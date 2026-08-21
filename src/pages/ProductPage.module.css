@@ -18,7 +18,7 @@
 }
 
 .exclusionList svg {
-  color: var(--color-danger);
+  color: var(--color-text-soft);
   flex-shrink: 0;
 }
 
