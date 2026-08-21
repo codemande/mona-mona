@@ -220,10 +220,10 @@ export default function Home() {
         <SectionHeader eyebrow="Our Network" title="Built With Trusted Partners" align="center" />
         <PartnerLogos />
         <div className={styles.statsBand}>
-          <StatTile value={storeCount} suffix="+" label="Partner Stores" />
+          {/* <StatTile value={storeCount} suffix="+" label="Partner Stores" />
           <div className={styles.statDivider} aria-hidden="true" />
           <StatTile value={stateCount} suffix="+" label="States Covered" />
-          <div className={styles.statDivider} aria-hidden="true" />
+          <div className={styles.statDivider} aria-hidden="true" /> */}
           <div className={styles.statTile}>
             <span className={styles.statValue}>
               <ShieldCheck size={28} aria-hidden="true" />
