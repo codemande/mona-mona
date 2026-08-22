@@ -23,13 +23,14 @@ const Button = forwardRef(function Button(
   }
 
   if (href) {
+    const isHashLink = href.startsWith("#");
     return (
       <motion.a
         href={href}
         className={classes}
         ref={ref}
-        target={rest.target ?? "_blank"}
-        rel="noopener noreferrer"
+        target={rest.target ?? (isHashLink ? undefined : "_blank")}
+        rel={rest.rel ?? (isHashLink ? undefined : "noopener noreferrer")}
         {...buttonTap}
         {...rest}
       >

@@ -82,12 +82,16 @@ input, select, textarea {
   }
 }
 
-#calculator {
+#calculator,
+#locator,
+#search-partner-stores {
   scroll-margin-top: 100px;
 }
 
 @media (max-width: 640px) {
-  #calculator {
+  #calculator,
+  #locator,
+  #search-partner-stores {
     scroll-margin-top: 84px;
   }
 }
