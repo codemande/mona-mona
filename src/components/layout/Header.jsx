@@ -247,7 +247,7 @@ export default function Header() {
               <Link to="/supported-devices" onClick={() => setMobileOpen(false)}>
                 Supported Devices
               </Link>
-              {businessLinks.map((item) => (
+              {businessLinks.filter((item) => item.to !== "/business-financing").map((item) => (
                 <Link key={item.label} to={item.to} onClick={() => setMobileOpen(false)}>
                   {item.label}
                 </Link>

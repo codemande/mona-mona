@@ -1,10 +1,10 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { PackagePlus, Wallet, Store, TrendingUp, ShieldCheck, ClipboardCheck, Users, Rocket } from "lucide-react";
 import Section, { SectionHeader } from "../components/ui/Section.jsx";
-import Button from "../components/ui/Button.jsx";
-import Input from "../components/ui/Input.jsx";
-import Select from "../components/ui/Select.jsx";
-import Textarea from "../components/ui/Textarea.jsx";
+// import Button from "../components/ui/Button.jsx";
+// import Input from "../components/ui/Input.jsx";
+// import Select from "../components/ui/Select.jsx";
+// import Textarea from "../components/ui/Textarea.jsx";
 import CTABand from "../components/ui/CTABand.jsx";
 import Seo from "../components/layout/Seo.jsx";
 import PageHero from "../components/widgets/PageHero.jsx";
@@ -13,9 +13,10 @@ import StepList from "../components/widgets/StepList.jsx";
 import FaqSection from "../components/widgets/FaqSection.jsx";
 import ImageBand from "../components/widgets/ImageBand.jsx";
 import StickyMobileCta from "../components/widgets/StickyMobileCta.jsx";
-import { useToast } from "../components/ui/Toast.jsx";
-import { submitFinancing } from "../api/client.js";
+// import { useToast } from "../components/ui/Toast.jsx";
+// import { submitFinancing } from "../api/client.js";
 import { financingFaqs } from "../data/faqs.js";
+import { waFinancingLink } from "../utils/waLink.js";
 import businessFinancing from "../assets/business/business-financing.webp";
 import styles from "./ApplicationPage.module.css";
 
@@ -41,25 +42,25 @@ const steps = [
 ];
 
 export default function BusinessFinancing() {
-  const { showToast } = useToast();
-  const [submitting, setSubmitting] = useState(false);
-  const [form, setForm] = useState({ businessName: "", partnerId: "", amountNeed: "", message: "" });
+  // const { showToast } = useToast();
+  // const [submitting, setSubmitting] = useState(false);
+  // const [form, setForm] = useState({ businessName: "", partnerId: "", amountNeed: "", message: "" });
 
-  const update = (field) => (e) => setForm((f) => ({ ...f, [field]: e.target.value }));
+  // const update = (field) => (e) => setForm((f) => ({ ...f, [field]: e.target.value }));
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setSubmitting(true);
-    try {
-      await submitFinancing(form);
-      showToast({ type: "success", message: "Your application has been submitted for review." });
-      setForm({ businessName: "", partnerId: "", amountNeed: "", message: "" });
-    } catch {
-      showToast({ type: "error", message: "Something went wrong. Please try again." });
-    } finally {
-      setSubmitting(false);
-    }
-  };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setSubmitting(true);
+  //   try {
+  //     await submitFinancing(form);
+  //     showToast({ type: "success", message: "Your application has been submitted for review." });
+  //     setForm({ businessName: "", partnerId: "", amountNeed: "", message: "" });
+  //   } catch {
+  //     showToast({ type: "error", message: "Something went wrong. Please try again." });
+  //   } finally {
+  //     setSubmitting(false);
+  //   }
+  // };
 
   return (
     <>
@@ -72,7 +73,7 @@ export default function BusinessFinancing() {
       <PageHero
         title="Grow Your Business With Confidence."
         subtitle="Business financing designed for Mona Partner Stores looking to expand inventory and operations."
-        primary={{ label: "Apply for Business Financing", href: "#apply" }}
+        primary={{ label: "Enquire on WhatsApp", href: waFinancingLink() }}
         trust={["For Partner Stores", "Simple Application", "Dedicated Support"]}
       />
 
@@ -103,7 +104,7 @@ export default function BusinessFinancing() {
 
       <FaqSection items={financingFaqs} />
 
-      <Section id="apply" narrow>
+      {/* <Section id="apply" narrow>
         <SectionHeader eyebrow="Apply" title="Apply for Business Financing" />
         <form className={styles.form} onSubmit={handleSubmit}>
           <Input
@@ -147,15 +148,15 @@ export default function BusinessFinancing() {
           Business financing is provided by Mona's financing partners and is subject to
           eligibility, assessment and approval.
         </p>
-      </Section>
+      </Section> */}
 
       <CTABand
         title="Ready to Scale Your Store?"
         subtitle="Apply for financing built for Mona Partner Stores."
-        primary={{ label: "Apply for Business Financing", href: "#apply" }}
+        primary={{ label: "Enquire on WhatsApp", href: waFinancingLink() }}
       />
 
-      <StickyMobileCta label="Apply for Business Financing" href="#apply" />
+      <StickyMobileCta label="Enquire on WhatsApp" href={waFinancingLink()} />
     </>
   );
 }

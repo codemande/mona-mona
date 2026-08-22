@@ -43,4 +43,11 @@ export function waGenericLink(message = "Hello Mona, I have a question.", number
   return buildLink(number, message);
 }
 
+export function waFinancingLink(number = WHATSAPP_NUMBER) {
+  return buildLink(
+    number,
+    "Hello Mona, I'm a Partner Store interested in Business Financing. Please share the details on how to apply."
+  );
+}
+
 export { WHATSAPP_NUMBER };
