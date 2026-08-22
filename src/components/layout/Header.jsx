@@ -257,10 +257,10 @@ export default function Header() {
             </nav>
 
             <div className={styles.mobileFooter}>
-              <Button to="/smartphone-protection" size="lg" onClick={() => setMobileOpen(false)} className={styles.mobileCta}>
+              <Button to="/smartphone-protection" size="md" onClick={() => setMobileOpen(false)} className={styles.mobileCta}>
                 Get Started
               </Button>
-              <Button href={waGenericLink()} variant="whatsapp" size="lg" className={styles.mobileCta}>
+              <Button href={waGenericLink()} variant="whatsapp" size="md" className={styles.mobileCta}>
                 <MessageCircle size={18} /> Continue on WhatsApp
               </Button>
             </div>
