@@ -12,15 +12,6 @@ const columns = [
       { label: "Buy Now, Get Protected & Pay Later", to: "/buy-now-get-protected-pay-later" },
       { label: "Fix Now, Get Protected & Pay Later", to: "/fix-now-get-protected-pay-later" },
       { label: "Protection Calculator", to: "/protection-calculator" },
-      { label: "Supported Devices", to: "/supported-devices" },
-    ],
-  },
-  {
-    heading: "Find Mona",
-    links: [
-      { label: "Partner Stores", to: "/partner-stores" },
-      { label: "Support", to: "/support" },
-      { label: "WhatsApp", href: "https://wa.me/2347048100101" },
     ],
   },
   {
@@ -36,6 +27,8 @@ const columns = [
     links: [
       { label: "About Mona", to: "/about" },
       { label: "Guides", to: "/guides" },
+      { label: "Support", to: "/support" },
+      { label: "WhatsApp", href: "https://wa.me/2347048100101" },
     ],
   },
 ];

@@ -240,12 +240,6 @@ export default function Header() {
               <Link to="/protection-calculator" onClick={() => setMobileOpen(false)}>
                 Protection Calculator
               </Link>
-              <Link to="/partner-stores" onClick={() => setMobileOpen(false)}>
-                Partner Stores
-              </Link>
-              <Link to="/supported-devices" onClick={() => setMobileOpen(false)}>
-                Supported Devices
-              </Link>
               {businessLinks.filter((item) => item.to !== "/business-financing").map((item) => (
                 <Link key={item.label} to={item.to} onClick={() => setMobileOpen(false)}>
                   {item.label}

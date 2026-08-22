@@ -63,7 +63,7 @@ export default function ModelDetail() {
       <section className={styles.hero}>
         <Section animate={false}>
           <p className={styles.breadcrumb}>
-            <Link to="/supported-devices">Supported Devices</Link> /{" "}
+            {/* <Link to="/supported-devices">Supported Devices</Link> / */}
             <Link to={`/supported-devices/${brand}`}>{brandName}</Link> / {model.name}
           </p>
           <h1 className={styles.title}>{model.name} Protection in Nigeria</h1>
