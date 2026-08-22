@@ -68,8 +68,8 @@ export default function BuyNow() {
       <PageHero
         title="Get The Smartphone You Want. Protect It From Day One."
         subtitle="Buy an eligible Apple iPhone, Samsung Galaxy or Google Pixel with one year of protection included, and pay over time."
-        primary={{ label: "Find a Partner Store", href: "#locator" }}
-        secondary={{ label: "See Supported Devices", to: "/supported-devices" }}
+        // primary={{ label: "Find a Partner Store", href: "#locator" }}
+        // secondary={{ label: "See Supported Devices", to: "/supported-devices" }}
         trust={["Licensed by NAICOM", "Authorised Partner Stores", "Trusted by Thousands"]}
       />
 

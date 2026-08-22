@@ -35,7 +35,7 @@ const navItems = [
   { label: "Products", dropdown: productLinks },
   { label: "Protection Calculator", to: "/protection-calculator" },
   { label: "Partner Stores", to: "/partner-stores" },
-  { label: "Supported Devices", to: "/supported-devices" },
+  // { label: "Supported Devices", to: "/supported-devices" },
   { label: "For Businesses", dropdown: businessLinks },
   { label: "Support", to: "/support" },
 ];
