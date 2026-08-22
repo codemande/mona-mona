@@ -24,11 +24,10 @@ export async function getProtectionPrice(brandId, modelId) {
 
 export async function getStores(filters = {}) {
   await wait();
-  const { state, city, service, query } = filters;
+  const { state, city, query } = filters;
   return stores.filter((store) => {
     if (state && store.state !== state) return false;
     if (city && store.city !== city) return false;
-    if (service && !store.services.includes(service)) return false;
     if (query && !store.name.toLowerCase().includes(query.toLowerCase()))
       return false;
     return true;

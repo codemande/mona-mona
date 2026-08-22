@@ -110,7 +110,7 @@ export default function FixNow() {
 
       <Section id="locator">
         <SectionHeader eyebrow="Partner Stores" title="Find A Repair Partner Near You" />
-        <StoreLocator initialService="fix" />
+        <StoreLocator />
       </Section>
 
       <FaqSection items={fixFaqs} />

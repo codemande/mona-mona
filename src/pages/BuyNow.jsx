@@ -115,7 +115,7 @@ export default function BuyNow() {
 
       <Section id="locator" tone="soft">
         <SectionHeader eyebrow="Partner Stores" title="Find A Store Near You" />
-        <StoreLocator initialService="buy" />
+        <StoreLocator />
       </Section>
 
       <FaqSection items={buyFaqs} />

@@ -11,21 +11,28 @@ import { cities } from "../../data/cities.js";
 import { fadeInUp, staggerContainer, viewportOnce } from "../../styles/motion.js";
 import styles from "./StoreLocator.module.css";
 
-export default function StoreLocator({ initialCity = "", initialService = "" }) {
-  const [state, setState] = useState("");
+export default function StoreLocator({ initialCity = "" }) {
+  const initialState = initialCity
+    ? cities.find((c) => c.city === initialCity)?.state ?? ""
+    : "";
+  const [state, setState] = useState(initialState);
   const [city, setCity] = useState(initialCity);
-  const [service, setService] = useState(initialService);
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    if (!state) {
+      setResults([]);
+      setLoading(false);
+      return;
+    }
     setLoading(true);
-    getStores({ state, city, service, query }).then((data) => {
+    getStores({ state, city, query }).then((data) => {
       setResults(data);
       setLoading(false);
     });
-  }, [state, city, service, query]);
+  }, [state, city, query]);
 
   const cityOptions = state ? cities.filter((c) => c.state === state) : cities;
 
@@ -35,7 +42,7 @@ export default function StoreLocator({ initialCity = "", initialService = "" }) 
         <Select
           id="loc-state"
           label="State"
-          placeholder="All States"
+          placeholder="Select a State"
           value={state}
           onChange={(e) => {
             setState(e.target.value);
@@ -51,26 +58,14 @@ export default function StoreLocator({ initialCity = "", initialService = "" }) 
         <Select
           id="loc-city"
           label="City"
-          placeholder="All Cities"
+          placeholder="Select a City"
           value={city}
           onChange={(e) => setCity(e.target.value)}
+          disabled={!state}
         >
           {cityOptions.map((c) => (
             <option key={c.city} value={c.city}>
               {c.city}
-            </option>
-          ))}
-        </Select>
-        <Select
-          id="loc-service"
-          label="Service"
-          placeholder="All Services"
-          value={service}
-          onChange={(e) => setService(e.target.value)}
-        >
-          {Object.entries(serviceLabels).map(([key, label]) => (
-            <option key={key} value={key}>
-              {label}
             </option>
           ))}
         </Select>
@@ -83,7 +78,15 @@ export default function StoreLocator({ initialCity = "", initialService = "" }) 
         />
       </div>
 
-      {!loading && results.length === 0 && (
+      {!state && (
+        <div className={styles.empty}>
+          <MapPin size={32} aria-hidden="true" />
+          <h3>Find a Store Near You</h3>
+          <p>Select a state to see Mona Partner Stores in your area.</p>
+        </div>
+      )}
+
+      {state && !loading && results.length === 0 && (
         <div className={styles.empty}>
           <SearchX size={32} aria-hidden="true" />
           <h3>Mona Is Not Available in This City Yet</h3>
@@ -94,7 +97,7 @@ export default function StoreLocator({ initialCity = "", initialService = "" }) 
         </div>
       )}
 
-      {!loading && results.length > 0 && (
+      {state && !loading && results.length > 0 && (
         <motion.div
           className={styles.grid}
           initial="hidden"
