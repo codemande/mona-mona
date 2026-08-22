@@ -33,8 +33,9 @@
 .nav {
   display: flex;
   align-items: center;
+  flex: 1;
+  justify-content: space-around;
   gap: var(--space-6);
-  justify-content: center;
 }
 
 .navItem {
