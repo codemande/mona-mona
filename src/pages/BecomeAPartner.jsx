@@ -97,8 +97,8 @@ export default function BecomeAPartner() {
             <tbody>
               {walkInTable.map((row) => (
                 <tr key={row.situation}>
-                  <td>{row.situation}</td>
-                  <td>{row.service}</td>
+                  <td data-label="Customer Situation">{row.situation}</td>
+                  <td data-label="Mona Service">{row.service}</td>
                 </tr>
               ))}
             </tbody>
@@ -144,7 +144,6 @@ export default function BecomeAPartner() {
         </Button>
       </Section>
 
-      <FaqSection items={partnerFaqs} />
 
       <Section id="apply" tone="soft" narrow>
         <SectionHeader eyebrow="Apply" title="Apply to Become a Partner Store" />
@@ -202,6 +201,8 @@ export default function BecomeAPartner() {
           </Button>
         </form>
       </Section>
+
+      <FaqSection items={partnerFaqs} />
 
       <CTABand
         title="Ready to Grow With Mona?"
