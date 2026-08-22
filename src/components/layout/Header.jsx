@@ -23,7 +23,6 @@ const productLinks = [
 const businessLinks = [
   { label: "Become a Partner Store", to: "/become-a-partner", description: "Join the Mona Partner network." },
   { label: "Business Financing", to: "/business-financing", description: "Grow your inventory with financing." },
-  { label: "Partner Support", to: "/support", description: "Get help as a Mona Partner." },
 ];
 
 const loginLinks = [
