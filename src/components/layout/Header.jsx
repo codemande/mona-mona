@@ -170,7 +170,7 @@ export default function Header() {
                 )}
               </AnimatePresence>
             </div>
-            <Button to="/smartphone-protection" size="sm">
+            <Button to={{ pathname: "/", hash: "#journeys" }} size="sm">
               Get Started
             </Button>
           </div>
@@ -257,7 +257,7 @@ export default function Header() {
             </nav>
 
             <div className={styles.mobileFooter}>
-              <Button to="/smartphone-protection" size="md" onClick={() => setMobileOpen(false)} className={styles.mobileCta}>
+              <Button to={{ pathname: "/", hash: "#journeys" }} size="md" onClick={() => setMobileOpen(false)} className={styles.mobileCta}>
                 Get Started
               </Button>
               <Button href={waGenericLink()} variant="whatsapp" size="md" className={styles.mobileCta}>

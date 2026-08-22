@@ -163,7 +163,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <Section>
+      <Section id="journeys">
         <SectionHeader
           eyebrow="Choose Your Journey"
           title="How Can We Help You Today?"

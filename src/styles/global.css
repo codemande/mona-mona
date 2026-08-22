@@ -83,6 +83,7 @@ input, select, textarea {
 }
 
 #calculator,
+#journeys,
 #locator,
 #search-partner-stores {
   scroll-margin-top: 100px;
@@ -90,6 +91,7 @@ input, select, textarea {
 
 @media (max-width: 640px) {
   #calculator,
+  #journeys,
   #locator,
   #search-partner-stores {
     scroll-margin-top: 84px;

@@ -5,6 +5,7 @@ import { ToastProvider } from "./components/ui/Toast.jsx";
 import Header from "./components/layout/Header.jsx";
 import Footer from "./components/layout/Footer.jsx";
 import WhatsAppFab from "./components/layout/WhatsAppFab.jsx";
+import ScrollToHash from "./components/layout/ScrollToHash.jsx";
 
 import Home from "./pages/Home.jsx";
 import SmartphoneProtection from "./pages/SmartphoneProtection.jsx";
@@ -28,10 +29,11 @@ import Legal from "./pages/Legal.jsx";
 import NotFound from "./pages/NotFound.jsx";
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   useEffect(() => {
+    if (hash) return;
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [pathname, hash]);
   return null;
 }
 
@@ -51,6 +53,7 @@ export default function App() {
     <MotionConfig reducedMotion="user">
       <ToastProvider>
         <ScrollToTop />
+        <ScrollToHash />
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
