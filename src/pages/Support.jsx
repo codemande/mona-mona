@@ -53,7 +53,7 @@ export default function Support() {
     <>
       <Seo
         title="Support"
-        description="Get help from Mona — WhatsApp, email, phone, repair requests, complaints, and frequently asked questions."
+        description="Get help from Mona — WhatsApp, email, phone, repair requests, and frequently asked questions."
         path="/support"
       />
 
@@ -109,7 +109,6 @@ export default function Support() {
             <option value="buy">Buy Now, Get Protected & Pay Later</option>
             <option value="fix">Fix Now, Get Protected & Pay Later</option>
             <option value="partner">Partner Store</option>
-            <option value="complaint">Complaint</option>
             <option value="other">Other</option>
           </Select>
           <Textarea
