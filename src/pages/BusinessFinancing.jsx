@@ -35,10 +35,10 @@ const whyGrow = [
 ];
 
 const steps = [
-  { title: "Apply Online", description: "Submit your business details using the form below." },
-  { title: "Assessment", description: "Mona's financing partners assess your eligibility." },
+  { title: "Apply Online", description: "Submit your application from your partner dashboard." },
+  { title: "Assessment", description: "Your application & eligibility will be assessed." },
   { title: "Approval", description: "Receive a financing decision and terms." },
-  { title: "Funds Disbursed", description: "Access funds to grow your business." },
+  { title: "Funds Disbursed", description: "Funds will be disbursed within 48 hours after approval." },
 ];
 
 export default function BusinessFinancing() {
