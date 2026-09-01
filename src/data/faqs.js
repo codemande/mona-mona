@@ -28,7 +28,7 @@ export const homeFaqs = [
 export const protectionFaqs = [
   {
     q: "What voids my protection?",
-    a: "Protection is void for theft, loss, intentional damage, wear and tear, battery degradation and software issues.",
+    a: "Your protection may be void if you repair or modify the device outside an approved Mona repair partner, provide false information during registration, or intentionally damage the device.",
   },
   {
     q: "Do I need to inspect my phone first?",
