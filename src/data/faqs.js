@@ -47,15 +47,15 @@ export const protectionFaqs = [
 export const buyFaqs = [
   {
     q: "How does Buy Now, Get Protected & Pay Later work?",
-    a: "Choose an eligible smartphone at a Partner Store, get one year of protection included, and pay for the device over time.",
+    a: "Buy Now Get Protected and Pay Later lets you buy an eligible smartphone, pay the required down payment, and spread the remaining cost over time. Your phone also comes with 1 year of Mona Smartphone Protection against accidental damage, so you go home protected from day one.",
   },
   {
     q: "Is protection really included?",
-    a: "Yes — every device bought through this plan includes one year of Smartphone Protection at no extra step required.",
+    a: "Yes. Every BNGPPL phone comes with 1 year of Mona Smartphone Protection, covering accidental damage, screen damage, liquid damage, back glass damage, and impact-related hardware failures, with repairs at no extra cost.",
   },
   {
     q: "Which stores offer this?",
-    a: "Use our Partner Store locator and filter by 'Buy Now, Get Protected & Pay Later' to find participating stores near you.",
+    a: "BNGPPL is available at all Mona partner stores across Nigeria.",
   },
 ];
 

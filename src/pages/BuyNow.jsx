@@ -34,8 +34,8 @@ const whyBuy = [
 const steps = [
   { title: "Visit a Partner Store", description: "Find a participating Mona Partner Store near you." },
   { title: "Choose Your Phone", description: "Pick an eligible Apple iPhone, Samsung Galaxy or Google Pixel." },
-  { title: "Get Approved", description: "Complete a quick approval process in-store." },
-  { title: "Protection Included", description: "Your phone comes with one year of Smartphone Protection." },
+  { title: "Apply for Financing", description: "Submit your application and, if eligible, make your required 25% down payment." },
+  { title: "Take Your Phone Home, Protected for a Year", description: "You go home with your new phone and 1 year of Smartphone Protection against accidental damage so you’re covered from day one." },
   { title: "Pay Over Time", description: "Spread your payments according to your plan." },
 ];
 
