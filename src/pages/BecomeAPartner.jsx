@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Store, TrendingUp, Users, Wallet, ClipboardList, ShieldCheck, HandCoins, Rocket } from "lucide-react";
+import { Store, TrendingUp, Users, Wallet, ClipboardList, ShieldCheck, HandCoins, Rocket, CircleDollarSign } from "lucide-react";
 import Section, { SectionHeader } from "../components/ui/Section.jsx";
 import Button from "../components/ui/Button.jsx";
 import Input from "../components/ui/Input.jsx";
@@ -31,7 +31,7 @@ const whyPartner = [
   { icon: TrendingUp, title: "New Revenue Streams", description: "Offer protection, financing and repairs alongside your existing business." },
   { icon: Users, title: "More Foot Traffic", description: "Become a destination for customers seeking Mona services." },
   { icon: Wallet, title: "Business Financing", description: "Access financing to grow your inventory as a partner." },
-  { icon: ShieldCheck, title: "Trusted Brand", description: "Operate under a NAICOM-regulated protection framework." },
+  { icon: CircleDollarSign, title: "Business Loans", description: "Access business financing of up to ₦100 million, subject to eligibility." },
 ];
 
 const businessBenefits = [
