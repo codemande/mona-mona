@@ -1,19 +1,21 @@
 import { motion } from "framer-motion";
 import { partnerLogos } from "../../data/partners.js";
 import { fadeIn, viewportOnce } from "../../styles/motion.js";
-import axaMansard from "../../assets/partners/axa_mansard.webp";
-import oxygenX from "../../assets/partners/OxygenX.webp";
-import veend from "../../assets/partners/Veend.webp";
-import princePhones from "../../assets/partners/prince_phones_gadget.webp";
+import axaMansard from "../../assets/partners/mansard.svg";
+import oxygenX from "../../assets/partners/oxygen.svg";
+import veend from "../../assets/partners/veend.svg";
+import princePhones from "../../assets/partners/prince_phone_gadget.svg";
+import gadgetiStore from "../../assets/partners/gadgetistore.svg";
+import isellr from "../../assets/partners/isellr.svg";
 import styles from "./PartnerLogos.module.css";
 
-// "make-way" source photo is a signboard shot on a dark wall — illegible once
-// grayscaled to marquee size, so it falls back to the styled text chip instead.
 const logoAssets = {
   "axa-mansard": axaMansard,
   oxygenx: oxygenX,
   veend: veend,
   "prince-phones": princePhones,
+  gadgetistore: gadgetiStore,
+  isellr: isellr,
 };
 
 const track = [...partnerLogos, ...partnerLogos];

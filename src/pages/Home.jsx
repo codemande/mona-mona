@@ -75,7 +75,7 @@ export default function Home() {
     <>
       <Seo
         title="Powering Smartphone Ownership in Nigeria"
-        description="Protect your eligible smartphone, repair a damaged one and pay over time, or buy your next phone with protection included. Licensed and regulated by NAICOM."
+        description="Protect your eligible smartphone, repair a damaged one and pay over time, or buy your next phone and pay later with protection included. Licensed and regulated by NAICOM."
         path="/"
         jsonLd={jsonLd}
       />
