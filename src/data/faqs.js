@@ -81,7 +81,7 @@ export const storesFaqs = [
   },
   {
     q: "What if there's no Partner Store in my city yet?",
-    a: "Chat with us on WhatsApp — we're onboarding new Partner Stores regularly and can guide you to the nearest option.",
+    a: "Chat with us on WhatsApp, we're onboarding new Partner Stores regularly and can guide you to the nearest option.",
   },
 ];
 

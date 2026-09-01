@@ -72,13 +72,13 @@ export default function PartnerStores() {
         <StoreLocator initialCity={city ?? ""} />
       </Section>
 
-      <Section tone="soft">
+      {/* <Section tone="soft">
         <SectionHeader eyebrow="Map" title="Partner Stores Near You" />
         {/* TODO: replace with Google Maps / Mapbox */}
-        <div className={styles.mapFrame}>
+        {/* <div className={styles.mapFrame}>
           <img src={mapPlaceholder} alt="" aria-hidden="true" loading="lazy" className={styles.mapImage} />
-        </div>
-      </Section>
+        </div> */}
+      {/* </Section> } */}
 
       <FaqSection items={storesFaqs} />
 
