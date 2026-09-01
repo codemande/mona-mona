@@ -93,7 +93,10 @@ export default function Footer() {
               />
             </Link>
             <p className={styles.tagline}>
-              Premium smartphone protection across Nigeria — licensed and regulated by NAICOM.
+              Premium smartphone protection, repairs, and flexible ways to pay, all in one place. 
+            </p>
+            <p className={styles.tagline}>
+              Licensed and Regulated by NAICOM.
             </p>
             <img
               src={naicomLogo}

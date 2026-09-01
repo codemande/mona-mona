@@ -75,7 +75,7 @@ export default function SmartphoneProtection() {
 
       <PageHero
         title="Protect Your Smartphone Before Accidents Happen."
-        subtitle="One year of protection against screen damage, liquid damage, back glass damage and other accidental damage — for eligible Apple iPhone, Samsung Galaxy and Google Pixel devices."
+        subtitle="One year of protection against screen damage, liquid damage, back glass damage and other accidental damage for eligible Apple iPhone, Samsung Galaxy and Google Pixel devices."
         // primary={{ label: "Check Protection Price", href: "#calculator" }}
         // secondary={{ label: "Find a Partner Store", to: "/partner-stores" }}
         trust={["Licensed by NAICOM", "Authorised Partner Stores", "Trusted by Thousands"]}
@@ -93,7 +93,7 @@ export default function SmartphoneProtection() {
           items={[
             { logo: appleColor, logoClass: "logoApple", title: "Apple iPhone", description: "Eligible iPhone 12 and newer models." },
             { logo: samsungColor, logoClass: "logoSamsung", title: "Samsung Galaxy", description: "Eligible Galaxy A, S and Z series models." },
-            { logo: googleColor, logoClass: "logoGoogle", title: "Google Pixel", description: "Eligible Pixel 7 and newer models." },
+            { logo: googleColor, logoClass: "logoGoogle", title: "Google Pixel", description: "Eligible Pixel 4 and newer models." },
           ]}
         />
       </Section>
