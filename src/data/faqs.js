@@ -66,11 +66,11 @@ export const fixFaqs = [
   },
   {
     q: "What if I'm already a Mona Protection customer?",
-    a: "You're already covered — just visit any authorised Mona Partner Store for repair support under your existing plan.",
+    a: "You're already covered, just visit any authorised Mona Partner Store for repair support under your existing plan.",
   },
   {
     q: "How soon is my phone protected after repair?",
-    a: "Your one-year protection plan begins immediately after your repair and inspection are completed at the Partner Store.",
+    a: "Your one-year protection plan begins immediately after your repair, inspection and onboarding are completed at the Partner Store.",
   },
 ];
 
