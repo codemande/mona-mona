@@ -28,7 +28,7 @@ const whyBuy = [
   { icon: Tag, title: "Transparent Pricing", description: "Know exactly what your phone and protection cost upfront." },
   { icon: ShieldCheck, title: "Protection From Day One", description: "One year of Smartphone Protection included, no extra step." },
   { icon: HandCoins, title: "Flexible Payments", description: "Spread the cost of your phone over time." },
-  { icon: Sparkles, title: "Eligible Devices Only", description: "Curated eligible Apple, Samsung and Google models." },
+  { icon: Sparkles, title: "Eligible Devices Only", description: "Curated eligible Apple, Samsung and Google pixel models." },
 ];
 
 const steps = [
