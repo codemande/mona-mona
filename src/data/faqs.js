@@ -92,11 +92,11 @@ export const partnerFaqs = [
   },
   {
     q: "Are there fees to join?",
-    a: "Our team will walk you through everything during onboarding after you apply.",
+    a: "No. There are no fees to become a Mona partner. Simply apply to become a partner and start offering Mona’s protection, repair, and Pay Later services to your customers.",
   },
   {
     q: "How long does approval take?",
-    a: "Most applications are reviewed within a few business days of submission.",
+    a: "Partner applications are typically reviewed and approved within 24–48 hours. In some cases, additional review may be required, which could take a little longer.",
   },
 ];
 
