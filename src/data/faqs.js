@@ -1,27 +1,27 @@
 export const homeFaqs = [
   {
     q: "Which phones does Mona support?",
-    a: "Mona currently supports eligible Apple iPhone, Samsung Galaxy and Google Pixel devices. You can check your exact model on our Supported Devices page.",
+    a: "Mona Protect supports iPhone 12 and above, Samsung Galaxy A, S, and Z Series, and Google Pixel 4 and above",
   },
   {
     q: "What does Mona protect?",
-    a: "Mona's Smartphone Protection covers screen damage, liquid damage, back glass damage and other accidental damage for one year, after a successful inspection.",
+    a: "Mona Protect covers accidental damage, screen damage, liquid damage, back glass damage, and impact-related hardware failures. If your covered device is damaged, you get repair at no extra cost under your protection plan.",
   },
   {
     q: "Can I protect a used phone?",
-    a: "Yes, as long as it's an eligible model and passes a physical inspection at an authorised Mona Partner Store.",
+    a: "Yes. Mona Protect covers eligible new and used phones, provided the device passes our inspection and is registered before any damage occurs.",
   },
   {
     q: "My phone is already damaged. Can Mona help?",
-    a: "Yes. Visit a Partner Store to repair your phone through Fix Now, Get Protected & Pay Later — you get one year of protection after the repair and can pay over time.",
+    a: "Yes. With Fix Now, Get Protected & Pay Later, you can repair your damaged phone, get it protected, and pay for the repair over time. Protection starts once the repair is completed.",
   },
   {
     q: "I already have Mona Protection. What should I do if my phone gets damaged?",
-    a: "Visit any authorised Mona Partner Store with your device and we'll help you get back up and running under your existing protection plan.",
+    a: "If your phone gets damaged, simply visit the nearest Mona repair partner for instant repair or send us a message on WhatsApp to get started. Find a repair partner near you on our Partners page.",
   },
   {
     q: "How do I find a Mona Partner Store?",
-    a: "Use the Partner Store locator to search by state, city or service and find the nearest authorised Mona Partner Store.",
+    a: "Visit our Partners page to find the nearest Mona partner store for device protection, repairs, or Pay Later services.",
   },
 ];
 
