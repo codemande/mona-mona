@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Clock, Phone, Navigation, MessageCircle, SearchX } from "lucide-react";
+import { MapPin, Phone, PhoneOff, MessageCircle, SearchX } from "lucide-react";
 import Input from "../ui/Input.jsx";
 import Select from "../ui/Select.jsx";
 import Button from "../ui/Button.jsx";
@@ -9,6 +9,44 @@ import { nigerianStates } from "../../data/nigerianStates.js";
 import { cities } from "../../data/cities.js";
 import { fadeInUp, staggerContainer, viewportOnce } from "../../styles/motion.js";
 import styles from "./StoreLocator.module.css";
+
+const SKELETON_COUNT = 6;
+
+// Real records mix "address already contains city/state" with
+// "city is a junk placeholder" (e.g. address:"Bayelsa", city:"Pending",
+// state:"Bayelsa") — build the address line by only appending a part that
+// isn't already present, so it never repeats or shows "Pending".
+function formatStoreAddress(store) {
+  const address = (store.address ?? "").trim();
+  const city = (store.city ?? "").trim();
+  const state = (store.state ?? "").trim();
+  const isJunk = (value) => !value || /^pending$/i.test(value);
+  const includes = (haystack, needle) => haystack.toLowerCase().includes(needle.toLowerCase());
+
+  let line = address;
+  if (city && !isJunk(city) && city !== state && !includes(line, city)) {
+    line = line ? `${line}, ${city}` : city;
+  }
+  if (state && !includes(line, state)) {
+    line = line ? `${line} · ${state}` : state;
+  }
+  return line;
+}
+
+function SkeletonCard() {
+  return (
+    <div className={styles.skeletonCard} aria-hidden="true">
+      <div className={styles.skeletonHead} />
+      <div className={styles.body}>
+        <div className={`${styles.skeletonLine} ${styles.skeletonName}`} />
+        <div className={`${styles.skeletonLine} ${styles.skeletonAddress}`} />
+        <div className={`${styles.skeletonLine} ${styles.skeletonLabel}`} />
+        <div className={styles.skeletonPhone} />
+        <div className={styles.skeletonPhone} />
+      </div>
+    </div>
+  );
+}
 
 export default function StoreLocator({ initialCity = "" }) {
   const initialState = initialCity
@@ -85,6 +123,14 @@ export default function StoreLocator({ initialCity = "" }) {
         </div>
       )}
 
+      {state && loading && (
+        <div className={styles.grid}>
+          {Array.from({ length: SKELETON_COUNT }).map((_, i) => (
+            <SkeletonCard key={i} />
+          ))}
+        </div>
+      )}
+
       {state && !loading && results.length === 0 && (
         <div className={styles.empty}>
           <SearchX size={32} aria-hidden="true" />
@@ -106,47 +152,33 @@ export default function StoreLocator({ initialCity = "" }) {
         >
           {results.map((store) => (
             <motion.div key={store.id} className={styles.card} variants={fadeInUp}>
-              <div className={styles.image}>
-                <MapPin size={28} aria-hidden="true" />
+              <div className={styles.cardHead}>
+                <div className={styles.pin}>
+                  <MapPin size={22} aria-hidden="true" />
+                </div>
               </div>
               <div className={styles.body}>
                 <h3 className={styles.name}>{store.name}</h3>
-                <p className={styles.address}>
-                  {store.address}, {store.city}, {store.state}
-                </p>
-                <p className={styles.hours}>
-                  <Clock size={14} aria-hidden="true" /> {store.hours}
-                </p>
-                {store.services.length > 0 && (
-                  <ul className={styles.services}>
-                    {store.services.map((s) => (
-                      <li key={s}>{s}</li>
+                <p className={styles.address}>{formatStoreAddress(store)}</p>
+
+                <p className={styles.phonesLabel}>Contact numbers</p>
+                {store.phones.length > 0 ? (
+                  <div className={styles.phones}>
+                    {store.phones.map((num) => (
+                      <a key={num} href={`tel:${num}`} className={styles.phoneRow}>
+                        <span className={styles.phoneIco}>
+                          <Phone size={14} aria-hidden="true" />
+                        </span>
+                        <span className={styles.phoneNum}>{num}</span>
+                        <span className={styles.phoneCta}>Call</span>
+                      </a>
                     ))}
-                  </ul>
+                  </div>
+                ) : (
+                  <div className={styles.noNumber}>
+                    <PhoneOff size={14} aria-hidden="true" /> No number listed
+                  </div>
                 )}
-                <div className={styles.actions}>
-                  <a
-                    href={`https://maps.google.com/?q=${encodeURIComponent(store.address + ", " + store.city)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.actionLink}
-                  >
-                    <Navigation size={15} /> Get Directions
-                  </a>
-                  <a href={`tel:${store.phone}`} className={styles.actionLink}>
-                    <Phone size={15} /> Call Store
-                  </a>
-                  {store.whatsapp && (
-                    <a
-                      href={`https://wa.me/${store.whatsapp}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.actionLink}
-                    >
-                      <MessageCircle size={15} /> WhatsApp
-                    </a>
-                  )}
-                </div>
               </div>
             </motion.div>
           ))}

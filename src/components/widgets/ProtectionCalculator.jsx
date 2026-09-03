@@ -142,7 +142,7 @@ export default function ProtectionCalculator() {
             </p>
 
             <div className={styles.resultActions}>
-              <Button to="/partner-stores">Choose a Partner Store</Button>
+              <Button to="/partner">Choose a Partner Store</Button>
               <Button href={waProtectionLink(modelName)} variant="whatsapp">
                 Continue on WhatsApp
               </Button>

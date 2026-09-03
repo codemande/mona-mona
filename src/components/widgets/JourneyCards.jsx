@@ -51,7 +51,7 @@ const journeys = [
     title: "I Already Have Mona Protection",
     description:
       "Has your protected phone been damaged? Visit any authorised Mona Partner Store and we'll help you get back up and running.",
-    cta: { label: "Find a Partner Store", to: "/partner-stores" },
+    cta: { label: "Find a Partner Store", to: "/partner" },
     whatsapp: waExistingLink(),
   },
 ];

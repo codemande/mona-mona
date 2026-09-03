@@ -51,7 +51,7 @@ export default function PartnerStores() {
       <Seo
         title={city ? `Partner Stores in ${city}` : "Partner Stores"}
         description="Find an authorised Mona Partner Store near you for Smartphone Protection, repairs, or Buy Now / Fix Now, Get Protected & Pay Later."
-        path={city ? `/partner-stores/${city}` : "/partner-stores"}
+        path={city ? `/partner/${city}` : "/partner"}
         jsonLd={jsonLd}
       />
 

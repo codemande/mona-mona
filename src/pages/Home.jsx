@@ -132,7 +132,7 @@ export default function Home() {
               <Button to="/smartphone-protection" size="lg">
                 Protect My Phone
               </Button>
-              <Button to="/partner-stores" variant="outline" size="lg">
+              <Button to="/partner" variant="outline" size="lg">
                 Find a Partner Store
               </Button>
             </motion.div>
@@ -225,7 +225,7 @@ export default function Home() {
         title="Whatever Your Smartphone Needs, Start With Mona."
         subtitle="Protection, repairs, or your next phone — Mona has a path for you."
         primary={{ label: "Protect My Phone", to: "/smartphone-protection" }}
-        secondary={{ label: "Find a Partner Store", to: "/partner-stores" }}
+        secondary={{ label: "Find a Partner Store", to: "/partner" }}
         whatsapp={{ label: "Continue on WhatsApp", href: waGenericLink() }}
       />
 

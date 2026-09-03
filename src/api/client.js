@@ -41,54 +41,50 @@ export async function getProtectionPrice(brandId, modelId) {
   return { price: model.price, model };
 }
 
-// New-site-only feature: the old (live) site never builds WhatsApp links
-// from partner data, it just prints the raw phone. Ours does, so the
-// number has to actually resolve to a valid wa.me link. Assumes every
-// partner number is Nigerian — flagged for lead-dev awareness, since
-// nothing in the payload states a country explicitly.
-function normalizeNgWhatsapp(rawPhone) {
-  if (!rawPhone || rawPhone === "N/A") return "";
+// A NG number can arrive as +234..., 234..., 0..., or a bare 10-digit
+// local number. Key on the significant digits so format variants of the
+// same line dedupe against each other; the original string is kept for
+// display/`tel:`.
+function ngDedupeKey(rawPhone) {
   const digits = rawPhone.replace(/\D/g, "");
-  if (digits.startsWith("234")) return digits;
-  if (digits.startsWith("0")) return `234${digits.slice(1)}`;
-  if (digits.length === 10) return `234${digits}`;
-  return "";
+  if (digits.startsWith("234")) return digits.slice(3);
+  if (digits.startsWith("0")) return digits.slice(1);
+  return digits;
 }
 
 // Isolated on purpose: the real partner object's schema was confirmed by
-// curling GET /businesses/all-website against the test backend (only the
-// phone-fallback chain was known ahead of time). Every field translation
-// lives here so only this function needs to change if the schema shifts.
+// curling GET /businesses/all-website against the test backend. Every
+// field translation lives here so only this function needs to change if
+// the schema shifts.
 function mapPartnerToStore(partner) {
-  const rawPhone =
-    // `partner.phone` (as originally assumed from the old-site study) does
-    // not exist on the real object — the business's own number comes back
-    // as `business_phone_number`. Corrected to match what the API actually
-    // returns.
-    partner.team_members?.[0]?.phone_number ?? partner.business_phone_number ?? "N/A";
+  // Every team member's number, then the business's own fallback number —
+  // `partner.phone` (as originally assumed from the old-site study) does
+  // not exist on the real object, so `business_phone_number` is the
+  // correct fallback field. Collected in this order, then deduped so the
+  // same line in different formats only shows once.
+  const candidates = [
+    ...(partner.team_members ?? []).map((m) => m?.phone_number),
+    partner.business_phone_number,
+  ].filter(Boolean);
+
+  const seen = new Set();
+  const phones = [];
+  for (const raw of candidates) {
+    const key = ngDedupeKey(raw);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    phones.push(raw);
+  }
 
   return {
     id: partner.business_id,
     name: partner.name,
-    // TODO: confirm with backend — no opening-hours field observed on the
-    // partner object. No source to map from, so this is a plain fallback,
-    // not a guess at a field name.
-    hours: "",
     address: partner.address ?? "",
     city: partner.city ?? "",
     state: partner.state ?? "",
     // Kept raw/unformatted, mirroring the old site's plain phone display.
-    phone: rawPhone,
-    whatsapp: normalizeNgWhatsapp(rawPhone),
+    phones,
     image: partner.logo_url || "/store-placeholder.svg",
-    // The old (live) site never displays `category` on a partner card —
-    // it's only ever used as an outgoing filter param, never rendered. So
-    // this mirrors that: no services/tags shown on the store card.
-    // TODO: if the business later wants service tags on the card, the
-    // backend needs to expose a coded field for it — `category` is a
-    // free-text business type ("Sales and Repair Partners"), not a set of
-    // discrete services, and there's still no `hours` field either.
-    services: [],
   };
 }
 
