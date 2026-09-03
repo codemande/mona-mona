@@ -114,7 +114,7 @@ export const financingFaqs = [
 export const aboutFaqs = [
   {
     q: "Is Mona an insurance company?",
-    a: "No — Mona is a technology platform that powers smartphone ownership in Nigeria. Our protection products are underwritten in partnership with a NAICOM-licensed insurer, and Mona is licensed and regulated by NAICOM.",
+    a: "Mona is an Insurtech powering smartphone ownership in Nigeria. Our protection products are underwritten in partnership with a NAICOM-licensed insurer, and Mona is alslo licensed and regulated by NAICOM.",
   },
   {
     q: "Where does Mona operate?",
