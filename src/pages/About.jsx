@@ -38,14 +38,14 @@ export default function About() {
     <>
       <Seo
         title="About Mona"
-        description="Mona is Nigeria's smartphone ownership platform — licensed and regulated by NAICOM, powering protection, repairs and pay-later smartphone ownership."
+        description="Mona is Nigeria's smartphone ownership platform, licensed and regulated by NAICOM, powering protection, repairs and pay-later smartphone ownership."
         path="/about"
         jsonLd={jsonLd}
       />
 
       <PageHero
         title="Powering Smartphone Ownership in Nigeria."
-        subtitle="Mona is Nigeria's smartphone ownership platform — helping people protect, repair, and buy the smartphones they rely on every day."
+        subtitle="Mona is Nigeria's smartphone ownership platform helping people protect, repair, and buy the smartphones they rely on every day."
         trust={["Licensed by NAICOM", "Authorised Partner Stores", "Trusted by Thousands"]}
       />
 
@@ -53,7 +53,7 @@ export default function About() {
         <ImageBand src={lifestyleHandover} alt="A Mona Partner Store team member handing over a protected smartphone" ratio="3 / 4">
           <SectionHeader eyebrow="Our Story" title="Why We Built Mona" />
           <p className={styles.paragraph}>
-            Smartphones are essential to how Nigerians work, connect and transact — yet accidental
+            Smartphones are essential to how Nigerians work, connect and transact, yet accidental
             damage, loss of value, and the upfront cost of a new phone remain real barriers. Mona
             was built to close that gap: a technology platform that makes protecting, repairing and
             owning a smartphone simpler, through a trusted network of Partner Stores across Nigeria.
