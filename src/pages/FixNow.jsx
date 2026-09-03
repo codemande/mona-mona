@@ -80,7 +80,7 @@ export default function FixNow() {
             <h3>Already Protected With Mona?</h3>
             <p>You don't need Fix Now Pay Later, just visit a Partner Store under your existing plan and get a free repair.</p>
           </div>
-          <Link to="/partner">
+          <Link to="/partners">
             <ShieldCheck size={16} aria-hidden="true" /> Find a Partner Store
           </Link>
         </div>

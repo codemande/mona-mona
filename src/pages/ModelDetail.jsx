@@ -78,7 +78,7 @@ export default function ModelDetail() {
               <p className={styles.price}>₦{model.price.toLocaleString("en-NG")}</p>
             </div>
             <div className={styles.priceActions}>
-              <Button to="/partner">Check Eligibility</Button>
+              <Button to="/partners">Check Eligibility</Button>
               <Button href={waProtectionLink(model.name)} variant="whatsapp">
                 Continue on WhatsApp
               </Button>
@@ -134,7 +134,7 @@ export default function ModelDetail() {
       <CTABand
         title={`Protect Your ${model.name} Today.`}
         subtitle="Visit a Partner Store to complete your inspection and get covered."
-        primary={{ label: "Find a Partner Store", to: "/partner" }}
+        primary={{ label: "Find a Partner Store", to: "/partners" }}
         whatsapp={{ label: "Continue on WhatsApp", href: waProtectionLink(model.name) }}
       />
     </>

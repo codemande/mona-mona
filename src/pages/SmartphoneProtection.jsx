@@ -77,7 +77,7 @@ export default function SmartphoneProtection() {
         title="Protect Your Smartphone Before Accidents Happen."
         subtitle="One year of protection against screen damage, liquid damage, back glass damage and other accidental damage for eligible Apple iPhone, Samsung Galaxy and Google Pixel devices."
         // primary={{ label: "Check Protection Price", href: "#calculator" }}
-        // secondary={{ label: "Find a Partner Store", to: "/partner" }}
+        // secondary={{ label: "Find a Partner Store", to: "/partners" }}
         trust={["Licensed by NAICOM", "Authorised Partner Stores", "Trusted by Thousands"]}
       />
 
@@ -133,7 +133,7 @@ export default function SmartphoneProtection() {
         title="Protect Your Phone in Minutes."
         subtitle="Check your price and visit a Partner Store to get covered."
         primary={{ label: "Check Protection Price", href: "#calculator" }}
-        secondary={{ label: "Find a Partner Store", to: "/partner" }}
+        secondary={{ label: "Find a Partner Store", to: "/partners" }}
         whatsapp={{ label: "Continue on WhatsApp", href: waProtectionLink() }}
       />
 

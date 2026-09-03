@@ -46,7 +46,7 @@ function ApiErrorBridge() {
 // so read it here and build the target path.
 function RedirectPartnerStoresCity() {
   const { city } = useParams();
-  return <Navigate to={`/partner/${city}`} replace />;
+  return <Navigate to={`/partners/${city}`} replace />;
 }
 
 function ScrollToTop() {
@@ -83,9 +83,9 @@ export default function App() {
             <Route path="/buy-now-get-protected-pay-later" element={<BuyNow />} />
             <Route path="/fix-now-get-protected-pay-later" element={<FixNow />} />
             <Route path="/protection-calculator" element={<ProtectionCalculatorPage />} />
-            <Route path="/partner" element={<PartnerStores />} />
-            <Route path="/partner/:city" element={<PartnerStores />} />
-            <Route path="/partner-stores" element={<Navigate to="/partner" replace />} />
+            <Route path="/partners" element={<PartnerStores />} />
+            <Route path="/partners/:city" element={<PartnerStores />} />
+            <Route path="/partner-stores" element={<Navigate to="/partners" replace />} />
             <Route path="/partner-stores/:city" element={<RedirectPartnerStoresCity />} />
             <Route path="/supported-devices" element={<SupportedDevices />} />
             <Route path="/supported-devices/:brand" element={<BrandDevices />} />

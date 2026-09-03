@@ -42,7 +42,7 @@ export default function GuideDetail() {
         title="Ready to Get Started?"
         subtitle="Protect, repair, or buy your next smartphone with Mona."
         primary={{ label: "Protect My Phone", to: "/smartphone-protection" }}
-        secondary={{ label: "Find a Partner Store", to: "/partner" }}
+        secondary={{ label: "Find a Partner Store", to: "/partners" }}
       />
     </>
   );
