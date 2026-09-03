@@ -14,9 +14,6 @@ import BuyNow from "./pages/BuyNow.jsx";
 import FixNow from "./pages/FixNow.jsx";
 import ProtectionCalculatorPage from "./pages/ProtectionCalculatorPage.jsx";
 import PartnerStores from "./pages/PartnerStores.jsx";
-import SupportedDevices from "./pages/SupportedDevices.jsx";
-import BrandDevices from "./pages/BrandDevices.jsx";
-import ModelDetail from "./pages/ModelDetail.jsx";
 import BecomeAPartner from "./pages/BecomeAPartner.jsx";
 import BusinessFinancing from "./pages/BusinessFinancing.jsx";
 import About from "./pages/About.jsx";
@@ -87,9 +84,10 @@ export default function App() {
             <Route path="/partners/:city" element={<PartnerStores />} />
             <Route path="/partner-stores" element={<Navigate to="/partners" replace />} />
             <Route path="/partner-stores/:city" element={<RedirectPartnerStoresCity />} />
-            <Route path="/supported-devices" element={<SupportedDevices />} />
-            <Route path="/supported-devices/:brand" element={<BrandDevices />} />
-            <Route path="/supported-devices/:brand/:model" element={<ModelDetail />} />
+            {/* Supported Devices section removed per CEO decision — old
+                links/bookmarks redirect home rather than 404. */}
+            <Route path="/supported-devices" element={<Navigate to="/" replace />} />
+            <Route path="/supported-devices/*" element={<Navigate to="/" replace />} />
             <Route path="/become-a-partner" element={<BecomeAPartner />} />
             <Route path="/business-financing" element={<BusinessFinancing />} />
             <Route path="/about" element={<About />} />

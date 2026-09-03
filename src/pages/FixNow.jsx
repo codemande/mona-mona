@@ -69,7 +69,6 @@ export default function FixNow() {
         title="Repair Today. Stay Protected Tomorrow."
         subtitle="Get your already damaged Apple iPhone, Samsung Galaxy or Google Pixel repaired, receive one year of protection afterward, and pay over time."
         // primary={{ label: "Find a Repair Partner", href: "#locator" }}
-        // secondary={{ label: "See Supported Devices", to: "/supported-devices" }}
         trust={["Licensed by NAICOM", "Authorised Partner Stores", "Trusted by Thousands"]}
       >
         <div className={styles.calloutBox}>

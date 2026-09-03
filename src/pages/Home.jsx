@@ -53,11 +53,6 @@ const jsonLd = [
     "@type": "WebSite",
     name: "Mona Protect",
     url: "https://monaprotect.com",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: "https://monaprotect.com/supported-devices?q={search_term_string}",
-      "query-input": "required name=search_term_string",
-    },
   },
   {
     "@context": "https://schema.org",
