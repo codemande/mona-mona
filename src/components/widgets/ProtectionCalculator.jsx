@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Smartphone, Droplet, LayoutGrid, ShieldCheck } from "lucide-react";
 import Select from "../ui/Select.jsx";
 import Button from "../ui/Button.jsx";
+import { useToast } from "../ui/Toast.jsx";
 import { getBrands, getModelsByBrand, getProtectionPrice } from "../../api/client.js";
 import { waProtectionLink } from "../../utils/waLink.js";
 import { fadeInUp } from "../../styles/motion.js";
@@ -26,6 +27,7 @@ const included = [
 ];
 
 export default function ProtectionCalculator() {
+  const { showToast } = useToast();
   const [brands, setBrands] = useState([]);
   const [models, setModels] = useState([]);
   const [brand, setBrand] = useState("");
@@ -56,9 +58,14 @@ export default function ProtectionCalculator() {
   const handleCheck = async () => {
     if (!brand || !model) return;
     setChecking(true);
-    const data = await getProtectionPrice(brand, model);
-    setResult(data);
-    setChecking(false);
+    try {
+      const data = await getProtectionPrice(brand, model);
+      setResult(data);
+    } catch {
+      showToast({ type: "error", message: "We couldn't check that price. Please try again." });
+    } finally {
+      setChecking(false);
+    }
   };
 
   const modelName = result?.model?.name ?? "";

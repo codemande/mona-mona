@@ -5,7 +5,6 @@ import Input from "../ui/Input.jsx";
 import Select from "../ui/Select.jsx";
 import Button from "../ui/Button.jsx";
 import { getStores } from "../../api/client.js";
-import { serviceLabels } from "../../data/stores.js";
 import { nigerianStates } from "../../data/nigerianStates.js";
 import { cities } from "../../data/cities.js";
 import { fadeInUp, staggerContainer, viewportOnce } from "../../styles/motion.js";
@@ -50,8 +49,8 @@ export default function StoreLocator({ initialCity = "" }) {
           }}
         >
           {nigerianStates.map((s) => (
-            <option key={s} value={s}>
-              {s}
+            <option key={s.value} value={s.value}>
+              {s.label}
             </option>
           ))}
         </Select>
@@ -118,11 +117,13 @@ export default function StoreLocator({ initialCity = "" }) {
                 <p className={styles.hours}>
                   <Clock size={14} aria-hidden="true" /> {store.hours}
                 </p>
-                <ul className={styles.services}>
-                  {store.services.map((s) => (
-                    <li key={s}>{serviceLabels[s]}</li>
-                  ))}
-                </ul>
+                {store.services.length > 0 && (
+                  <ul className={styles.services}>
+                    {store.services.map((s) => (
+                      <li key={s}>{s}</li>
+                    ))}
+                  </ul>
+                )}
                 <div className={styles.actions}>
                   <a
                     href={`https://maps.google.com/?q=${encodeURIComponent(store.address + ", " + store.city)}`}
@@ -135,14 +136,16 @@ export default function StoreLocator({ initialCity = "" }) {
                   <a href={`tel:${store.phone}`} className={styles.actionLink}>
                     <Phone size={15} /> Call Store
                   </a>
-                  <a
-                    href={`https://wa.me/${store.whatsapp}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.actionLink}
-                  >
-                    <MessageCircle size={15} /> WhatsApp
-                  </a>
+                  {store.whatsapp && (
+                    <a
+                      href={`https://wa.me/${store.whatsapp}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.actionLink}
+                    >
+                      <MessageCircle size={15} /> WhatsApp
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>

@@ -7,6 +7,7 @@ import Button from "../ui/Button.jsx";
 import AnnouncementBar from "./AnnouncementBar.jsx";
 import { dropdownVariants, mobileMenuVariants } from "../../styles/motion.js";
 import { waGenericLink } from "../../utils/waLink.js";
+import { CUSTOMER_APP_URL, PARTNER_APP_URL } from "../../utils/externalLinks.js";
 import whatsappRaw from "../../assets/brands/whatsapp.svg?raw";
 import styles from "./Header.module.css";
 
@@ -25,9 +26,11 @@ const businessLinks = [
   { label: "Business Financing", to: "/business-financing", description: "Grow your inventory with financing." },
 ];
 
+// The old site's login is just an external link out to a separate app —
+// no in-site route. Mirrors that here.
 const loginLinks = [
-  { label: "Customer Login", to: "/customer-login" },
-  { label: "Partner Login", to: "/partner-login" },
+  { label: "Customer Login", href: CUSTOMER_APP_URL },
+  { label: "Partner Login", href: PARTNER_APP_URL },
 ];
 
 const navItems = [
@@ -162,9 +165,15 @@ export default function Header() {
                     exit="exit"
                   >
                     {loginLinks.map((item) => (
-                      <Link key={item.label} to={item.to} className={styles.dropdownItem}>
+                      <a
+                        key={item.label}
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.dropdownItem}
+                      >
                         <span className={styles.dropdownItemLabel}>{item.label}</span>
-                      </Link>
+                      </a>
                     ))}
                   </motion.div>
                 )}
@@ -248,12 +257,12 @@ export default function Header() {
               <Link to="/support" onClick={() => setMobileOpen(false)}>
                 Support
               </Link>
-              <Link to="/customer-login" onClick={() => setMobileOpen(false)}>
+              <a href={CUSTOMER_APP_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)}>
                 Customer Login
-              </Link>
-              <Link to="/partner-login" onClick={() => setMobileOpen(false)}>
+              </a>
+              <a href={PARTNER_APP_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)}>
                 Partner Login
-              </Link>
+              </a>
             </nav>
 
             <div className={styles.mobileFooter}>

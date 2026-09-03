@@ -97,6 +97,11 @@ export const stores = [
   },
 ];
 
+// No longer consumed anywhere — StoreLocator.jsx stopped rendering
+// services/category tags to mirror the old site's partner cards (which
+// never show them either). Left in place rather than deleted since the
+// `stores` mock array above still carries `services` values; safe to
+// remove if that changes too.
 export const serviceLabels = {
   protection: "Smartphone Protection",
   buy: "Buy Now, Get Protected & Pay Later",

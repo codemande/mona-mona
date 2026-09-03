@@ -1,7 +1,8 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { MotionConfig } from "framer-motion";
-import { ToastProvider } from "./components/ui/Toast.jsx";
+import { ToastProvider, useToast } from "./components/ui/Toast.jsx";
+import { registerErrorHandler } from "./api/notify.js";
 import Header from "./components/layout/Header.jsx";
 import Footer from "./components/layout/Footer.jsx";
 import WhatsAppFab from "./components/layout/WhatsAppFab.jsx";
@@ -28,6 +29,19 @@ import PartnerLogin from "./pages/PartnerLogin.jsx";
 import Legal from "./pages/Legal.jsx";
 import NotFound from "./pages/NotFound.jsx";
 
+// Bridges GET-failure notifications from src/api/client.js (plain JS, no
+// React context) into the existing toast system. Must render inside
+// ToastProvider, since App() itself is not — ToastProvider is created here.
+function ApiErrorBridge() {
+  const { showToast } = useToast();
+
+  useEffect(() => {
+    registerErrorHandler((message) => showToast({ type: "error", message }));
+  }, [showToast]);
+
+  return null;
+}
+
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
   useEffect(() => {
@@ -52,6 +66,7 @@ export default function App() {
   return (
     <MotionConfig reducedMotion="user">
       <ToastProvider>
+        <ApiErrorBridge />
         <ScrollToTop />
         <ScrollToHash />
         <Layout>

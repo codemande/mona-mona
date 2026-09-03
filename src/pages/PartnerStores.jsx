@@ -7,6 +7,11 @@ import StoreLocator from "../components/widgets/StoreLocator.jsx";
 import FaqSection from "../components/widgets/FaqSection.jsx";
 import StickyMobileCta from "../components/widgets/StickyMobileCta.jsx";
 import { storesFaqs } from "../data/faqs.js";
+// TODO: still reads static mock data for the JSON-LD block and the
+// initial city-filtered list below — src/api/client.js's getStores() now
+// hits the real /businesses/all-website endpoint, but this direct import
+// was left as-is for this step to keep scope isolated. Reconcile these two
+// sources (e.g. drive both from getStores()) in a later pass.
 import { stores } from "../data/stores.js";
 import mapPlaceholder from "../assets/misc/map-placeholder.webp";
 import styles from "./PartnerStores.module.css";

@@ -15,10 +15,44 @@ import ImageBand from "../components/widgets/ImageBand.jsx";
 import StickyMobileCta from "../components/widgets/StickyMobileCta.jsx";
 import { useToast } from "../components/ui/Toast.jsx";
 import { submitPartnerApplication } from "../api/client.js";
+import { ApiError } from "../api/http.js";
+import { parseFieldErrors } from "../api/formErrors.js";
 import { partnerFaqs } from "../data/faqs.js";
 import { nigerianStates } from "../data/nigerianStates.js";
 import businessPartner from "../assets/business/business-partner.webp";
 import styles from "./ApplicationPage.module.css";
+
+// The old site's *partner application* form sends lowercase/hyphenated
+// state values (e.g. "abia", "akwa-ibom", "rivers") — a different
+// convention from nigerianStates.js's `value`, which matches the store
+// locator's `location` filter (e.g. "Port-Harcourt" for Rivers). Derived
+// here from each state's display label rather than duplicating a second
+// hardcoded list; FCT is the one confirmed exception, kept as the same
+// string the filter uses.
+// TODO: confirm with backend — this transform is inferred from a few
+// examples in the old site's code (abia, akwa-ibom, rivers, FCT); it has
+// not been verified against the test API for every one of the 36 states.
+function toPartnerStateValue(state) {
+  if (state.value === "Federal Capital Territory (FCT)") return state.value;
+  return state.label.toLowerCase().replace(/\s+/g, "-");
+}
+
+const partnerStateOptions = nigerianStates.map((s) => ({
+  label: s.label,
+  value: toPartnerStateValue(s),
+}));
+
+const EMPTY_FORM = {
+  contact_name: "",
+  business_name: "",
+  email: "",
+  phone_number: "",
+  state: "",
+  partnership_type: "",
+  description: "",
+};
+
+const PARTNER_PAYLOAD_KEYS = Object.keys(EMPTY_FORM);
 
 const walkInTable = [
   { situation: "Phone works fine, wants protection", service: "Smartphone Protection" },
@@ -48,22 +82,74 @@ const steps = [
   { title: "Go Live", description: "Start serving customers as an authorised Mona Partner Store." },
 ];
 
+// Mirrors the old site's validateForm: sequential checks, each with its
+// own toast, stopping at the first failure.
+function validateForm(form, showToast) {
+  if (!form.contact_name.trim()) {
+    showToast({ type: "error", message: "Please enter your contact name." });
+    return false;
+  }
+  if (!form.business_name.trim()) {
+    showToast({ type: "error", message: "Please enter your business name." });
+    return false;
+  }
+  if (!form.email.trim() || !/\S+@\S+\.\S+/.test(form.email)) {
+    showToast({ type: "error", message: "Please enter a valid email address." });
+    return false;
+  }
+  if (!form.phone_number.trim()) {
+    showToast({ type: "error", message: "Please enter your phone number." });
+    return false;
+  }
+  if (!form.state) {
+    showToast({ type: "error", message: "Please select your state." });
+    return false;
+  }
+  if (!form.partnership_type) {
+    showToast({ type: "error", message: "Please select a partnership type." });
+    return false;
+  }
+  if (!form.description.trim()) {
+    showToast({ type: "error", message: "Please tell us about your company." });
+    return false;
+  }
+  return true;
+}
+
 export default function BecomeAPartner() {
   const { showToast } = useToast();
   const [submitting, setSubmitting] = useState(false);
-  const [form, setForm] = useState({ storeName: "", type: "", state: "", phone: "", message: "" });
+  const [form, setForm] = useState(EMPTY_FORM);
+  const [errors, setErrors] = useState({});
 
   const update = (field) => (e) => setForm((f) => ({ ...f, [field]: e.target.value }));
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validateForm(form, showToast)) return;
+    setErrors({});
     setSubmitting(true);
     try {
       await submitPartnerApplication(form);
-      showToast({ type: "success", message: "Application received. Our team will reach out shortly." });
-      setForm({ storeName: "", type: "", state: "", phone: "", message: "" });
-    } catch {
-      showToast({ type: "error", message: "Something went wrong. Please try again." });
+      showToast({ type: "success", message: "Application submitted successfully! We will get back to you soon." });
+      setForm(EMPTY_FORM);
+    } catch (err) {
+      if (err instanceof ApiError) {
+        const { fieldErrors, generalErrors, recaptchaError } = parseFieldErrors(err, PARTNER_PAYLOAD_KEYS);
+        setErrors(fieldErrors);
+        if (recaptchaError) {
+          showToast({ type: "error", message: "We couldn't verify you're human right now. Please try again shortly." });
+        } else {
+          showToast({
+            type: "error",
+            message: generalErrors[0] ?? "Something went wrong. Please try again.",
+          });
+        }
+      } else if (err instanceof Error && err.message.includes("reCAPTCHA")) {
+        showToast({ type: "error", message: "We couldn't verify you're human right now. Please try again shortly." });
+      } else {
+        showToast({ type: "error", message: "Something went wrong. Please try again." });
+      }
     } finally {
       setSubmitting(false);
     }
@@ -149,52 +235,79 @@ export default function BecomeAPartner() {
         <SectionHeader eyebrow="Apply" title="Apply to Become a Partner Store" />
         <form className={styles.form} onSubmit={handleSubmit}>
           <Input
-            id="storeName"
-            label="Store Name"
+            id="contact_name"
+            label="Contact Name"
+            placeholder="Enter Full Name"
             required
-            value={form.storeName}
-            onChange={update("storeName")}
+            value={form.contact_name}
+            onChange={update("contact_name")}
+            error={errors.contact_name}
           />
-          <Select
-            id="type"
-            label="Store Type"
-            placeholder="Select store type"
+          <Input
+            id="business_name"
+            label="Business Name"
+            placeholder="Enter Business Name"
             required
-            value={form.type}
-            onChange={update("type")}
-          >
-            <option value="retail">Retail Store</option>
-            <option value="repair">Repair Centre</option>
-            <option value="both">Retail & Repair</option>
-          </Select>
+            value={form.business_name}
+            onChange={update("business_name")}
+            error={errors.business_name}
+          />
+          <Input
+            id="email"
+            label="Email Address"
+            type="email"
+            placeholder="Enter Email Address"
+            required
+            value={form.email}
+            onChange={update("email")}
+            error={errors.email}
+          />
+          <Input
+            id="phone_number"
+            label="Phone Number"
+            type="tel"
+            placeholder="Enter Phone Number"
+            required
+            value={form.phone_number}
+            onChange={update("phone_number")}
+            error={errors.phone_number}
+          />
           <Select
             id="state"
             label="State"
-            placeholder="Select your state"
+            placeholder="Select State"
             required
             value={form.state}
             onChange={update("state")}
+            error={errors.state}
           >
-            {nigerianStates.map((s) => (
-              <option key={s} value={s}>
-                {s}
+            {partnerStateOptions.map((s) => (
+              <option key={s.value} value={s.value}>
+                {s.label}
               </option>
             ))}
           </Select>
-          <Input
-            id="phone"
-            label="Phone Number"
-            type="tel"
+          <Select
+            id="partnership_type"
+            label="Partnership Type"
+            placeholder="Select Partnership Type"
             required
-            value={form.phone}
-            onChange={update("phone")}
-          />
+            value={form.partnership_type}
+            onChange={update("partnership_type")}
+            error={errors.partnership_type}
+          >
+            <option value="Sales Partner">Sales Partner</option>
+            <option value="Repair Partner">Repair Partner</option>
+          </Select>
           <Textarea
-            id="message"
-            label="Tell us about your business"
+            id="description"
+            label="Tell us about your company"
+            placeholder="Tell us about your company and why you want to partner with Mona Protect"
             rows={4}
-            value={form.message}
-            onChange={update("message")}
+            required
+            value={form.description}
+            onChange={update("description")}
+            error={errors.description}
           />
           <Button type="submit" disabled={submitting}>
             {submitting ? "Submitting…" : "Apply to Become a Partner"}
