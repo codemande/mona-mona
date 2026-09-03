@@ -161,19 +161,15 @@ export default function StoreLocator({ initialCity = "" }) {
                 <h3 className={styles.name}>{store.name}</h3>
                 <p className={styles.address}>{formatStoreAddress(store)}</p>
 
-                <p className={styles.phonesLabel}>Contact numbers</p>
-                {store.phones.length > 0 ? (
-                  <div className={styles.phones}>
-                    {store.phones.map((num) => (
-                      <a key={num} href={`tel:${num}`} className={styles.phoneRow}>
-                        <span className={styles.phoneIco}>
-                          <Phone size={14} aria-hidden="true" />
-                        </span>
-                        <span className={styles.phoneNum}>{num}</span>
-                        <span className={styles.phoneCta}>Call</span>
-                      </a>
-                    ))}
-                  </div>
+                <p className={styles.phonesLabel}>Contact</p>
+                {store.phone ? (
+                  <a href={`tel:${store.phone}`} className={styles.phoneRow}>
+                    <span className={styles.phoneIco}>
+                      <Phone size={14} aria-hidden="true" />
+                    </span>
+                    <span className={styles.phoneNum}>{store.phone}</span>
+                    <span className={styles.phoneCta}>Call</span>
+                  </a>
                 ) : (
                   <div className={styles.noNumber}>
                     <PhoneOff size={14} aria-hidden="true" /> No number listed

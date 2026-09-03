@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ShieldCheck, Wrench, ShoppingBag, HeartHandshake } from "lucide-react";
 import Section, { SectionHeader } from "../components/ui/Section.jsx";
@@ -7,12 +8,8 @@ import StoreLocator from "../components/widgets/StoreLocator.jsx";
 import FaqSection from "../components/widgets/FaqSection.jsx";
 import StickyMobileCta from "../components/widgets/StickyMobileCta.jsx";
 import { storesFaqs } from "../data/faqs.js";
-// TODO: still reads static mock data for the JSON-LD block and the
-// initial city-filtered list below — src/api/client.js's getStores() now
-// hits the real /businesses/all-website endpoint, but this direct import
-// was left as-is for this step to keep scope isolated. Reconcile these two
-// sources (e.g. drive both from getStores()) in a later pass.
-import { stores } from "../data/stores.js";
+import { getStores } from "../api/client.js";
+import { cities } from "../data/cities.js";
 import mapPlaceholder from "../assets/misc/map-placeholder.webp";
 import styles from "./PartnerStores.module.css";
 
@@ -27,24 +24,53 @@ export default function PartnerStores() {
   const { city } = useParams();
   const title = city ? `Mona Partner Stores in ${city}` : "Find A Mona Partner Store Near You.";
 
-  const listedStores = city ? stores.filter((s) => s.city === city) : stores;
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    itemListElement: listedStores.map((store, index) => ({
-      "@type": "LocalBusiness",
-      position: index + 1,
-      name: store.name,
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: store.address,
-        addressLocality: store.city,
-        addressRegion: store.state,
-        addressCountry: "NG",
-      },
-      telephone: store.phone,
-    })),
-  };
+  // JSON-LD is invisible metadata, fetched independently of <StoreLocator>
+  // (which has its own live fetch + its own loading/error UI). Mirrors
+  // StoreLocator's initialCity -> state lookup so the list here matches
+  // what the page actually shows for this route.
+  const [jsonLdStores, setJsonLdStores] = useState(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    const state = city ? cities.find((c) => c.city === city)?.state ?? "" : "";
+    getStores({ state, city: city ?? "", query: "" })
+      .then((data) => {
+        if (!cancelled) setJsonLdStores(data);
+      })
+      .catch(() => {
+        // getStores() already resolves to [] on failure (and surfaces its
+        // own toast) rather than rejecting, but guard anyway: a failed or
+        // still-pending fetch here should just mean no ItemList, silently.
+        if (!cancelled) setJsonLdStores([]);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [city]);
+
+  const jsonLd =
+    jsonLdStores && jsonLdStores.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          itemListElement: jsonLdStores.map((store, index) => {
+            const item = {
+              "@type": "LocalBusiness",
+              position: index + 1,
+              name: store.name,
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: store.address,
+                addressLocality: store.city,
+                addressRegion: store.state,
+                addressCountry: "NG",
+              },
+            };
+            if (store.phone) item.telephone = store.phone;
+            return item;
+          }),
+        }
+      : undefined;
 
   return (
     <>

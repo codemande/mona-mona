@@ -41,41 +41,15 @@ export async function getProtectionPrice(brandId, modelId) {
   return { price: model.price, model };
 }
 
-// A NG number can arrive as +234..., 234..., 0..., or a bare 10-digit
-// local number. Key on the significant digits so format variants of the
-// same line dedupe against each other; the original string is kept for
-// display/`tel:`.
-function ngDedupeKey(rawPhone) {
-  const digits = rawPhone.replace(/\D/g, "");
-  if (digits.startsWith("234")) return digits.slice(3);
-  if (digits.startsWith("0")) return digits.slice(1);
-  return digits;
-}
-
 // Isolated on purpose: the real partner object's schema was confirmed by
 // curling GET /businesses/all-website against the test backend. Every
 // field translation lives here so only this function needs to change if
 // the schema shifts.
 function mapPartnerToStore(partner) {
-  // Every team member's number, then the business's own fallback number —
-  // `partner.phone` (as originally assumed from the old-site study) does
-  // not exist on the real object, so `business_phone_number` is the
-  // correct fallback field. Collected in this order, then deduped so the
-  // same line in different formats only shows once.
-  const candidates = [
-    ...(partner.team_members ?? []).map((m) => m?.phone_number),
-    partner.business_phone_number,
-  ].filter(Boolean);
-
-  const seen = new Set();
-  const phones = [];
-  for (const raw of candidates) {
-    const key = ngDedupeKey(raw);
-    if (seen.has(key)) continue;
-    seen.add(key);
-    phones.push(raw);
-  }
-
+  // Business's own number only — `partner.phone` (as originally assumed
+  // from the old-site study) does not exist on the real object, so
+  // `business_phone_number` is the correct field. Team-member numbers are
+  // intentionally not shown on the card.
   return {
     id: partner.business_id,
     name: partner.name,
@@ -83,7 +57,7 @@ function mapPartnerToStore(partner) {
     city: partner.city ?? "",
     state: partner.state ?? "",
     // Kept raw/unformatted, mirroring the old site's plain phone display.
-    phones,
+    phone: partner.business_phone_number?.trim() || "",
     image: partner.logo_url || "/store-placeholder.svg",
   };
 }
