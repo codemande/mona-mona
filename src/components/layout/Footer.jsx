@@ -36,7 +36,6 @@ const columns = [
 const legalLinks = [
   { label: "Terms", to: "/terms" },
   { label: "Privacy", to: "/privacy" },
-  { label: "Protection Terms", to: "/protection-terms" },
 ];
 
 function InstagramGlyph() {

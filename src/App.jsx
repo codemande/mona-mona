@@ -99,7 +99,9 @@ export default function App() {
             <Route path="/partner-login" element={<PartnerLogin />} />
             <Route path="/terms" element={<Legal type="terms" />} />
             <Route path="/privacy" element={<Legal type="privacy" />} />
-            <Route path="/protection-terms" element={<Legal type="protection-terms" />} />
+            {/* Protection Terms removed — its claims/fair-usage content now
+                lives in the ported Terms of Use (§5), so old links redirect there. */}
+            <Route path="/protection-terms" element={<Navigate to="/terms" replace />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
