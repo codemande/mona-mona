@@ -1,6 +1,7 @@
 import phoneInsuranceCover from "../assets/guides/phone-insurance-nigeria-cover.webp";
 import iphoneSamsungCover from "../assets/guides/iphone-samsung-phone-insurance-nigeria-cover.webp";
 import bnplCover from "../assets/guides/buy-now-pay-later-nigeria-cover.webp";
+import fnplCover from "../assets/guides/fix-phone-now-pay-later-nigeria-cover.webp";
 
 // Placeholder posts removed. Real Guides content starts here.
 //
@@ -449,5 +450,174 @@ export const guides = [
       { q: "Can I use BNPL to repair my phone?", a: "Eligible customers may be able to finance qualifying phone repairs through Mona's Fix Now, Get Protected & Pay Later service." },
       { q: "What is Buy Now, Get Protected & Pay Later?", a: "It is Mona's pay-later solution that combines an eligible device purchase with Mona protection, allowing eligible customers to buy, get protected and repay over time." },
     ],
+  },
+  {
+    id: "fix-phone-now-pay-later-nigeria",
+    title: "Fix Your Phone Now and Pay Later in Nigeria: How Phone Repair Financing Works",
+    excerpt:
+      "Need a phone repair but can't pay everything upfront? Learn how phone repair financing works in Nigeria and how Mona lets eligible customers fix now, get protected and pay later.",
+    category: "Repairs",
+    metaTitle: "Fix Your Phone Now and Pay Later in Nigeria",
+    metaDescription:
+      "Need a phone repair but can't pay everything upfront? Learn how phone repair financing works in Nigeria and how Mona lets eligible customers fix now, get protected and pay later.",
+    author: "Mona Protect Team",
+    publishedDate: "2026-02-05",
+    cover: fnplCover,
+    coverAlt: "A technician repairing a smartphone screen on a workbench, representing phone repair financing.",
+    blocks: [
+      { type: "paragraph", text: "A damaged phone can become an urgent expense." },
+      { type: "paragraph", text: "Your screen breaks. Your charging port stops working. Your phone gets damaged by liquid or suffers another unexpected problem. But having a phone that needs repair does not always mean having the full repair cost available immediately." },
+      { type: "paragraph", text: "This is where phone repair financing can help." },
+      { type: "paragraph", text: "Instead of delaying an important repair because you cannot pay the entire amount upfront, eligible customers can finance the cost and spread repayment over time." },
+      { type: "paragraph", text: "Mona's Fix Now, Get Protected & Pay Later service is designed around this idea: fix your phone now, pay over time, and stay protected." },
+      { type: "paragraph", text: "Here's how it works and what you should know before using a repair financing option in Nigeria." },
+
+      { type: "heading", text: "What Does “Fix Now, Pay Later” Mean?" },
+      { type: "paragraph", text: "Fix Now, Pay Later, often called FNPL, allows an eligible customer to have a phone repaired without paying the entire repair cost upfront." },
+      { type: "paragraph", text: "Rather than paying the full amount at the repair store, the customer makes the required initial payment and finances the remaining eligible amount under the applicable financing terms." },
+      { type: "paragraph", text: "The exact amount you can finance, your required upfront payment, fees and repayment period depend on the applicable financing provider and your eligibility." },
+      { type: "paragraph", text: "In simple terms:" },
+      { type: "callout", text: "Phone needs repair → Apply → Get assessed → Make required upfront payment → Repair is completed → Repay over time" },
+      { type: "paragraph", text: "This can be particularly useful when a phone is essential for work, communication, banking, business or everyday life." },
+
+      { type: "heading", text: "Why Phone Repair Financing Matters in Nigeria" },
+      { type: "paragraph", text: "For many people, a smartphone is no longer simply a personal device." },
+      { type: "paragraph", text: "It may be used for:" },
+      { type: "list", items: ["Work and remote communication", "Mobile banking and payments", "Business and customer communication", "Social media and marketing", "School and learning", "Navigation and transportation", "Photography and content creation", "Access to important accounts and services"] },
+      { type: "paragraph", text: "That means postponing a repair can sometimes create a bigger problem than the repair bill itself." },
+      { type: "paragraph", text: "A repair financing option gives eligible customers another choice: instead of waiting until they have the full amount, they can address the repair and manage the cost through scheduled repayments." },
+
+      { type: "heading", text: "How Fix Now, Pay Later Works" },
+      { type: "paragraph", text: "The process is designed to keep the repair and financing journey connected." },
+      { type: "steps", items: [
+        { title: "Get your repair cost", description: "The first step is determining what needs to be repaired and how much the repair will cost." },
+        { title: "Apply for financing", description: "If the repair qualifies for the service, an application can be created for the eligible repair amount. You provide the required information so the financing provider can assess your application." },
+        { title: "Complete eligibility checks", description: "Your application may involve identity, financial and other verification checks. Approval is not automatic. The applicable financing provider determines eligibility based on its own assessment criteria." },
+        { title: "Review your repayment terms", description: "If approved, you will be shown the applicable financing terms before proceeding. This should include the amount being financed, your required initial payment, repayment schedule and applicable fees. Always review the total amount you will repay before confirming." },
+        { title: "Make the required upfront payment", description: "Pay-later does not necessarily mean paying nothing upfront. Mona's pay-later service requires a minimum 25% down payment, depending on the applicable financing terms and your eligibility. The upfront amount can also account for any portion of the repair cost that is not covered by the financed amount." },
+        { title: "Get your phone repaired and protected", description: "Once the required financing and payment steps have been completed, the repair can proceed according to the applicable process and protected against future accidental damages. The goal is simple: you get your phone back into working condition and protected without having to fund the entire cost at once." },
+        { title: "Repay over time", description: "You then repay the financed amount according to your agreed repayment schedule. Your exact repayment period depends on the financing terms available to you." },
+      ] },
+      // Source's step 1 also contains a bulleted example list + follow-up
+      // sentence that don't fit the {title, description} steps shape —
+      // preserved verbatim here, positioned right after the steps block
+      // rather than nested inside step 1.
+      { type: "paragraph", text: "For example, this could involve:" },
+      { type: "list", items: ["Screen replacement", "Other eligible accidental damage", "Another qualifying repair"] },
+      { type: "paragraph", text: "The actual repair price depends on the device, damage and parts or service required." },
+
+      { type: "heading", text: "What Is the Difference Between FNPL and a Normal Phone Repair?" },
+      { type: "paragraph", text: "With a traditional repair, you typically pay the repair shop the full amount before or around the time the repair is completed." },
+      { type: "paragraph", text: "With repair financing, the cost can be spread over time if you qualify." },
+      { type: "table", columns: ["Traditional Repair", "Fix Now, Pay Later"], rows: [
+        ["Full repair cost paid upfront", "Eligible amount financed"],
+        ["Immediate full financial burden", "Initial payment + scheduled repayments"],
+        ["No financing application", "Eligibility assessment required"],
+        ["Repair starts after payment arrangements", "Repair follows approved financing process"],
+        ["No protection after repair", "Receive 1 year protection instantly"],
+      ] },
+
+      { type: "heading", text: "Can I Repair an iPhone and Pay Later?" },
+      { type: "paragraph", text: "Potentially, yes." },
+      { type: "paragraph", text: "Eligible iPhone repairs may be financed where the device, repair and customer meet the applicable requirements." },
+      { type: "paragraph", text: "This can be useful for expensive repairs where paying the entire amount at once may be difficult." },
+      { type: "paragraph", text: "For example, someone with an iPhone requiring a significant screen repair could potentially use an eligible repair financing option rather than delaying the repair until the full amount is available." },
+
+      { type: "heading", text: "Can I Repair a Samsung Phone and Pay Later?" },
+      { type: "paragraph", text: "The same principle can apply to eligible Samsung devices." },
+      { type: "paragraph", text: "Premium Samsung repairs can sometimes be expensive, particularly when genuine or high-quality replacement components are required." },
+      { type: "paragraph", text: "Financing can allow an eligible customer to address the repair while spreading the financial commitment over an agreed period." },
+      { type: "paragraph", text: "Eligibility, repair cost and financing terms still apply." },
+
+      { type: "heading", text: "What Happens to My Phone Protection?" },
+      { type: "paragraph", text: "This is where Mona's approach is different from simply financing a repair." },
+      { type: "paragraph", text: "With Fix Now, Get Protected & Pay Later, the customer doesn't just finance the repair." },
+      { type: "paragraph", text: "The customer also gets Mona protection." },
+      { type: "paragraph", text: "Protection begins after the repair has been completed, subject to the applicable protection terms." },
+      { type: "paragraph", text: "This means the journey is:" },
+      { type: "callout", text: "Repair now → Get protected → Pay over time" },
+      { type: "paragraph", text: "The objective is not only to help you deal with today's repair, but also to help protect the device going forward against covered accidental damage." },
+
+      { type: "heading", text: "What Does Mona Protect Cover?" },
+      { type: "paragraph", text: "Mona Protect is designed to help with covered accidental damage to eligible devices." },
+      { type: "paragraph", text: "Depending on the applicable protection plan, covered events can include things such as:" },
+      { type: "list", items: ["Screen damage", "Liquid damage", "Back-glass damage", "Other covered accidental hardware damage"] },
+      { type: "paragraph", text: "Protection does not mean every type of damage or loss is automatically covered." },
+      { type: "paragraph", text: "For example, exclusions may include:" },
+      { type: "list", items: ["Theft", "Total loss", "Normal battery wear or ageing", "Damage that occurred before the device was registered", "Other exclusions contained in the applicable protection terms"] },
+      { type: "paragraph", text: "Always check the specific protection terms that apply to your device." },
+
+      { type: "heading", text: "Why Combine Repair Financing With Device Protection?" },
+      { type: "paragraph", text: "Repairing a phone solves the immediate problem." },
+      { type: "paragraph", text: "Protection is about what happens next." },
+      { type: "paragraph", text: "Imagine your phone screen breaks today. You finance the repair, get the phone fixed and begin making repayments." },
+      { type: "paragraph", text: "Without protection, another covered accidental incident could create another unexpected repair expense while you are still paying for the first one." },
+      { type: "paragraph", text: "With Mona's combined approach, eligible customers can repair the device and have protection begin after the repair is completed." },
+      { type: "paragraph", text: "That creates a more complete experience:" },
+      { type: "callout", text: "Fix the problem today. Protect the phone tomorrow. Pay over time." },
+
+      { type: "heading", text: "How Much Do I Need to Pay Upfront?" },
+      { type: "paragraph", text: "The required upfront payment depends on your eligibility and the applicable financing terms." },
+      { type: "paragraph", text: "Mona's pay-later offering may require a minimum 25% down payment." },
+      { type: "paragraph", text: "There may also be amounts that are not covered by financing, which would need to be paid upfront." },
+      { type: "paragraph", text: "Any applicable financing or service fees should be clearly presented before you confirm the arrangement." },
+      { type: "paragraph", text: "The important number is not simply the upfront payment." },
+      { type: "callout", text: "Look at the total amount you will repay." },
+
+      { type: "heading", text: "How Long Do I Have to Repay?" },
+      { type: "paragraph", text: "Repayment periods depend on the financing provider, your eligibility and the specific financing offer." },
+      { type: "paragraph", text: "You may be presented with different repayment options." },
+      { type: "paragraph", text: "A longer repayment period can reduce the size of individual payments, but it is important to consider the total repayment amount and any applicable fees." },
+      { type: "paragraph", text: "Choose a repayment schedule that fits realistically within your budget." },
+
+      { type: "heading", text: "Who Can Use Phone Repair Financing?" },
+      { type: "paragraph", text: "FNPL is intended for customers who meet the applicable eligibility requirements." },
+      { type: "paragraph", text: "Your application may consider factors such as:" },
+      { type: "list", items: ["Personal information", "Identity verification", "Bank account information", "Income or employment information", "Address information", "Financial profile", "Requested financing amount", "Ability to repay"] },
+      { type: "paragraph", text: "Providing information does not guarantee approval." },
+      { type: "paragraph", text: "The financing provider makes the applicable credit decision based on its assessment." },
+
+      { type: "heading", text: "When Does Fix Now, Pay Later Make Sense?" },
+      { type: "paragraph", text: "FNPL can make sense when:" },
+      { type: "subheading", text: "Your phone is essential." },
+      { type: "paragraph", text: "You need it for work, business, communication or everyday activities." },
+      { type: "subheading", text: "The repair is unexpected." },
+      { type: "paragraph", text: "You did not budget for a major repair this month." },
+      { type: "subheading", text: "The repair cost is manageable over time." },
+      { type: "paragraph", text: "You can comfortably meet the repayment obligation." },
+      { type: "subheading", text: "Your phone is worth repairing." },
+      { type: "paragraph", text: "The device still has useful life and the repair makes financial sense." },
+      { type: "subheading", text: "You want protection after the repair." },
+      { type: "paragraph", text: "You want to reduce the risk of paying another unexpected repair bill for covered accidental damage." },
+
+      { type: "heading", text: "Fix Now, Get Protected & Pay Later With Mona" },
+      { type: "paragraph", text: "Mona brings three things together in one customer journey:" },
+      { type: "callout", text: "Repair. Protection. Flexible payment." },
+      { type: "paragraph", text: "Instead of treating a phone repair as an isolated transaction, Mona's FNPL experience is designed to help eligible customers get their device repaired, activate protection after the repair and repay the financed amount over time." },
+      { type: "paragraph", text: "The process is straightforward:" },
+      { type: "steps", items: [
+        { title: "Get your repair assessment", description: "Find out what needs to be repaired and the applicable cost." },
+        { title: "Apply", description: "Submit your information for financing assessment." },
+        { title: "Get your offer", description: "If eligible, review the financing amount, upfront payment and repayment terms." },
+        { title: "Make your required payment", description: "Complete the applicable initial payment." },
+        { title: "Repair your phone", description: "Your device is repaired according to the approved process." },
+        { title: "Get protected", description: "Mona protection begins after the repair is completed, subject to the applicable terms." },
+        { title: "Pay over time", description: "Continue with your scheduled repayments." },
+      ] },
+      { type: "paragraph", text: "The result is simple:" },
+      { type: "callout", text: "Repair now. Stay protected. Pay later." },
+    ],
+    closingBlocks: [
+      { type: "heading", text: "Final Thoughts" },
+      { type: "paragraph", text: "A broken phone does not always have to mean an immediate large expense." },
+      { type: "paragraph", text: "If you need an essential device repaired but would prefer to spread the cost, Fix Now, Pay Later can provide an alternative to paying the entire repair bill upfront." },
+      { type: "paragraph", text: "Mona takes the concept a step further by combining repair financing with device protection." },
+      { type: "callout", text: "Fix the phone you already have. Protect it after the repair. Pay for it over time." },
+      { type: "heading", text: "Ready to Fix Your Phone?" },
+      { type: "paragraph", text: "If you're dealing with an unexpected phone repair and would like to explore your options, learn more about Fix Now, Get Protected & Pay Later with Mona." },
+      { type: "callout", text: "Repair now. Get protected. Pay later." },
+      { type: "cta", label: "Explore Fix Now, Get Protected & Pay Later", to: "/fix-now-get-protected-pay-later", variant: "primary" },
+    ],
+    faqs: [],
   },
 ];
