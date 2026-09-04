@@ -1,4 +1,5 @@
 import phoneInsuranceCover from "../assets/guides/phone-insurance-nigeria-cover.webp";
+import iphoneSamsungCover from "../assets/guides/iphone-samsung-phone-insurance-nigeria-cover.webp";
 
 // Placeholder posts removed. Real Guides content starts here.
 //
@@ -164,6 +165,156 @@ export const guides = [
       { q: "Can I protect my phone after it has been damaged?", a: "Protection generally needs to be activated before the covered incident occurs. Existing damage is normally not eligible for a new protection plan." },
       { q: "Can I finance my phone repair?", a: "Eligible customers may be able to finance qualifying repairs through Mona's Fix Now, Get Protected & Pay Later service." },
       { q: "Can I buy a phone and pay later?", a: "Eligible customers may be able to purchase a device through Mona's Buy Now, Get Protected & Pay Later service and repay over an agreed period." },
+    ],
+  },
+  {
+    id: "iphone-samsung-phone-insurance-nigeria",
+    title: "iPhone & Samsung Phone Insurance in Nigeria: What You Need to Know",
+    excerpt:
+      "Protect your iPhone or Samsung phone in Nigeria against covered accidental damage. Learn how screen, liquid and back-glass protection works with Mona Protect.",
+    category: "Protection",
+    metaTitle: "iPhone & Samsung Phone Insurance in Nigeria",
+    metaDescription:
+      "Protect your iPhone or Samsung phone in Nigeria against covered accidental damage. Learn about screen, liquid and back-glass protection with Mona Protect.",
+    author: "Mona Protect Team",
+    publishedDate: "2026-01-22",
+    cover: iphoneSamsungCover,
+    coverAlt: "An iPhone and a Samsung Galaxy smartphone resting side by side, representing premium phone protection.",
+    blocks: [
+      { type: "paragraph", text: "iPhones and Samsung Galaxy smartphones are among the most valuable phones people carry every day." },
+      { type: "paragraph", text: "They're also expensive to repair." },
+      { type: "paragraph", text: "A cracked display, broken back glass, liquid damage or an accidental impact can turn a normal day into an unexpected repair bill." },
+      { type: "paragraph", text: "If you own a premium smartphone in Nigeria, protecting it before something happens can help you avoid dealing with the full financial impact of an unexpected repair." },
+      { type: "paragraph", text: "This guide explains how iPhone and Samsung phone protection works in Nigeria, what types of damage may be covered, and how Mona Protect helps simplify repairs." },
+
+      { type: "heading", text: "Why Protect Your iPhone or Samsung Phone?" },
+      { type: "paragraph", text: "Premium smartphones can cost hundreds of thousands, or even millions, of naira." },
+      { type: "paragraph", text: "But the cost doesn't stop at the purchase price." },
+      { type: "paragraph", text: "A damaged display, camera, back glass or internal component can require an expensive repair. For many smartphone owners, an unexpected repair can be difficult to budget for." },
+      { type: "paragraph", text: "Phone protection gives you a way to prepare for these situations before they happen." },
+      { type: "paragraph", text: "Instead of waiting until your phone is damaged and then figuring out how to pay for the repair, you can have protection already in place." },
+
+      { type: "heading", text: "What Can Happen to a Premium Smartphone?" },
+      { type: "paragraph", text: "Accidents don't have to be dramatic." },
+      { type: "paragraph", text: "Your phone can fall from your hand, slide off a table, get exposed to liquid or suffer an impact during everyday use." },
+      { type: "paragraph", text: "Some of the most common types of accidental damage include:" },
+      { type: "subheading", text: "Cracked or Damaged Screen" },
+      { type: "paragraph", text: "The display is one of the most vulnerable parts of a smartphone." },
+      { type: "paragraph", text: "A single drop can crack the glass, damage the display or make the phone difficult to use." },
+      { type: "subheading", text: "Broken Back Glass" },
+      { type: "paragraph", text: "Many modern iPhones and Samsung Galaxy devices feature glass backs." },
+      { type: "paragraph", text: "A fall can crack or shatter the rear glass, creating both a cosmetic and practical problem." },
+      { type: "subheading", text: "Liquid Damage" },
+      { type: "paragraph", text: "Phones are regularly exposed to water and other liquids through everyday accidents." },
+      { type: "paragraph", text: "Liquid entering a device can affect its internal components and may result in a costly repair." },
+      { type: "subheading", text: "Accidental Hardware Damage" },
+      { type: "paragraph", text: "An impact can damage internal components even when the outside of the phone doesn't appear severely damaged." },
+      { type: "paragraph", text: "Where the incident qualifies under the protection plan, eligible accidental hardware damage may be covered." },
+      { type: "callout", text: "Coverage is subject to the terms, conditions and exclusions of the applicable protection plan." },
+
+      { type: "heading", text: "iPhone Insurance in Nigeria" },
+      { type: "paragraph", text: "iPhones are premium devices, and repairing certain models can be expensive." },
+      { type: "paragraph", text: "This makes protection particularly relevant for people who want to avoid being completely exposed to the cost of an unexpected accidental repair." },
+      { type: "paragraph", text: "Eligible iPhone models can be protected through Mona Protect against covered accidental damage." },
+      { type: "paragraph", text: "Whether you purchased your iPhone brand new or as a used device, eligibility depends on the applicable device and protection requirements." },
+      { type: "subheading", text: "Which iPhones Can Be Protected?" },
+      { type: "paragraph", text: "Mona Protect is designed for eligible premium smartphones, including selected iPhone models." },
+      { type: "paragraph", text: "Your specific model must meet the applicable eligibility requirements and be registered before damage occurs." },
+      { type: "paragraph", text: "If you're unsure whether your iPhone qualifies, check its eligibility before purchasing protection." },
+
+      { type: "heading", text: "Samsung Phone Insurance in Nigeria" },
+      { type: "paragraph", text: "Samsung Galaxy smartphones are also among the most popular premium Android devices in Nigeria." },
+      { type: "paragraph", text: "Their large displays, glass construction and advanced hardware can make certain repairs expensive." },
+      { type: "paragraph", text: "Eligible Samsung Galaxy devices can be protected against covered accidental damage through Mona Protect." },
+      { type: "paragraph", text: "As with iPhones, your specific model and device condition determine eligibility." },
+
+      { type: "heading", text: "Can You Protect a Used iPhone or Samsung?" },
+      { type: "paragraph", text: "Yes, an eligible used or pre-owned smartphone can be protected, subject to the applicable requirements." },
+      { type: "paragraph", text: "This matters in Nigeria because buying a fairly-used premium phone is common." },
+      { type: "paragraph", text: "A used iPhone 13, iPhone 14, Samsung Galaxy S-series device or similar premium smartphone may still represent a significant financial investment." },
+      { type: "paragraph", text: "Protection isn't only about whether the phone is new." },
+      { type: "paragraph", text: "It's about protecting a device that would be expensive or inconvenient to repair if something went wrong." },
+      { type: "paragraph", text: "However, the device must be registered and eligible before the damage happens." },
+      { type: "paragraph", text: "Existing damage cannot simply be added to a new protection plan." },
+
+      { type: "heading", text: "What Does iPhone and Samsung Protection Cover?" },
+      { type: "paragraph", text: "Coverage depends on the specific plan, but eligible accidental damage may include:" },
+      { type: "list", items: ["Accidental screen damage", "Liquid damage", "Back-glass damage", "Accidental impact", "Other eligible accidental hardware damage"] },
+      { type: "paragraph", text: "Protection is not the same as unlimited coverage for every possible problem." },
+      { type: "paragraph", text: "For example, normal wear and tear, battery aging and existing damage may not qualify." },
+      { type: "paragraph", text: "Always check your protection plan's terms before making a claim." },
+
+      { type: "heading", text: "What Isn't Normally Covered?" },
+      { type: "paragraph", text: "Depending on the plan, exclusions may include:" },
+      { type: "list", items: ["Existing damage", "Normal wear and tear", "Natural battery degradation", "Intentional damage", "Certain cosmetic damage", "Unauthorized repairs or modifications", "Theft or loss where those risks are not included"] },
+      { type: "paragraph", text: "The most important rule is simple:" },
+      { type: "callout", text: "Protect your phone before you need the protection." },
+
+      { type: "heading", text: "How Does iPhone & Samsung Protection Work?" },
+      { type: "paragraph", text: "The process is designed to be straightforward." },
+      { type: "steps", items: [
+        { title: "Check Eligibility", description: "Confirm that your iPhone or Samsung model qualifies." },
+        { title: "Register Your Device", description: "Your device is registered while it is in an eligible condition. Information about the device may be collected during onboarding." },
+        { title: "Activate Protection", description: "Once your protection is successfully activated, your phone is protected according to the applicable plan." },
+        { title: "Report an Incident", description: "If your phone suffers eligible accidental damage, report it through the applicable claims process." },
+        { title: "Assessment", description: "The damage is reviewed to determine whether it qualifies under your protection plan." },
+        { title: "Repair", description: "If approved, the eligible repair is handled instantly through the applicable repair process." },
+      ] },
+
+      { type: "heading", text: "What If My iPhone or Samsung Is Already Damaged?" },
+      { type: "paragraph", text: "A protection plan is designed to protect against future eligible incidents." },
+      { type: "paragraph", text: "If your phone is already cracked, damaged or has an existing fault, that damage generally cannot be covered by purchasing protection afterward." },
+      { type: "paragraph", text: "If you need to repair a damaged device but don't want to pay the entire repair cost upfront, Mona also offers a separate solution for eligible customers." },
+
+      { type: "heading", text: "Need to Repair Your Phone and Pay Later?" },
+      { type: "paragraph", text: "With Fix Now, Get Protected & Pay Later, eligible customers can finance qualifying phone repairs rather than paying the entire repair cost upfront." },
+      { type: "paragraph", text: "The concept is simple:" },
+      { type: "callout", text: "Fix your phone now. Pay over time. Stay protected." },
+      { type: "paragraph", text: "This can be particularly useful when an unexpected repair bill arrives at the wrong time." },
+      { type: "cta", label: "Explore Fix Now, Get Protected & Pay Later", to: "/fix-now-get-protected-pay-later", variant: "outline" },
+
+      { type: "heading", text: "Is iPhone or Samsung Protection Worth It?" },
+      { type: "paragraph", text: "It depends on your device and your financial situation." },
+      { type: "paragraph", text: "If you own a premium smartphone and a major repair would be difficult to pay for unexpectedly, protection can provide valuable financial predictability." },
+      { type: "paragraph", text: "Consider the potential cost of:" },
+      // Source presents this as a stacked three-line emphasis ("One accidental
+      // repair" / "versus" / "The cost of protecting your phone in advance.").
+      // Callout has no line-break handling (plain text node, no
+      // white-space: pre-line), so rather than touch the renderer, the three
+      // lines are represented as three sequential callout blocks — verbatim
+      // wording, stacked visually via GuideBlocks' existing block spacing.
+      { type: "callout", text: "One accidental repair" },
+      { type: "callout", text: "versus" },
+      { type: "callout", text: "The cost of protecting your phone in advance." },
+      { type: "paragraph", text: "You should also consider the convenience of having a defined process for dealing with covered damage instead of having to figure everything out yourself after an accident." },
+
+      { type: "heading", text: "iPhone & Samsung Protection With Mona Protect" },
+      { type: "paragraph", text: "Mona Protect is designed around a simple idea:" },
+      { type: "callout", text: "Reliable protection, simplified repairs." },
+      { type: "paragraph", text: "Eligible premium smartphones can be protected against covered accidental damage, while Mona helps simplify the repair experience when an eligible incident occurs." },
+      { type: "paragraph", text: "Whether you use an iPhone or Samsung Galaxy, protection gives you a way to prepare for unexpected damage before it happens." },
+
+      { type: "heading", text: "Protect Your iPhone or Samsung" },
+      { type: "paragraph", text: "Don't wait until your screen is cracked to start thinking about protection." },
+      { type: "cta", label: "Get Protected", to: "/smartphone-protection", variant: "primary" },
+    ],
+    closingBlocks: [
+      { type: "heading", text: "Protect Your Phone Before Something Goes Wrong" },
+      { type: "paragraph", text: "Your iPhone or Samsung is too valuable to leave completely exposed to an unexpected repair bill." },
+      { type: "paragraph", text: "Protect it while it's still in good condition and have greater peace of mind knowing you have a plan for eligible accidental damage." },
+      { type: "callout", text: "Mona Protect, Reliable protection, simplified repairs." },
+      { type: "cta", label: "Get Protected", to: "/smartphone-protection", variant: "primary" },
+    ],
+    faqs: [
+      { q: "Can I insure my iPhone in Nigeria?", a: "Eligible iPhone models can be protected under applicable Mona Protect plans, subject to the device and protection requirements." },
+      { q: "Can I insure my Samsung phone in Nigeria?", a: "Eligible Samsung Galaxy devices can be protected under applicable protection plans." },
+      { q: "Does iPhone protection cover cracked screens?", a: "Eligible accidental screen damage may be covered depending on the applicable protection plan." },
+      { q: "Does Samsung phone protection cover screen damage?", a: "Eligible accidental screen damage may be covered according to the applicable plan's terms." },
+      { q: "Can I protect a used iPhone?", a: "Yes. Eligible used iPhones may be protected, subject to the applicable eligibility and condition requirements." },
+      { q: "Can I protect a used Samsung phone?", a: "Eligible used Samsung devices may also qualify for protection, subject to the provider's requirements." },
+      { q: "Does phone protection cover water damage?", a: "Some protection plans cover accidental liquid damage. Check the terms of your specific plan." },
+      { q: "Can I protect my phone after it has been damaged?", a: "No. Protection is intended for eligible incidents that occur after the device has been registered and protection activated. Existing damage generally isn't covered." },
+      { q: "What happens if my phone needs a repair but I can't pay the full amount?", a: "Eligible customers may be able to use Mona's Fix Now, Get Protected & Pay Later service to finance qualifying repairs." },
     ],
   },
 ];
