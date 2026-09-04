@@ -67,10 +67,19 @@ function LinkedinGlyph() {
   );
 }
 
+function TiktokGlyph() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+      <path d="M16.6 5.82a4.28 4.28 0 0 1-1.05-2.82h-3.2v12.8a2.58 2.58 0 0 1-2.58 2.58 2.58 2.58 0 1 1 .76-5.04V9.98a5.86 5.86 0 0 0-.76-.05A5.83 5.83 0 1 0 15.4 15.7V9.42a7.5 7.5 0 0 0 4.37 1.4V7.62a4.28 4.28 0 0 1-3.17-1.8z" />
+    </svg>
+  );
+}
+
 const socials = [
   { label: "Instagram", href: "https://instagram.com/monaprotect", Icon: InstagramGlyph },
   { label: "X (Twitter)", href: "https://twitter.com/monaprotect", Icon: XGlyph },
   { label: "LinkedIn", href: "https://linkedin.com/company/monaprotect", Icon: LinkedinGlyph },
+  { label: "TikTok", href: "https://www.tiktok.com/@monaprotect", Icon: TiktokGlyph },
 ];
 
 export default function Footer() {
