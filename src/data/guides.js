@@ -1,5 +1,6 @@
 import phoneInsuranceCover from "../assets/guides/phone-insurance-nigeria-cover.webp";
 import iphoneSamsungCover from "../assets/guides/iphone-samsung-phone-insurance-nigeria-cover.webp";
+import bnplCover from "../assets/guides/buy-now-pay-later-nigeria-cover.webp";
 
 // Placeholder posts removed. Real Guides content starts here.
 //
@@ -315,6 +316,138 @@ export const guides = [
       { q: "Does phone protection cover water damage?", a: "Some protection plans cover accidental liquid damage. Check the terms of your specific plan." },
       { q: "Can I protect my phone after it has been damaged?", a: "No. Protection is intended for eligible incidents that occur after the device has been registered and protection activated. Existing damage generally isn't covered." },
       { q: "What happens if my phone needs a repair but I can't pay the full amount?", a: "Eligible customers may be able to use Mona's Fix Now, Get Protected & Pay Later service to finance qualifying repairs." },
+    ],
+  },
+  {
+    id: "buy-now-pay-later-nigeria",
+    title: "Buy Now, Pay Later in Nigeria: How BNPL Works",
+    excerpt:
+      "Learn how Buy Now, Pay Later works in Nigeria, who can qualify, how repayments work, and how Mona combines BNPL with device protection.",
+    category: "Buying",
+    metaTitle: "Buy Now, Pay Later in Nigeria: How BNPL Works",
+    metaDescription:
+      "Learn how Buy Now, Pay Later works in Nigeria, who can qualify, how repayments work, and how Mona combines BNPL with device protection.",
+    author: "Mona Protect Team",
+    publishedDate: "2026-01-29",
+    cover: bnplCover,
+    coverAlt: "A premium smartphone beside a subtle suggestion of flexible payments, representing Buy Now, Pay Later.",
+    blocks: [
+      { type: "paragraph", text: "Buying something you need shouldn't always mean paying the full cost at once." },
+      { type: "paragraph", text: "Whether you're replacing a smartphone, buying a premium device or paying for an important purchase, Buy Now, Pay Later (BNPL) gives eligible customers the option to spread the cost over time." },
+      { type: "paragraph", text: "BNPL is becoming an increasingly useful way for consumers in Nigeria to manage larger purchases without paying the entire amount upfront." },
+      { type: "paragraph", text: "But how does BNPL work? Who can qualify? What does the application process involve? And what should you consider before choosing a pay-later option?" },
+      { type: "paragraph", text: "This guide explains everything you need to know about Buy Now, Pay Later in Nigeria." },
+
+      { type: "heading", text: "What Is Buy Now, Pay Later?" },
+      { type: "paragraph", text: "Buy Now, Pay Later is a financing arrangement that allows an eligible customer to purchase an item and repay the financed amount over an agreed period rather than paying the entire cost upfront." },
+      { type: "paragraph", text: "Instead of:" },
+      { type: "callout", text: "Pay ₦500,000 today" },
+      { type: "paragraph", text: "you may have an arrangement where you:" },
+      { type: "callout", text: "Pay an initial amount → Receive the purchase → Repay the balance over time" },
+      { type: "paragraph", text: "The exact deposit, amount financed, fees, tenure and repayment terms depend on the applicable financing arrangement and the customer's eligibility." },
+
+      { type: "heading", text: "How Does BNPL Work in Nigeria?" },
+      { type: "paragraph", text: "The process is generally straightforward." },
+      { type: "steps", items: [
+        { title: "Choose What You Need", description: "You select an eligible product or service and begin the application process." },
+        { title: "Submit Your Details", description: "The required information is collected to allow the financing provider to assess your application." },
+        { title: "Eligibility Assessment", description: "Your application is assessed against the applicable eligibility criteria. Being eligible to apply does not necessarily mean that an application will be approved." },
+        { title: "Review Your Offer", description: "If approved, you can review the applicable amount, initial payment and repayment terms before proceeding." },
+        { title: "Make Your Required Initial Payment", description: "Depending on the financing arrangement, you may need to make a down payment or initial contribution." },
+        { title: "Receive the Product", description: "Once the applicable requirements have been completed, the purchase can proceed." },
+        { title: "Repay Over Time", description: "You then make the required repayments according to the agreed repayment schedule." },
+      ] },
+
+      { type: "heading", text: "Can You Buy a Phone With BNPL in Nigeria?" },
+      { type: "paragraph", text: "Yes. Phone financing is one of the practical applications of BNPL." },
+      { type: "paragraph", text: "Instead of paying the entire price of an expensive smartphone upfront, an eligible customer may be able to make an initial payment and repay the remaining financed amount over time." },
+      { type: "paragraph", text: "This can make premium smartphones more accessible to customers who prefer to manage their cash flow through structured repayments." },
+      { type: "paragraph", text: "For example, instead of paying the entire cost of an eligible phone immediately, a customer could make the required initial contribution and spread the remaining amount across the agreed repayment period." },
+      { type: "paragraph", text: "The actual amount and repayment terms depend on eligibility and the applicable financing arrangement." },
+
+      { type: "heading", text: "Can You Buy an iPhone and Pay Later?" },
+      { type: "paragraph", text: "Eligible customers may be able to finance an iPhone purchase through a BNPL arrangement." },
+      { type: "paragraph", text: "This can be particularly useful for customers who want a premium iPhone without committing the entire purchase price at once." },
+      { type: "paragraph", text: "Before proceeding, customers should understand:" },
+      { type: "list", items: ["Required initial payment", "Amount being financed", "Repayment period", "Applicable fees", "Total repayment amount", "Repayment schedule", "Other applicable terms"] },
+
+      { type: "heading", text: "Can You Buy a Samsung Phone and Pay Later?" },
+      { type: "paragraph", text: "Eligible Samsung devices may also be purchased through applicable BNPL arrangements." },
+      { type: "paragraph", text: "As with any financed purchase, the customer should understand the total cost and repayment obligations before accepting the arrangement." },
+
+      { type: "heading", text: "How Much Do You Pay Upfront?" },
+      { type: "paragraph", text: "The amount you pay upfront depends on the financing arrangement and your eligibility." },
+      { type: "paragraph", text: "For Mona's pay-later offerings, eligible customers may be required to make a minimum 25% down payment, while the remaining amount may be financed according to the applicable terms." },
+      { type: "paragraph", text: "Your required payment may also include applicable fees or any amount not covered by the financing." },
+      { type: "paragraph", text: "The exact figures should always be displayed clearly before the customer confirms the financing arrangement." },
+
+      { type: "heading", text: "How Long Do You Have to Repay?" },
+      { type: "paragraph", text: "Repayment periods vary depending on the financing arrangement and the customer's eligibility." },
+      { type: "paragraph", text: "Different customers may qualify for different repayment periods." },
+      { type: "paragraph", text: "Before accepting an offer, make sure you understand:" },
+      { type: "callout", text: "How much you will pay → how often you will pay → how long you will pay." },
+      { type: "paragraph", text: "A longer repayment period can reduce the size of individual payments but may affect the overall cost depending on the applicable terms." },
+
+      { type: "heading", text: "Who Can Qualify for BNPL?" },
+      { type: "paragraph", text: "BNPL is not automatically available to everyone." },
+      { type: "paragraph", text: "Eligibility can depend on factors such as:" },
+      { type: "list", items: ["Customer information", "Income or repayment capacity", "Financial profile", "Required verification", "Financing provider criteria", "Requested amount", "Applicable affordability requirements"] },
+      { type: "paragraph", text: "Submitting an application does not guarantee approval." },
+      { type: "paragraph", text: "The financing provider makes the applicable credit decision based on its assessment criteria." },
+
+      { type: "heading", text: "What Documents or Information May Be Required?" },
+      { type: "paragraph", text: "The requirements vary depending on the financing provider and application." },
+      { type: "paragraph", text: "Customers may be asked to provide information such as:" },
+      { type: "list", items: ["Personal details", "Contact information", "Bank account information", "Identification information", "Address information", "Income or employment information", "Other information required for verification"] },
+      { type: "paragraph", text: "Only provide information through the approved application process." },
+
+      { type: "heading", text: "BNPL vs Paying the Full Amount Upfront" },
+      { type: "paragraph", text: "Both options have advantages." },
+      { type: "table", columns: ["Pay Upfront", "Buy Now, Pay Later"], rows: [
+        ["Pay the full price immediately", "Spread eligible payments over time"],
+        ["No outstanding repayment", "Repay according to a schedule"],
+        ["Larger immediate cash outflow", "Smaller scheduled payments"],
+        ["Simple ownership after payment", "Requires repayment discipline"],
+      ] },
+      { type: "paragraph", text: "BNPL can be useful when you want to preserve cash flow, but it is still a financial commitment." },
+      { type: "paragraph", text: "You should only choose a repayment plan you can comfortably afford." },
+
+      { type: "heading", text: "What Makes Mona's Pay-Later Experience Different?" },
+      { type: "paragraph", text: "Mona isn't only focused on helping customers finance a purchase." },
+      { type: "paragraph", text: "We're building an ecosystem around devices, protection, repairs and flexible payments." },
+      { type: "paragraph", text: "That's why Mona offers:" },
+      { type: "callout", text: "Buy Now, Get Protected & Pay Later" },
+      { type: "paragraph", text: "Eligible customers can:" },
+      { type: "callout", text: "Buy a device → Get protected → Pay over time" },
+      { type: "paragraph", text: "This combines an eligible device purchase with Mona protection, giving customers both a way to manage the purchase cost and protection for their device." },
+      { type: "cta", label: "Explore Buy Now, Get Protected & Pay Later", to: "/buy-now-get-protected-pay-later", variant: "outline" },
+
+      { type: "heading", text: "What If Your Phone Is Already Broken?" },
+      { type: "paragraph", text: "Buying a new phone isn't always the answer." },
+      { type: "paragraph", text: "Sometimes you simply need to repair the phone you already have." },
+      { type: "paragraph", text: "That's where Fix Now, Get Protected & Pay Later comes in." },
+      { type: "paragraph", text: "Eligible customers can finance qualifying repairs instead of paying the entire repair cost upfront." },
+      { type: "callout", text: "Repair now → Pay over time → Stay protected." },
+      { type: "cta", label: "Explore Fix Now, Get Protected & Pay Later", to: "/fix-now-get-protected-pay-later", variant: "outline" },
+    ],
+    closingBlocks: [
+      { type: "heading", text: "Buy What You Need. Pay Over Time. Stay Protected." },
+      { type: "paragraph", text: "BNPL can give eligible customers more flexibility when purchasing a premium smartphone or another qualifying product." },
+      { type: "paragraph", text: "But flexibility works best when the repayment is affordable and clearly understood." },
+      { type: "paragraph", text: "At Mona, we're taking that idea further by connecting flexible payments with device protection." },
+      { type: "callout", text: "Buy your device. Get protected. Pay over time." },
+      { type: "cta", label: "Explore Buy Now, Get Protected & Pay Later", to: "/buy-now-get-protected-pay-later", variant: "primary" },
+    ],
+    faqs: [
+      { q: "What does BNPL mean?", a: "BNPL stands for Buy Now, Pay Later. It allows eligible customers to purchase an item and repay the applicable financed amount over an agreed period." },
+      { q: "How does Buy Now, Pay Later work in Nigeria?", a: "An eligible customer applies for financing, completes the required assessment, makes any required initial payment and repays the financed amount according to the agreed schedule." },
+      { q: "Can I buy an iPhone and pay monthly in Nigeria?", a: "Eligible customers may be able to finance an eligible iPhone purchase and repay the financed amount over an agreed period." },
+      { q: "Can I buy a Samsung phone and pay later?", a: "Eligible Samsung devices may be available through applicable BNPL arrangements, subject to eligibility." },
+      { q: "How much deposit do I need for BNPL?", a: "The required initial payment depends on the financing arrangement and customer eligibility. Mona's applicable pay-later products may require a minimum 25% down payment." },
+      { q: "Does everyone qualify for BNPL?", a: "No. Applications are assessed according to the applicable eligibility and affordability criteria." },
+      { q: "Does applying guarantee approval?", a: "No. Submitting an application does not guarantee that financing will be approved." },
+      { q: "Can I use BNPL to repair my phone?", a: "Eligible customers may be able to finance qualifying phone repairs through Mona's Fix Now, Get Protected & Pay Later service." },
+      { q: "What is Buy Now, Get Protected & Pay Later?", a: "It is Mona's pay-later solution that combines an eligible device purchase with Mona protection, allowing eligible customers to buy, get protected and repay over time." },
     ],
   },
 ];
