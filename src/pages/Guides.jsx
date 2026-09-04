@@ -10,7 +10,16 @@ import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer, viewportOnce } from "../styles/motion.js";
 import styles from "./Guides.module.css";
 
+function publishedTimestamp(guide) {
+  const t = new Date(guide.publishedDate).getTime();
+  return Number.isNaN(t) ? 0 : t;
+}
+
 export default function Guides() {
+  const sortedGuides = [...guides].sort(
+    (a, b) => publishedTimestamp(b) - publishedTimestamp(a)
+  );
+
   return (
     <>
       <Seo
@@ -41,7 +50,7 @@ export default function Guides() {
               viewport={viewportOnce}
               variants={staggerContainer}
             >
-              {guides.map((guide) => (
+              {sortedGuides.map((guide) => (
                 <motion.div key={guide.id} variants={fadeInUp}>
                   <Link to={`/guides/${guide.id}`} className={styles.card}>
                     {guide.cover && (
