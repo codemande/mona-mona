@@ -16,7 +16,7 @@ import StickyMobileCta from "../components/widgets/StickyMobileCta.jsx";
 // import { useToast } from "../components/ui/Toast.jsx";
 // import { submitFinancing } from "../api/client.js";
 import { financingFaqs } from "../data/faqs.js";
-import { waFinancingLink } from "../utils/waLink.js";
+import { PARTNER_APP_URL } from "../utils/externalLinks.js";
 import businessFinancing from "../assets/business/business-financing.webp";
 import styles from "./ApplicationPage.module.css";
 
@@ -73,7 +73,7 @@ export default function BusinessFinancing() {
       <PageHero
         title="Grow Your Business With Confidence."
         subtitle="Business financing designed for Mona Partner Stores looking to expand inventory and operations."
-        primary={{ label: "Enquire on WhatsApp", href: waFinancingLink() }}
+        primary={{ label: "Apply for Financing", href: PARTNER_APP_URL }}
         trust={["For Partner Stores", "Simple Application", "Dedicated Support"]}
       />
 
@@ -153,10 +153,10 @@ export default function BusinessFinancing() {
       <CTABand
         title="Ready to Scale Your Store?"
         subtitle="Apply for financing built for Mona Partner Stores."
-        primary={{ label: "Enquire on WhatsApp", href: waFinancingLink() }}
+        primary={{ label: "Apply for Financing", href: PARTNER_APP_URL }}
       />
 
-      <StickyMobileCta label="Enquire on WhatsApp" href={waFinancingLink()} />
+      <StickyMobileCta label="Apply for Financing" href={PARTNER_APP_URL} />
     </>
   );
 }
