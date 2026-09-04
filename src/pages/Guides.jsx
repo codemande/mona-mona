@@ -5,6 +5,7 @@ import Seo from "../components/layout/Seo.jsx";
 import PageHero from "../components/widgets/PageHero.jsx";
 import EmptyState from "../components/ui/EmptyState.jsx";
 import { guides } from "../data/guides.js";
+import { formatDate } from "../utils/guideMeta.js";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer, viewportOnce } from "../styles/motion.js";
 import styles from "./Guides.module.css";
@@ -43,12 +44,29 @@ export default function Guides() {
               {guides.map((guide) => (
                 <motion.div key={guide.id} variants={fadeInUp}>
                   <Link to={`/guides/${guide.id}`} className={styles.card}>
-                    <span className={styles.category}>{guide.category}</span>
-                    <h3 className={styles.title}>{guide.title}</h3>
-                    <p className={styles.excerpt}>{guide.excerpt}</p>
-                    <span className={styles.readMore}>
-                      Read guide <ArrowRight size={14} />
-                    </span>
+                    {guide.cover && (
+                      <div className={styles.cardCover}>
+                        <img
+                          src={guide.cover}
+                          alt={guide.coverAlt || guide.title || ""}
+                          loading="lazy"
+                          className={styles.cardCoverImage}
+                        />
+                      </div>
+                    )}
+                    <div className={styles.cardBody}>
+                      <span className={styles.category}>{guide.category}</span>
+                      <h3 className={styles.title}>{guide.title}</h3>
+                      <p className={styles.excerpt}>{guide.excerpt}</p>
+                      <div className={styles.cardFooter}>
+                        {formatDate(guide.publishedDate) && (
+                          <span className={styles.cardDate}>{formatDate(guide.publishedDate)}</span>
+                        )}
+                        <span className={styles.readMore}>
+                          Read guide <ArrowRight size={14} />
+                        </span>
+                      </div>
+                    </div>
                   </Link>
                 </motion.div>
               ))}
