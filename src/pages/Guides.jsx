@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, BookOpen } from "lucide-react";
 import Section, { SectionHeader } from "../components/ui/Section.jsx";
 import Seo from "../components/layout/Seo.jsx";
 import PageHero from "../components/widgets/PageHero.jsx";
+import EmptyState from "../components/ui/EmptyState.jsx";
 import { guides } from "../data/guides.js";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer, viewportOnce } from "../styles/motion.js";
@@ -23,27 +24,37 @@ export default function Guides() {
       />
 
       <Section>
-        <SectionHeader eyebrow="Guides" title="Latest Articles" />
-        <motion.div
-          className={styles.grid}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-          variants={staggerContainer}
-        >
-          {guides.map((guide) => (
-            <motion.div key={guide.id} variants={fadeInUp}>
-              <Link to={`/guides/${guide.id}`} className={styles.card}>
-                <span className={styles.category}>{guide.category}</span>
-                <h3 className={styles.title}>{guide.title}</h3>
-                <p className={styles.excerpt}>{guide.excerpt}</p>
-                <span className={styles.readMore}>
-                  Read guide <ArrowRight size={14} />
-                </span>
-              </Link>
+        {guides.length === 0 ? (
+          <EmptyState
+            icon={BookOpen}
+            title="Guides are on the way"
+            message="We're putting together helpful guides on smartphone protection, repairs, and ownership. Check back soon."
+          />
+        ) : (
+          <>
+            <SectionHeader eyebrow="Guides" title="Latest Articles" />
+            <motion.div
+              className={styles.grid}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
+              variants={staggerContainer}
+            >
+              {guides.map((guide) => (
+                <motion.div key={guide.id} variants={fadeInUp}>
+                  <Link to={`/guides/${guide.id}`} className={styles.card}>
+                    <span className={styles.category}>{guide.category}</span>
+                    <h3 className={styles.title}>{guide.title}</h3>
+                    <p className={styles.excerpt}>{guide.excerpt}</p>
+                    <span className={styles.readMore}>
+                      Read guide <ArrowRight size={14} />
+                    </span>
+                  </Link>
+                </motion.div>
+              ))}
             </motion.div>
-          ))}
-        </motion.div>
+          </>
+        )}
       </Section>
     </>
   );
