@@ -55,23 +55,34 @@ export default function StoreLocator({ initialCity = "" }) {
   const [state, setState] = useState(initialState);
   const [city, setCity] = useState(initialCity);
   const [query, setQuery] = useState("");
+  const [debouncedQuery, setDebouncedQuery] = useState("");
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (!state) {
+    const timeout = setTimeout(() => {
+      setDebouncedQuery(query.trim());
+    }, 300);
+    return () => clearTimeout(timeout);
+  }, [query]);
+
+  useEffect(() => {
+    if (!state && !debouncedQuery) {
       setResults([]);
       setLoading(false);
       return;
     }
     setLoading(true);
-    getStores({ state, city, query }).then((data) => {
+    getStores({ state, city, query: debouncedQuery }).then((data) => {
       setResults(data);
       setLoading(false);
     });
-  }, [state, city, query]);
+  }, [state, city, debouncedQuery]);
 
-  const cityOptions = state ? cities.filter((c) => c.state === state) : cities;
+  // City filter hidden per request — kept for easy restore. Do not delete.
+  // const cityOptions = state ? cities.filter((c) => c.state === state) : cities;
+  const hasFilter = Boolean(state) || Boolean(debouncedQuery);
+  const stateLabel = state ? nigerianStates.find((s) => s.value === state)?.label ?? state : "";
 
   return (
     <div className={styles.locator}>
@@ -92,6 +103,8 @@ export default function StoreLocator({ initialCity = "" }) {
             </option>
           ))}
         </Select>
+        {/* City filter hidden per request — kept for easy restore. Do not delete. */}
+        {/*
         <Select
           id="loc-city"
           label="City"
@@ -106,6 +119,7 @@ export default function StoreLocator({ initialCity = "" }) {
             </option>
           ))}
         </Select>
+        */}
         <Input
           id="loc-query"
           label="Store Name"
@@ -115,7 +129,7 @@ export default function StoreLocator({ initialCity = "" }) {
         />
       </div>
 
-      {!state && (
+      {!hasFilter && (
         <div className={styles.empty}>
           <MapPin size={32} aria-hidden="true" />
           <h3>Find a Store Near You</h3>
@@ -123,7 +137,7 @@ export default function StoreLocator({ initialCity = "" }) {
         </div>
       )}
 
-      {state && loading && (
+      {hasFilter && loading && (
         <div className={styles.grid}>
           {Array.from({ length: SKELETON_COUNT }).map((_, i) => (
             <SkeletonCard key={i} />
@@ -131,7 +145,17 @@ export default function StoreLocator({ initialCity = "" }) {
         </div>
       )}
 
-      {state && !loading && results.length === 0 && (
+      {hasFilter && !loading && results.length === 0 && debouncedQuery && (
+        <div className={styles.empty}>
+          <SearchX size={32} aria-hidden="true" />
+          <h3>
+            No stores match "{debouncedQuery}"{stateLabel ? ` in ${stateLabel}` : ""}.
+          </h3>
+          <p>Try a different name or clear the search.</p>
+        </div>
+      )}
+
+      {hasFilter && !loading && results.length === 0 && !debouncedQuery && (
         <div className={styles.empty}>
           <SearchX size={32} aria-hidden="true" />
           <h3>Mona Is Not Available in This City Yet</h3>
@@ -142,7 +166,7 @@ export default function StoreLocator({ initialCity = "" }) {
         </div>
       )}
 
-      {state && !loading && results.length > 0 && (
+      {hasFilter && !loading && results.length > 0 && (
         <motion.div
           className={styles.grid}
           initial="hidden"
